@@ -4,7 +4,7 @@
   "references": [
     {"id": "local-pdf-001", "filename": "Guide __to Artificial __Intelligence.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
     {"id": "local-pdf-002", "filename": "Python - Building Machines Learning System.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
-    {"id": "local-pdf-003", "filename": "Modern_Full_Stack_React_Projects_Build,_maintain,_and_deploy_modern.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
+    {"id": "local-pdf-003", "filename": "Modern_Full_Stack_React_Projects_Build,_maintain,_and_deploy_modern.pdf", "title": "Modern Full-Stack React Projects: Build, maintain, and deploy modern full-stack web applications using React, Node.js, MongoDB, and Docker", "author": "Daniel Bugl", "url": "https://www.packtpub.com/en-GB/product/modern-full-stack-react-projects-9781837637959", "license_status": "owner-confirmed-adaptation-rights-2026-10-16; Packt copyright and all-rights-reserved statement in source PDF", "accessed_on": "2026-10-16", "supported_chapters": ["first-course-roadmap"], "use_status": "chapter-map-reviewed; original interactive adaptation planned; no source prose/code/page images copied"},
     {"id": "local-pdf-004", "filename": "AI and Artificial Life in Video Games.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"}
   ]
 }

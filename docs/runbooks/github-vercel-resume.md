@@ -20,9 +20,12 @@ session; public web research access does not grant authenticated CLI access.
 
 ## Verify access and course state first
 
-For a manual independent course checkout under `courses/`, follow
-[Push only the first course](separate-course-repository.md). It preserves the
-platform's bundled draft and excludes the publication checkout from parent uploads.
+The owner reports pushing both repositories to `main` and now requests courses
+inside the platform too. The local course has an independent Git history and the
+parent tracks its directory as a 160000 pointer. Follow the
+[preserve-history inclusion guide](include-courses-in-platform.md) to track actual
+course files. Do not create another publication checkout or repeat initial upload
+instructions against existing history. Remote contents still require verification.
 
 From the platform repository root, use read-only checks:
 

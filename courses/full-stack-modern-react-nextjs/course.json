@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "id": "full-stack-modern-react-nextjs",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "Full-Stack Modern React and Next.js Application Development",
+  "description": "An original draft learning route: eight focused chapters with dependency-free JavaScript checkpoints and explicit React/Next.js practice extensions. Checkpoints demonstrate limited concepts; a complete framework capstone remains learner project work and requires its declared environment.",
+  "locale": "en",
+  "level": "beginner-to-intermediate",
+  "tags": ["javascript", "typescript", "react", "nextjs", "accessibility", "full-stack"],
+  "prerequisites": ["Recognize basic HTML and CSS", "Recognize JavaScript variables and functions", "Use an editor and navigate a folder"],
+  "learningOutcomes": ["Transform and validate data with observable checks", "Describe and practice React state and event handling", "Choose Next.js routing and server/client boundaries", "Build and review a local learning-notebook capstone"],
+  "accessibilityNotes": ["All essential content is text with static diagrams", "Hints use native disclosure controls", "Optional decorative GIFs are collapsed and play once for 2.4 seconds; GitHub cannot apply OS reduced-motion settings to GIFs", "No animation, precise location, or public profile is required", "Framework exercises require keyboard and mobile review"],
+  "chapters": [
+    {
+      "id": "foundations",
+      "title": "Foundations: make one observable change",
+      "summary": "Orientation, environment checks, browser/server distinctions, and the first component learning loop.",
+      "estimatedMinutes": 35,
+      "objectives": ["Describe browser, server, and file responsibilities", "Run and change a JavaScript checkpoint", "Connect a heading to a component"],
+      "prerequisites": ["Recognize an HTML heading and a JavaScript string"],
+      "lessonPath": "chapters/foundations.md",
+      "exerciseId": "first-component"
+    },
+    {
+      "id": "javascript-typescript",
+      "title": "JavaScript data and TypeScript contracts",
+      "summary": "Immutable transformations, static types, and runtime checks with meaningful edge cases.",
+      "estimatedMinutes": 45,
+      "objectives": ["Transform arrays without changing originals", "Distinguish types from runtime validation", "Check invalid and successful inputs"],
+      "prerequisites": ["foundations"],
+      "lessonPath": "chapters/javascript-typescript.md"
+    },
+    {
+      "id": "react-components",
+      "title": "React: describe the next interface",
+      "summary": "Props, state, transitions, events, and a labeled form practice extension.",
+      "estimatedMinutes": 55,
+      "objectives": ["Separate input, state, event, and output", "Compute immutable state transitions", "Connect a labeled control to UI changes"],
+      "prerequisites": ["javascript-typescript"],
+      "lessonPath": "chapters/react-components.md"
+    },
+    {
+      "id": "nextjs-routing",
+      "title": "Next.js: routes and execution boundaries",
+      "summary": "App Router routes and layouts, safe server/client props, and explicit data states.",
+      "estimatedMinutes": 55,
+      "objectives": ["Map route folders to URLs", "Choose server and client boundaries", "Represent empty and failure states"],
+      "prerequisites": ["react-components"],
+      "lessonPath": "chapters/nextjs-routing.md"
+    },
+    {
+      "id": "data-and-forms",
+      "title": "Data, validation, persistence, and identity",
+      "summary": "Validate before writes, scope ownership to trusted identity, and state storage guarantees honestly.",
+      "estimatedMinutes": 60,
+      "objectives": ["Validate form values before writing", "Separate authentication and authorization", "Explain persistence and deletion boundaries"],
+      "prerequisites": ["nextjs-routing"],
+      "lessonPath": "chapters/data-and-forms.md"
+    },
+    {
+      "id": "quality-accessibility-security",
+      "title": "Quality: prove behavior and include people",
+      "summary": "Behavior tests, keyboard and form review, safe URL policies, and the limits of automated evidence.",
+      "estimatedMinutes": 55,
+      "objectives": ["Write a meaningful regression check", "Review labels, focus, and keyboard use", "Reject unsafe link schemes"],
+      "prerequisites": ["data-and-forms"],
+      "lessonPath": "chapters/quality-accessibility-security.md"
+    },
+    {
+      "id": "production-workflows",
+      "title": "Git, CI, deployment concepts, and recovery",
+      "summary": "Local diff review, reproducible checks, least privilege, release approval, and rollback rehearsal.",
+      "estimatedMinutes": 50,
+      "objectives": ["Review a local change before staging", "Explain reproducible CI checks", "Plan observation and rollback"],
+      "prerequisites": ["quality-accessibility-security"],
+      "lessonPath": "chapters/production-workflows.md"
+    },
+    {
+      "id": "capstone",
+      "title": "Capstone: a private learning notebook",
+      "summary": "A bounded local app brief combining routes, forms, validated persistence, tests, accessibility, and a retrospective.",
+      "estimatedMinutes": 480,
+      "objectives": ["Build a complete local note workflow", "Collect tests and accessibility evidence", "Document limitations and release plans"],
+      "prerequisites": ["foundations", "javascript-typescript", "react-components", "nextjs-routing", "data-and-forms", "quality-accessibility-security", "production-workflows"],
+      "lessonPath": "chapters/capstone.md"
+    }
+  ],
+  "completion": {
+    "requiredChapters": ["foundations", "javascript-typescript", "react-components", "nextjs-routing", "data-and-forms", "quality-accessibility-security", "production-workflows", "capstone"],
+    "capstone": "capstone",
+    "rule": "Practice every chapter, record checkpoint results and reflections, and review actual capstone acceptance evidence. Reading or self-marking alone does not verify skill. Draft progress is local and is not a credential."
+  },
+  "references": [
+    {
+      "title": "Download Node.js",
+      "author": "Node.js contributors",
+      "url": "https://nodejs.org/en/download",
+      "status": "Official installation destination linked for reference; no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["foundations"]
+    },
+    {
+      "title": "Test runner",
+      "author": "Node.js contributors",
+      "url": "https://nodejs.org/api/test.html",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["foundations", "quality-accessibility-security"]
+    },
+    {
+      "title": "Your First Component",
+      "author": "React team",
+      "url": "https://react.dev/learn/your-first-component",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["foundations"]
+    },
+    {
+      "title": "Everyday Types",
+      "author": "Microsoft TypeScript team",
+      "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["javascript-typescript"]
+    },
+    {
+      "title": "State: A Component's Memory",
+      "author": "React team",
+      "url": "https://react.dev/learn/state-a-components-memory",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["react-components"]
+    },
+    {
+      "title": "Server and Client Components",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/getting-started/server-and-client-components",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["nextjs-routing"]
+    },
+    {
+      "title": "Installation",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/getting-started/installation",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["nextjs-routing"]
+    },
+    {
+      "title": "Forms with Server Actions",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/guides/forms",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["data-and-forms", "capstone"]
+    },
+    {
+      "title": "Labeling Controls",
+      "author": "W3C Web Accessibility Initiative",
+      "url": "https://www.w3.org/WAI/tutorials/forms/labels/",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["quality-accessibility-security", "capstone"]
+    },
+    {
+      "title": "Understanding GitHub Actions",
+      "author": "GitHub documentation contributors",
+      "url": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": ["production-workflows"]
+    }
+  ]
+}

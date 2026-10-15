@@ -72,7 +72,6 @@ No Git repository, owner, remote, or visibility has been selected or created.
 Record a topology/source-of-truth ADR before remote setup; keep the platform
 monorepo contract intact. Evidence: courses/full-stack-modern-react-nextjs/README.md.
 
-
 ## D-008 — Start the local app and dedicated course payload
 
 2026-10-16 · approved · owner: project owner.
@@ -127,6 +126,8 @@ docs/runbooks/github-vercel-resume.md, docs/architecture/integrations.md.
 
 ## D-013 — Manual course-only checkout beneath courses
 
+Superseded by D-014: no additional publication checkout is needed.
+
 2026-10-16 · proposed · owner: engineering.
 In response to the owner asking how to initialize/push only the course, document
 `courses/modern-fullstack-react-projects-building/` as an isolated publication
@@ -135,3 +136,59 @@ so platform builds/tests remain intact. No nested Git initialization or external
 write was performed. After publication the dedicated remote remains authoritative
 per ADR 0001; no automatic two-way synchronization. Verified the commands in an
 isolated temporary fixture. Evidence: docs/runbooks/separate-course-repository.md.
+
+## D-014 — Broader README and actual courses in both repositories
+
+2026-10-16 · approved · owner: project owner.
+The owner requests a broader creative README with appreciation/star sections and
+actual course content in the platform repository too; reports both repositories
+pushed to main. Current local main tracking refs agree with the parent 9bbab18
+and course a21819c commits. Remote state/CI has not been queried successfully.
+Use original static SVG banners, readable Markdown, direct chapter links, truthful
+feature boundaries, and an optional star invitation without fabricated metrics.
+The course directory is currently an embedded 160000 Git pointer. Preserve its
+independent history in ignored local storage and track normal files in the parent,
+following the tested guide. Parent Git index is read-only in this session, so the
+actual conversion remains pending; no metadata was moved or deleted. Source-of-truth
+and immutable GitHub reads remain per ADR 0001; no automatic two-way sync.
+Evidence: README.md, courses/README.md, docs/runbooks/include-courses-in-platform.md.
+
+## D-015 — The existing inner folder is the connected course
+
+2026-10-16 · approved · owner: project owner.
+The owner clarifies that `courses/full-stack-modern-react-nextjs/` is the connected
+course directory; `courses/README.md` is not an independent repository. Keep the
+latter as a catalog and broaden the actual inner course README as well as the
+platform README. Standalone course README assets must live inside its own assets
+directory and relative links must not depend on platform-only paths.
+The owner has performed the previously blocked conversion: no nested .git remains,
+its history is preserved in ignored local storage, and the parent index lists normal
+files/eight chapters. The former inclusion blocker is resolved at staging; review,
+restaging of current documentation edits, and commits remain. No automatic two-way
+sync or remote update is implied. Evidence: courses/README.md,
+courses/full-stack-modern-react-nextjs/README.md, docs/runbooks/include-courses-in-platform.md.
+
+## D-016 — Multi-course catalog and first-course reference adaptation
+
+2026-10-16 · approved · owner: project owner.
+The owner confirms adaptation rights for the supplied Modern Full-Stack React
+Projects PDF. Its table of contents has 20 chapters; all 20 are mapped to an
+original interactive learning path in the research notes. Preserve a readable
+book-inspired hierarchy (chapter headings, serif reading text, numbered steps,
+tables, and labeled notes) in accessible responsive web lessons. Do not copy
+source prose, code, screenshots, or page images. The other PDF files inform only
+three clearly labeled non-playable catalog mock ideas until reviewed. The current
+eight-chapter course remains an early draft; full 20-chapter conversion and
+deployment practice are not complete. Evidence:
+`docs/research/2026-10-16-course-roadmap-sources.md`,
+`apps/web/src/components/course-catalog.tsx`, `refBooks/references.json`.
+
+## D-017 — Crash recovery scope and course repository navigation
+
+2026-10-16 · approved · owner: project owner.
+The owner selected “Finish verification and repository link” for this recovery
+pass. Link the existing owner-selected dedicated course repository from the shared
+website footer; use the existing visual style and same-tab navigation. Update the
+main navigation to “Explore courses” to match the catalog. The remaining 20-chapter
+curriculum work stays open. No publication or deployment is part of this pass.
+Evidence: `apps/web/src/components/brand.tsx`, `docs/context-memory/last-handoff.md`.

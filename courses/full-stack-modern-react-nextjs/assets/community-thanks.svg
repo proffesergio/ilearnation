@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="160" viewBox="0 0 1200 160" role="img" aria-labelledby="title description">
+  <title id="title">Thank you for making learning more welcoming</title>
+  <desc id="description">A community appreciation banner with a star and a connected route. Every helpful contribution matters.</desc>
+  <rect width="1200" height="160" rx="20" fill="#244c42"/>
+  <g fill="none" stroke="#658578" stroke-width="2">
+    <circle cx="1100" cy="80" r="107"/>
+    <circle cx="1100" cy="80" r="72"/>
+    <path d="M990 80H1200M1100 0V160"/>
+  </g>
+  <path d="M79 44L90 67L116 71L97 89L102 115L79 102L56 115L61 89L42 71L68 67Z" fill="#efcfa2"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="150" y="67" font-size="27" font-weight="700" fill="#fbfaf7">Thanks for making learning more welcoming.</text>
+    <text x="150" y="105" font-size="18" fill="#e9eee5">Every helpful contribution matters. Yours included.</text>
+  </g>
+</svg>

@@ -2,6 +2,18 @@
 
 ## Unreleased — 2026-10-16
 
+- Linked the dedicated course repository from the shared website footer and
+  aligned the main navigation with the multi-course catalog.
+- Expanded the README inside the actual React/Next.js course directory with
+  self-contained course banners, standalone checkpoint setup, chapter routes,
+  and optional course-repository star appreciation; clarified the catalog role.
+- Verified the owner has staged normal lesson files in the parent and preserved
+  the separate course history; the former Git-pointer inclusion blocker is resolved.
+- Redesigned the root README with original static brand/community banners, course
+  chapter routes, local setup, contribution paths, roadmap boundaries, and optional
+  GitHub star appreciation. Added a course-library index.
+- Recorded the owner's dual-repository course requirement and prepared a
+  preserve-history pointer-to-files conversion; the agent's parent Git index is read-only.
 - Retried GitHub/Vercel in a fresh login pseudo-terminal; DNS remains blocked.
   Documented a course-only nested checkout and excluded it from platform Git/Vercel.
 - Retried requested GitHub/Vercel completion; identified shell DNS failure rather

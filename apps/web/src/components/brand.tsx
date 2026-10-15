@@ -39,7 +39,7 @@ export function Header() {
     <header className="site-header wrap">
       <Brand />
       <nav aria-label="Main navigation">
-        <Link href="/courses">Explore the course</Link>
+        <Link href="/courses">Explore courses</Link>
         <Link href="/#how-it-works" className="hide-small">
           How it works
         </Link>
@@ -58,7 +58,12 @@ export function Footer() {
     <footer className="site-footer wrap">
       <Brand />
       <p>Learn. Build. Share when you’re ready.</p>
-      <span>Made for curious people, everywhere.</span>
+      <a
+        className="text-link"
+        href="https://github.com/proffesergio/modern-fullstack-react-projects-building"
+      >
+        Course repository on GitHub <Arrow diagonal />
+      </a>
     </footer>
   );
 }

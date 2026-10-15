@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { Arrow, Footer, Header } from '@/components/brand';
 import { LearningMap } from '@/components/learning-map';
+import { CourseCatalog } from '@/components/course-catalog';
+import { courseIdeas } from '@/lib/course-ideas';
 import { loadCourse } from '@/lib/course';
 
 export default async function Home() {
-  const { course } = await loadCourse();
+  const { course, source } = await loadCourse();
   return (
     <>
       <Header />
@@ -105,55 +107,14 @@ export default async function Home() {
         <section className="course-section wrap" id="courses">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">One path. Plenty of possibility.</p>
-              <h2>Your first course, thoughtfully built.</h2>
+              <p className="eyebrow">A growing set of ways to learn</p>
+              <h2>One course to start. More paths ahead.</h2>
             </div>
             <Link href="/courses" className="text-link">
-              Explore the curriculum <Arrow />
+              Browse the course library <Arrow />
             </Link>
           </div>
-          <Link className="featured-course" href={`/courses/${course.id}/getting-started`}>
-            <div className="course-art" aria-hidden="true">
-              <span className="art-caption">FROM COMPONENT TO CAPSTONE</span>
-              <div className="framework-symbol">
-                ⚛<span>+</span>
-                <strong>
-                  N<span>↗</span>
-                </strong>
-              </div>
-              <div className="art-route">
-                <span>01</span>
-                <i />
-                <span>02</span>
-                <i />
-                <span>08</span>
-              </div>
-              <span className="art-footer">MAKE THE WEB YOUR WORKSHOP.</span>
-            </div>
-            <div className="course-description">
-              <div className="tag-row">
-                <span className="tag">React + Next.js</span>
-                <span className="draft-tag">Draft curriculum</span>
-              </div>
-              <h3>
-                Modern full-stack.
-                <br />
-                Built one step at a time.
-              </h3>
-              <p>
-                From web foundations to a tested application. Short explanations, practical
-                checkpoints, and room to figure things out.
-              </p>
-              <div className="course-meta">
-                <span>{course.chapters.length} focused chapters</span>
-                <span>Self-paced</span>
-                <span>English draft</span>
-              </div>
-              <span className="course-cta">
-                Start with the getting-started guide <Arrow />
-              </span>
-            </div>
-          </Link>
+          <CourseCatalog course={course} ideas={courseIdeas} source={source} compact />
         </section>
         <section className="how-section wrap" id="how-it-works">
           <div className="section-heading">

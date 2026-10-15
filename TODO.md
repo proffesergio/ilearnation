@@ -25,8 +25,17 @@
 
 ## First learning loop — after plan approval
 
+- [x] Expand the public README with a learning route, course index, original banners, and optional star/appreciation section.
+- [x] Replace embedded course Git pointer with actual staged lesson files; independent course history preserved in ignored local storage by the owner.
+- [x] Expand the actual course repository README with its own banner, roadmap, standalone setup, and appreciation section; clarify the parent catalog role.
+- [ ] Review, restage updated READMEs/assets, and commit the parent course inclusion; publish reviewed changes to each intended repository separately.
 - [x] Reproducible npm workspace, pinned Next/React/TypeScript dependencies, lockfile, and source record.
 - [x] Schema 1 and eight original draft chapters with tested JavaScript checkpoints and citations.
+- [x] Expand homepage/catalog into one playable React/Next.js course plus three explicitly labeled, non-playable course ideas.
+- [x] Link the dedicated course repository from the shared website footer.
+- [x] Review the first course PDF chapter list and map all 20 chapters to proposed original interactive activities; record owner-confirmed adaptation rights and source dates.
+- [x] Add a responsive book-inspired lesson reading style: strong section hierarchy, serif body text, procedure/callout/table treatments, and accessible semantic content.
+- [ ] Author and validate the complete 20-chapter learning path, including updated-framework checks, deployment practice, and capstone acceptance evidence.
 - [x] Constrained text-only JSX editing/checking, deterministic feedback, hints, and reset; no arbitrary code execution.
 - [x] Explicit device-only progress save/restore/clear controls; no learner account data.
 - [x] Local admin draft editing/download, policy shadow replay, and flag proposals.

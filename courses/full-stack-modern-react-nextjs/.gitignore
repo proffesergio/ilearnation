@@ -1,0 +1,33 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.codex/
+.agents/
+
+# Private or rights-unverified references; release only after explicit review
+*.pdf
+
+# Dependencies and generated files
+node_modules/
+.next/
+dist/
+coverage/
+test-results/
+playwright-report/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+*.log
+.DS_Store
+.local-data/
+.course-export/
+.npm-cache/
+artifacts/
+.vercel/
+
+# Independent course publication checkout; keep the bundled draft above separate.
+/courses/modern-fullstack-react-projects-building/

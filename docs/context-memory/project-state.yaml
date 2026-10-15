@@ -8,15 +8,20 @@ plan:
   status: local-implementation-authorized
 repository:
   git_initialized: true
-  branch: master
+  branch: main
   remote: https://github.com/proffesergio/ilearnation.git
-  commits: 0
+  commits: 1
+  head: 9bbab1818c9b94f5caf65e7bd9be8e8d4e42019a
+  local_origin_main_matches_head: true
+  owner_reports_both_repositories_pushed_to_main: true
+  course_index_entry: actual-course-files-staged-normal-mode-100644
+  course_inclusion_committed: false
   applications: [apps/web]
   package_manager: npm
   lockfiles: [package-lock.json]
-  toolchain: {next: "16.4.1", react: "19.3.1", typescript: "5.9.3", eslint: "10.12.0"}
+  toolchain: { next: '16.4.1', react: '19.3.1', typescript: '5.9.3', eslint: '10.12.0' }
   application_tests: native-node-and-playwright
-  ci: local-definition-not-enabled
+  ci: defined-remote-run-unverified
   license: needs-user-decision
 environment_observed:
   node: '24.14.0'
@@ -39,7 +44,7 @@ integrations:
   callable_categories: [sites, canva, web-research]
   unavailable_callable_categories: [github, n8n, skool]
   external_calls: public-docs-read-only-plugin-discovery-and-failed-github-vercel-cli-attempts
-  external_writes_made: 0
+  external_writes_by_agent: 0
   github_cli_status: owner-reports-login-api-read-blocked-by-dns-token-validity-unverified
   vercel_cli_version: '64.2.0'
   fresh_login_shell_retry: pseudo-terminal-github-api-and-vercel-whoami-still-dns-blocked
@@ -54,20 +59,32 @@ integrations:
   account_access_verified: false
 references:
   local_pdfs: 4
-  redistribution_rights: unverified
-  pdf_contents_read_or_copied: false
+  adaptation_rights: owner-confirmed-for-first-course-book-2026-10-16
+  other_pdf_rights: unverified
+  pdf_contents_read: first-course-metadata-and-table-of-contents-only
+  source_prose_code_images_copied: false
   metadata: refBooks/references.json
 first_cohort: mixed-self-directed-learners
 first_ten_minutes: read-course-repository-getting-started-guide
 course_repository:
   owner: proffesergio
   slug: modern-fullstack-react-projects-building
-  status: local-export-ready-remote-unverified
+  status: owner-reports-published-local-main-tracks-origin-main-live-fetch-unverified
+  local_head: a21819cbdd248db9c43ed6bbc863def04ce8cc7d
+  local_branch: main
   local_onboarding: courses/full-stack-modern-react-nextjs/getting-started.md
   topology_and_source_of_truth: docs/adr/0001-course-source-and-admin-boundaries.md
-  manual_publication_checkout: courses/modern-fullstack-react-projects-building
-  manual_publication_checkout_status: documented-not-created
-  manual_publication_guide: docs/runbooks/separate-course-repository.md
+  local_checkout: courses/full-stack-modern-react-nextjs
+  additional_publication_checkout: superseded-not-required
+  platform_inclusion: owner-converted-and-staged-normal-files-latest-edits-need-restaging-and-commit
+  preserve_history_guide: docs/runbooks/include-courses-in-platform.md
+  metadata_archive: .local-data/course-git/full-stack-modern-react-nextjs.git
+  nested_git_metadata_moved: true
+  conversion_performed_by: owner-in-writable-terminal
+  readme_roles:
+    platform: README.md
+    catalog_only: courses/README.md
+    dedicated_course: courses/full-stack-modern-react-nextjs/README.md
 course:
   schema_version: 1
   version: '0.1.0'
@@ -75,9 +92,14 @@ course:
   authored_chapters: 8
   trusted_node_checkpoints: 8
   interactive_web_exercises: 1
+  mapped_reference_chapters: 20
+  full_reference_adaptation: in-progress-not-authored
   optional_animation: finite-2.4-second-gif-with-static-fallback
 website:
+  course_repository_link: shared-footer-to-owner-selected-github-course-repository
   pages: [homepage, catalog, player, local-admin-preview]
+  catalog: one-playable-react-next-draft-plus-three-nonplayable-mock-ideas
+  lesson_style: book-inspired-serif-reading-hierarchy-responsive-headings-tables-and-callouts
   visual_direction: calm-studio-with-energetic-community-accents
   language: provisional-english
   progress: explicit-version-scoped-device-only-save-restore-clear
@@ -87,14 +109,14 @@ website:
   map: synthetic-globe-and-region-list-no-live-locations
 next_question: none-pending-network-access
 continuation:
-  scope: github-course-completion-and-vercel-deployment-only
+  scope: crash-recovery-verification-and-course-repository-footer-link
   owner_reported_github_login: true
   course_publication_authorized: true
   vercel_cli_deployment_authorized: true
-  feature_development: deferred-until-owner-provides-credentials-and-connections
+  feature_development: locally-authorized-and-active
   web_env_local_present: false
   runbook: docs/runbooks/github-vercel-resume.md
-  next_step: verify-cli-access-and-remote-state-in-network-enabled-session
+  next_step: review-local-footer-and-resume-remaining-curriculum-as-a-separate-task
 evidence:
   - docs/context-memory/graph.json
   - docs/context-memory/decisions.md
@@ -103,6 +125,8 @@ evidence:
   - scripts/check_repository.py
 validation:
   checked_on: '2026-10-16'
+  crash_recovery: 38-unit-tests-and-10-desktop-mobile-browser-checks-passed; build-types-lint-format-course-repository-and-credential-checks-passed
+  footer_repository_link: verified-exact-github-target-in-production-homepage-footer
   initial_acceptance_check: expected-fail-missing-baseline-files
   final_baseline_check: passed
   python_syntax_check: passed
@@ -113,7 +137,11 @@ validation:
     dangling_graph_edge: rejected
     unverified_reference_use: rejected
     broken_local_link: rejected
-  external_ci_run: not-run-no-remote-commits-pushed
+  external_ci_run: unverified-owner-reports-push
+  readme_validation: passed-local-links-static-svg-safety-and-visual-review
+  course_inclusion_fixture: passed-history-preserved-and-normal-clone-has-eight-chapters
+  course_inclusion_actual: verified-normal-files-staged-eight-chapters-history-preserved-not-yet-committed
+  standalone_course_readme: expanded-17-relative-links-contained-and-static-assets-validated
   serverless_course_file_tracing: passed-course-files-in-all-nine-server-traces
   deployment_upload_exclusion_fixtures: passed-gitignore-style-matcher
   independent_course_git_fixture: passed-temporary-init-staging-and-secret-pdf-exclusions
@@ -131,6 +159,9 @@ validation:
   screenshot_review: desktop-homepage-and-desktop-mobile-admin-reviewed
   lint: passed
   browser_checks: 10-passed-desktop-and-mobile-production-build
+  catalog_slice: production-build-typecheck-lint-format-course-and-repository-checks-passed; 10-desktop-mobile-e2e-passed
+  catalog_manual_screenshot: local-chrome-sigtrap-e2e-browser-suite-passed
   credential_signatures: passed-heuristic-only
   dependency_advisories: production-audit-passed-zero-reported
-  scope_exclusions: [yaml-schema, external-links-live-check, production-auth-flows, live-integrations]
+  scope_exclusions:
+    [yaml-schema, external-links-live-check, production-auth-flows, live-integrations]

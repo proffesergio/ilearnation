@@ -1,5 +1,10 @@
 # Push only the first course
 
+> Superseded for the current platform layout: the owner now wants actual course
+> files in both repositories. Follow the [preserve-history inclusion guide](include-courses-in-platform.md).
+> The earlier independent-copy instructions below remain historical guidance;
+> do not create another checkout for the current task.
+
 Use a standalone Git repository at
 `courses/modern-fullstack-react-projects-building/`. The existing
 `courses/full-stack-modern-react-nextjs/` remains the platform's bundled draft.

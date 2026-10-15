@@ -6,27 +6,20 @@
       "id": "product",
       "type": "product",
       "state": "current",
-      "evidence": [
-        "AGENTS.md",
-        "README.md"
-      ]
+      "evidence": ["AGENTS.md", "README.md"]
     },
     {
       "id": "first-cohort",
       "type": "learner",
       "state": "approved",
       "description": "Mixed self-directed learners, selected by the owner on 2026-10-16.",
-      "evidence": [
-        "docs/product/ux-decisions.md"
-      ]
+      "evidence": ["docs/product/ux-decisions.md"]
     },
     {
       "id": "first-course",
       "type": "course",
       "state": "current",
-      "evidence": [
-        "courses/full-stack-modern-react-nextjs/course.json"
-      ],
+      "evidence": ["courses/full-stack-modern-react-nextjs/course.json"],
       "description": "Original draft 0.1.0, schema 1, eight authored chapters; not a published release."
     },
     {
@@ -43,28 +36,21 @@
       "id": "first-lesson",
       "type": "lesson",
       "state": "current",
-      "evidence": [
-        "apps/web/src/components/course-player.tsx"
-      ],
+      "evidence": ["apps/web/src/components/course-player.tsx"],
       "description": "Website lesson player: safe Markdown, disclosures, explicit version-scoped device progress."
     },
     {
       "id": "first-exercise",
       "type": "exercise",
       "state": "current",
-      "evidence": [
-        "packages/course-runtime/index.mjs",
-        "tests/runtime.test.mjs"
-      ],
+      "evidence": ["packages/course-runtime/index.mjs", "tests/runtime.test.mjs"],
       "description": "Constrained text-only JSX grammar with feedback, hints and reset; no arbitrary execution."
     },
     {
       "id": "first-loop-plan",
       "type": "decision",
       "state": "approved",
-      "evidence": [
-        "plan.md"
-      ],
+      "evidence": ["plan.md"],
       "description": "Owner instructed app/course implementation on 2026-10-16; external release remains gated."
     },
     {
@@ -72,15 +58,13 @@
       "type": "decision",
       "state": "approved",
       "description": "Read getting-started.md in a course-named GitHub repository.",
-      "evidence": [
-        "docs/product/ux-decisions.md"
-      ]
+      "evidence": ["docs/product/ux-decisions.md"]
     },
     {
       "id": "course-onboarding",
       "type": "feature",
       "state": "current",
-      "description": "Local orientation draft; not a published or schema-validated chapter.",
+      "description": "Orientation draft in the included course tree; owner reports publishing the dedicated repository. Start with getting-started.md.",
       "evidence": [
         "courses/full-stack-modern-react-nextjs/README.md",
         "courses/full-stack-modern-react-nextjs/getting-started.md"
@@ -90,10 +74,8 @@
       "id": "course-repository",
       "type": "decision",
       "state": "approved",
-      "description": "Owner-selected proffesergio/modern-fullstack-react-projects-building; publication not performed.",
-      "evidence": [
-        "docs/adr/0001-course-source-and-admin-boundaries.md"
-      ]
+      "description": "Owner-selected proffesergio/modern-fullstack-react-projects-building; owner reports publication to main; local course HEAD a21819c matches its origin/main. Live remote not independently verified.",
+      "evidence": ["docs/adr/0001-course-source-and-admin-boundaries.md"]
     },
     {
       "id": "website-pages",
@@ -110,26 +92,19 @@
       "id": "licensing",
       "type": "risk",
       "state": "needs-user-decision",
-      "evidence": [
-        "README.md",
-        "refBooks/references.json"
-      ]
+      "evidence": ["README.md", "refBooks/references.json"]
     },
     {
       "id": "local-check",
       "type": "workflow",
       "state": "current",
-      "evidence": [
-        "scripts/check_repository.py"
-      ]
+      "evidence": ["scripts/check_repository.py"]
     },
     {
       "id": "external-integrations",
       "type": "integration",
       "state": "blocked",
-      "evidence": [
-        "docs/architecture/integrations.md"
-      ],
+      "evidence": ["docs/architecture/integrations.md"],
       "description": "Owner reports GitHub CLI login; GitHub and Vercel API DNS fail in shell, credentials unverified. Mapbox tools still not exposed."
     },
     {
@@ -137,40 +112,28 @@
       "type": "feature",
       "state": "current",
       "description": "Schema 1 with strict fields, bounded metadata, paths, completion and reference validation.",
-      "evidence": [
-        "packages/course-schema/index.mjs",
-        "tests/course-schema.test.mjs"
-      ]
+      "evidence": ["packages/course-schema/index.mjs", "tests/course-schema.test.mjs"]
     },
     {
       "id": "web-app",
       "type": "feature",
       "state": "current",
-      "description": "Next 16.4.1 / React 19.3.1 npm workspace; local implementation, no deployment.",
-      "evidence": [
-        "apps/web/package.json",
-        "package-lock.json"
-      ]
+      "description": "Next 16.4.1 / React 19.3.1 npm workspace; local implementation, no deployment. Shared footer links to the dedicated course repository and main navigation opens the course catalog.",
+      "evidence": ["apps/web/package.json", "package-lock.json", "apps/web/src/components/brand.tsx"]
     },
     {
       "id": "admin-drafts",
       "type": "feature",
       "state": "current",
       "description": "Public-content local draft preview only; no privileged writes, production defaults to 404.",
-      "evidence": [
-        "apps/web/src/components/admin-workspace.tsx",
-        "apps/web/src/app/admin/page.tsx"
-      ]
+      "evidence": ["apps/web/src/components/admin-workspace.tsx", "apps/web/src/app/admin/page.tsx"]
     },
     {
       "id": "consistency-v1",
       "type": "algorithm-rule",
       "state": "proposed",
       "description": "Shadow policy v1; disabled by default, UTC-day caps/decay, synthetic replay, no applied points.",
-      "evidence": [
-        "packages/algorithm/index.mjs",
-        "tests/algorithm.test.mjs"
-      ]
+      "evidence": ["packages/algorithm/index.mjs", "tests/algorithm.test.mjs"]
     },
     {
       "id": "github-read",
@@ -186,8 +149,8 @@
     {
       "id": "github-publication",
       "type": "workflow",
-      "state": "blocked",
-      "description": "Course payload ready; fresh login-shell API retry still DNS-blocked. Manual isolated publication checkout documented, not created; platform bundled draft preserved.",
+      "state": "current",
+      "description": "Owner reports both repositories pushed to main. Local main tracking refs agree: platform 9bbab18 and course a21819c. Live reads and remote CI unverified.",
       "evidence": [
         "docs/runbooks/local-development.md",
         "scripts/export-course.mjs",
@@ -200,47 +163,35 @@
       "type": "decision",
       "state": "approved",
       "description": "Owner authorizes Mapbox MCP use. Tools not exposed; no token, account writes or billable map loads performed.",
-      "evidence": [
-        "docs/architecture/integrations.md"
-      ]
+      "evidence": ["docs/architecture/integrations.md"]
     },
     {
       "id": "map-preview",
       "type": "feature",
       "state": "current",
       "description": "Synthetic broad-region globe/list; opt-in exploration, no live location or Mapbox traffic.",
-      "evidence": [
-        "apps/web/src/components/learning-map.tsx"
-      ]
+      "evidence": ["apps/web/src/components/learning-map.tsx"]
     },
     {
       "id": "studio-direction",
       "type": "decision",
       "state": "approved",
       "description": "Owner chose calm studio with energetic community accents.",
-      "evidence": [
-        "docs/product/ux-decisions.md"
-      ]
+      "evidence": ["docs/product/ux-decisions.md"]
     },
     {
       "id": "browser-validation",
       "type": "workflow",
       "state": "current",
       "description": "Desktop/mobile production-build flows, axe checks, Markdown safety, progress restore/delete, policy replay.",
-      "evidence": [
-        "playwright.config.ts",
-        "tests/e2e/learning.spec.ts"
-      ]
+      "evidence": ["playwright.config.ts", "tests/e2e/learning.spec.ts"]
     },
     {
       "id": "deployment-authorization",
       "type": "decision",
       "state": "approved",
       "description": "Owner explicitly requests Vercel CLI website deployment; further feature work deferred until connections are supplied.",
-      "evidence": [
-        "docs/context-memory/decisions.md",
-        "plan.md"
-      ]
+      "evidence": ["docs/context-memory/decisions.md", "plan.md"]
     },
     {
       "id": "vercel-deployment",
@@ -251,6 +202,63 @@
         "docs/runbooks/github-vercel-resume.md",
         ".vercelignore",
         "apps/web/next.config.mjs"
+      ]
+    },
+    {
+      "id": "readme-refresh",
+      "type": "feature",
+      "state": "current",
+      "description": "Broader platform README plus actual dedicated course README with standalone banners, roadmap, setup, and course star invitation. courses/README.md is only a catalog, not another repository.",
+      "evidence": [
+        "README.md",
+        "courses/README.md",
+        "docs/assets/ilearnnation-banner.svg",
+        "docs/assets/community-thanks.svg",
+        "courses/full-stack-modern-react-nextjs/README.md",
+        "courses/full-stack-modern-react-nextjs/assets/course-banner.svg",
+        "courses/full-stack-modern-react-nextjs/assets/community-thanks.svg"
+      ]
+    },
+    {
+      "id": "dual-repository-courses",
+      "type": "decision",
+      "state": "approved",
+      "description": "Owner wants actual lesson files in the platform as well as the dedicated course repository. No additional checkout required; preserve independent history.",
+      "evidence": [
+        "docs/context-memory/decisions.md",
+        "docs/adr/0001-course-source-and-admin-boundaries.md"
+      ]
+    },
+    {
+      "id": "course-file-inclusion",
+      "type": "workflow",
+      "state": "current",
+      "description": "Owner replaced embedded pointer with normal staged course files and preserved independent metadata in ignored .local-data/course-git/full-stack-modern-react-nextjs.git. Eight chapters verified; inclusion still needs commit and latest docs/assets need restaging.",
+      "evidence": [
+        "docs/runbooks/include-courses-in-platform.md",
+        "docs/context-memory/last-handoff.md"
+      ]
+    },
+    {
+      "id": "course-roadmap",
+      "type": "course",
+      "state": "proposed",
+      "description": "All 20 chapters from the owner-rights-confirmed 2024 Packt reference are mapped to original interactive activities; full conversion and deployment path remain unfinished.",
+      "evidence": [
+        "docs/research/2026-10-16-course-roadmap-sources.md",
+        "refBooks/references.json",
+        "courses/full-stack-modern-react-nextjs/references.md"
+      ]
+    },
+    {
+      "id": "course-catalog-mockups",
+      "type": "feature",
+      "state": "current",
+      "description": "Homepage and catalog show one playable React/Next.js draft plus three non-playable course concepts based only on PDF filenames.",
+      "evidence": [
+        "apps/web/src/components/course-catalog.tsx",
+        "apps/web/src/lib/course-ideas.ts",
+        "apps/web/src/app/globals.css"
       ]
     }
   ],
@@ -342,11 +350,6 @@
     },
     {
       "from": "github-publication",
-      "type": "blocked-by",
-      "to": "external-integrations"
-    },
-    {
-      "from": "github-publication",
       "type": "depends-on",
       "to": "licensing"
     },
@@ -384,15 +387,35 @@
       "from": "vercel-deployment",
       "type": "depends-on",
       "to": "web-app"
+    },
+    {
+      "from": "readme-refresh",
+      "type": "implements",
+      "to": "product"
+    },
+    {
+      "from": "course-file-inclusion",
+      "type": "implements",
+      "to": "dual-repository-courses"
+    },
+    {
+      "from": "dual-repository-courses",
+      "type": "implements",
+      "to": "product"
+    },
+    {
+      "from": "course-catalog-mockups",
+      "type": "implements",
+      "to": "product"
+    },
+    {
+      "from": "course-roadmap",
+      "type": "depends-on",
+      "to": "first-course"
     }
   ],
   "open_questions": [],
-  "deferred_entity_types": [
-    "project",
-    "team",
-    "review",
-    "event"
-  ],
+  "deferred_entity_types": ["project", "team", "review", "event"],
   "supported_relationship_types": [
     "depends-on",
     "implements",
@@ -416,11 +439,12 @@
     "manualWcagCertification": false,
     "liveGitHubImport": "not-verified",
     "liveMapbox": "not-enabled",
-    "evidence": [
-      "docs/context-memory/last-handoff.md",
-      "tests/e2e/learning.spec.ts"
-    ],
+    "evidence": ["docs/context-memory/last-handoff.md", "tests/e2e/learning.spec.ts"],
     "serverlessCourseFileTracing": "passed-all-nine-server-traces",
-    "liveVercelDeployment": "dns-failed-no-url"
+    "liveVercelDeployment": "dns-failed-no-url",
+    "readmeAssets": "static-svg-safety-xml-and-rendered-review-passed",
+    "courseFileInclusionFixture": "passed-history-preservation-and-normal-clone-eight-chapters",
+    "courseFileInclusionActual": "verified-normal-files-staged-eight-chapters-history-preserved-uncommitted",
+    "standaloneCourseReadme": "17-contained-relative-links-and-safe-static-assets-passed"
   }
 }

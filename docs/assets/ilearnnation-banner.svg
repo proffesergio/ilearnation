@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title description">
+  <title id="title">iLearnNation — learn with purpose, build with confidence</title>
+  <desc id="description">A warm learning studio with a route connecting Read, Build, and Reflect. The earn letters are highlighted as part of the iLearnNation wordmark.</desc>
+  <rect width="1200" height="380" rx="24" fill="#fbfaf7"/>
+  <rect x="1" y="1" width="1198" height="378" rx="23" fill="none" stroke="#dedfd6" stroke-width="2"/>
+  <path d="M800 0V380M1000 0V380M600 190H1200" stroke="#e9eee5" stroke-width="2"/>
+  <circle cx="1035" cy="55" r="140" fill="#e9eee5"/>
+  <circle cx="1035" cy="55" r="102" fill="none" stroke="#c1d0c4" stroke-width="2"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="56" y="56" font-size="13" font-weight="700" letter-spacing="3" fill="#244c42">YOUR NEXT CHAPTER STARTS HERE</text>
+    <rect x="107" y="87" width="138" height="65" rx="12" fill="#f4dfd2"/>
+    <text x="56" y="139" font-size="58" font-weight="700" letter-spacing="-2" fill="#202e2b">iL<tspan fill="#8c391e">earn</tspan>Nation</text>
+    <text x="56" y="200" font-size="30" fill="#202e2b">Learn with purpose.</text>
+    <text x="56" y="242" font-size="30" fill="#244c42">Build with confidence.</text>
+    <text x="56" y="321" font-size="17" fill="#626b66">Focused lessons. Useful feedback. Projects you can explain.</text>
+  </g>
+  <path d="M738 112C875 112 800 204 944 204S969 295 1105 295" fill="none" stroke="#244c42" stroke-width="4" stroke-linecap="round"/>
+  <path d="M738 112C875 112 800 204 944 204S969 295 1105 295" fill="none" stroke="#fbfaf7" stroke-width="2" stroke-dasharray="2 11"/>
+  <g fill="#fbfaf7" stroke="#244c42" stroke-width="3">
+    <circle cx="738" cy="112" r="13"/>
+    <circle cx="944" cy="204" r="13"/>
+    <circle cx="1105" cy="295" r="13"/>
+  </g>
+  <circle cx="944" cy="204" r="6" fill="#ae4b2d"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#244c42">
+    <text x="711" y="78">01 / READ</text>
+    <text x="909" y="170">02 / BUILD</text>
+    <text x="1035" y="340">03 / REFLECT</text>
+  </g>
+</svg>

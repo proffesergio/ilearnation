@@ -1,5 +1,6 @@
 # Source uploads must not include credentials, private references, or local artifacts.
 .git/
+**/.git/
 .vercel/
 .aws/
 .codex/
@@ -16,7 +17,6 @@ node_modules/
 **/.next/
 .local-data/
 .course-export/
-courses/modern-fullstack-react-projects-building/
 .npm-cache/
 artifacts/
 test-results/

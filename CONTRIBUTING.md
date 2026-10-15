@@ -24,9 +24,13 @@ examples only; never run learner submissions through the content-test harness.
 
 ## Review and history
 
-The owner initialized `master` and origin `proffesergio/ilearnation`; there are no
-commits yet and no established commit convention. A reversible proposal is `docs: record learner prerequisites`
-or `feat: validate lesson manifests`; agree it before the first commit.
+The parent checkout is locally on `main` at `9bbab18` (`initial commit with MVP`);
+the course history uses `feat(course): add initial React and Next.js lessons`.
+Local tracking refs match `origin/main`, and the owner reports pushing both remotes;
+verify the intended branch before
+publishing. Prefer descriptive prefixes such as `docs: clarify lesson setup` or
+`feat(course): validate lesson manifests`. Keep actual course files tracked in the
+platform; see the [inclusion guide](docs/runbooks/include-courses-in-platform.md).
 
 Future pull requests should describe the learner outcome, linked task, acceptance
 criteria, checks and results, and privacy/accessibility implications. Include UI

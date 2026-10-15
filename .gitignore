@@ -29,5 +29,5 @@ __pycache__/
 artifacts/
 .vercel/
 
-# Independent course publication checkout; keep the bundled draft above separate.
-# /courses/modern-fullstack-react-projects-building/
+# Course source under courses/ is intentionally included in the platform repository.
+/refBooks/

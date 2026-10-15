@@ -43,6 +43,17 @@ must fetch those lessons and support a CMS-style admin for future rule updates.
 
 ## Consequences
 
+2026-10-16 clarification: the owner wants the full course files in this platform
+repository as well as the dedicated course repository. Keep reviewed bundled
+content as normal files, not an embedded Git pointer. Preserve the existing course
+history outside the working directory in ignored local storage when converting;
+see docs/runbooks/include-courses-in-platform.md. The dedicated remote remains the
+reviewed curriculum source; copying a reviewed revision into the platform is
+explicit, and neither repository automatically updates the other. Conversion is
+now staged by the owner: the parent index lists actual files and the independent
+history is preserved in `.local-data/course-git/full-stack-modern-react-nextjs.git`.
+The parent inclusion and latest documentation still need review/restaging/commit.
+
 This proves local learning and editorial flows without granting administration
 privileges to visitors. Before production administration, implement and test trusted
 identity, server authorization, CSRF/session controls, durable audit/persistence,
