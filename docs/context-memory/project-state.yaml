@@ -1,0 +1,136 @@
+schema_version: 1
+updated_on: '2026-10-16'
+product: iLearnNation
+phase: first-local-course-loop
+contract: AGENTS.md
+plan:
+  path: plan.md
+  status: local-implementation-authorized
+repository:
+  git_initialized: true
+  branch: master
+  remote: https://github.com/proffesergio/ilearnation.git
+  commits: 0
+  applications: [apps/web]
+  package_manager: npm
+  lockfiles: [package-lock.json]
+  toolchain: {next: "16.4.1", react: "19.3.1", typescript: "5.9.3", eslint: "10.12.0"}
+  application_tests: native-node-and-playwright
+  ci: local-definition-not-enabled
+  license: needs-user-decision
+environment_observed:
+  node: '24.14.0'
+  npm: '11.18.0'
+  python: '3.12.3'
+  pnpm_on_path: false
+model_observed:
+  configured: gpt-6.1-sol
+  configured_reasoning: high
+  catalog_fetched_at: '2026-10-15T18:27:00.116337268Z'
+  catalog_is_local_cache: true
+  selection: inherited-session-model
+  reason: Modern React/Next implementation and review match the owner's gpt-6.1-sol coding route; root is inherited.
+  delegated_workers: 1
+  worker_model: gpt-6.1-sol
+  worker_reasoning: high
+  worker_scope: course-schema-content-assets-and-read-only-review
+integrations:
+  configured_mcp_names: [next-devtools]
+  callable_categories: [sites, canva, web-research]
+  unavailable_callable_categories: [github, n8n, skool]
+  external_calls: public-docs-read-only-plugin-discovery-and-failed-github-vercel-cli-attempts
+  external_writes_made: 0
+  github_cli_status: owner-reports-login-api-read-blocked-by-dns-token-validity-unverified
+  vercel_cli_version: '64.2.0'
+  fresh_login_shell_retry: pseudo-terminal-github-api-and-vercel-whoami-still-dns-blocked
+  vercel_cli_status: whoami-fetch-failed-deploy-failed-with-dns-error
+  vercel_deployment: authorized-not-completed-no-url
+  vercel_project_link: absent
+  shell_network: api-github-com-and-api-vercel-com-dns-eai-again
+  credential_values_read: false
+  github_plugin: available-not-confirmed-connected
+  mapbox_mcp: owner-authorized-tools-not-exposed
+  mapbox_runtime: not-enabled-no-map-loads
+  account_access_verified: false
+references:
+  local_pdfs: 4
+  redistribution_rights: unverified
+  pdf_contents_read_or_copied: false
+  metadata: refBooks/references.json
+first_cohort: mixed-self-directed-learners
+first_ten_minutes: read-course-repository-getting-started-guide
+course_repository:
+  owner: proffesergio
+  slug: modern-fullstack-react-projects-building
+  status: local-export-ready-remote-unverified
+  local_onboarding: courses/full-stack-modern-react-nextjs/getting-started.md
+  topology_and_source_of_truth: docs/adr/0001-course-source-and-admin-boundaries.md
+  manual_publication_checkout: courses/modern-fullstack-react-projects-building
+  manual_publication_checkout_status: documented-not-created
+  manual_publication_guide: docs/runbooks/separate-course-repository.md
+course:
+  schema_version: 1
+  version: '0.1.0'
+  status: draft
+  authored_chapters: 8
+  trusted_node_checkpoints: 8
+  interactive_web_exercises: 1
+  optional_animation: finite-2.4-second-gif-with-static-fallback
+website:
+  pages: [homepage, catalog, player, local-admin-preview]
+  visual_direction: calm-studio-with-energetic-community-accents
+  language: provisional-english
+  progress: explicit-version-scoped-device-only-save-restore-clear
+  accounts_and_analytics: absent
+  admin: local-tab-drafts-downloads-and-synthetic-replay-no-production-mutations
+  algorithm: shadow-v1-disabled-default-zero-applied-points
+  map: synthetic-globe-and-region-list-no-live-locations
+next_question: none-pending-network-access
+continuation:
+  scope: github-course-completion-and-vercel-deployment-only
+  owner_reported_github_login: true
+  course_publication_authorized: true
+  vercel_cli_deployment_authorized: true
+  feature_development: deferred-until-owner-provides-credentials-and-connections
+  web_env_local_present: false
+  runbook: docs/runbooks/github-vercel-resume.md
+  next_step: verify-cli-access-and-remote-state-in-network-enabled-session
+evidence:
+  - docs/context-memory/graph.json
+  - docs/context-memory/decisions.md
+  - docs/product/ux-decisions.md
+  - docs/architecture/integrations.md
+  - scripts/check_repository.py
+validation:
+  checked_on: '2026-10-16'
+  initial_acceptance_check: expected-fail-missing-baseline-files
+  final_baseline_check: passed
+  python_syntax_check: passed
+  onboarding_content_check: passed
+  onboarding_decision_consistency: passed
+  temporary_fixture_checks:
+    clean_baseline: passed
+    dangling_graph_edge: rejected
+    unverified_reference_use: rejected
+    broken_local_link: rejected
+  external_ci_run: not-run-no-remote-commits-pushed
+  serverless_course_file_tracing: passed-course-files-in-all-nine-server-traces
+  deployment_upload_exclusion_fixtures: passed-gitignore-style-matcher
+  independent_course_git_fixture: passed-temporary-init-staging-and-secret-pdf-exclusions
+  followup_checks: build-38-native-tests-types-lint-format-docs-graph-and-signature-check-passed
+  deployment_upload_dry_run: blocked-project-not-linked
+  live_deployment: failed-dns-no-url-returned
+  unit_tests: 38-passed
+  production_build: passed
+  typecheck: passed
+  formatter: passed
+  course_validation: passed
+  finite_animation_validation: passed
+  browser_keyboard_and_reduced_motion: passed
+  homepage_automated_accessibility: passed-not-full-wcag-certification
+  screenshot_review: desktop-homepage-and-desktop-mobile-admin-reviewed
+  lint: passed
+  browser_checks: 10-passed-desktop-and-mobile-production-build
+  credential_signatures: passed-heuristic-only
+  dependency_advisories: production-audit-passed-zero-reported
+  scope_exclusions: [yaml-schema, external-links-live-check, production-auth-flows, live-integrations]

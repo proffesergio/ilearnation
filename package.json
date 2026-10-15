@@ -1,0 +1,31 @@
+{
+  "name": "ilearnnation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/web"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace=@ilearnnation/web",
+    "build": "npm run build --workspace=@ilearnnation/web",
+    "start": "npm run start --workspace=@ilearnnation/web",
+    "typecheck": "npm run typecheck --workspace=@ilearnnation/web",
+    "lint": "npm run lint --workspace=@ilearnnation/web",
+    "format:check": "prettier --check apps packages tests scripts/*.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "course:validate": "node scripts/validate-course.mjs",
+    "course:export": "node scripts/export-course.mjs",
+    "course:sync": "node scripts/sync-course.mjs",
+    "check:repository": "python3 scripts/check_repository.py"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.1",
+    "prettier": "3.9.10"
+  }
+}

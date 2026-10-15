@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-16",
+  "entities": [
+    {
+      "id": "product",
+      "type": "product",
+      "state": "current",
+      "evidence": [
+        "AGENTS.md",
+        "README.md"
+      ]
+    },
+    {
+      "id": "first-cohort",
+      "type": "learner",
+      "state": "approved",
+      "description": "Mixed self-directed learners, selected by the owner on 2026-10-16.",
+      "evidence": [
+        "docs/product/ux-decisions.md"
+      ]
+    },
+    {
+      "id": "first-course",
+      "type": "course",
+      "state": "current",
+      "evidence": [
+        "courses/full-stack-modern-react-nextjs/course.json"
+      ],
+      "description": "Original draft 0.1.0, schema 1, eight authored chapters; not a published release."
+    },
+    {
+      "id": "first-chapter",
+      "type": "chapter",
+      "state": "current",
+      "evidence": [
+        "courses/full-stack-modern-react-nextjs/chapters/foundations.md",
+        "tests/course-content.test.mjs"
+      ],
+      "description": "Authored foundations chapter with trusted Node checkpoint and first component exercise."
+    },
+    {
+      "id": "first-lesson",
+      "type": "lesson",
+      "state": "current",
+      "evidence": [
+        "apps/web/src/components/course-player.tsx"
+      ],
+      "description": "Website lesson player: safe Markdown, disclosures, explicit version-scoped device progress."
+    },
+    {
+      "id": "first-exercise",
+      "type": "exercise",
+      "state": "current",
+      "evidence": [
+        "packages/course-runtime/index.mjs",
+        "tests/runtime.test.mjs"
+      ],
+      "description": "Constrained text-only JSX grammar with feedback, hints and reset; no arbitrary execution."
+    },
+    {
+      "id": "first-loop-plan",
+      "type": "decision",
+      "state": "approved",
+      "evidence": [
+        "plan.md"
+      ],
+      "description": "Owner instructed app/course implementation on 2026-10-16; external release remains gated."
+    },
+    {
+      "id": "first-ten-minutes",
+      "type": "decision",
+      "state": "approved",
+      "description": "Read getting-started.md in a course-named GitHub repository.",
+      "evidence": [
+        "docs/product/ux-decisions.md"
+      ]
+    },
+    {
+      "id": "course-onboarding",
+      "type": "feature",
+      "state": "current",
+      "description": "Local orientation draft; not a published or schema-validated chapter.",
+      "evidence": [
+        "courses/full-stack-modern-react-nextjs/README.md",
+        "courses/full-stack-modern-react-nextjs/getting-started.md"
+      ]
+    },
+    {
+      "id": "course-repository",
+      "type": "decision",
+      "state": "approved",
+      "description": "Owner-selected proffesergio/modern-fullstack-react-projects-building; publication not performed.",
+      "evidence": [
+        "docs/adr/0001-course-source-and-admin-boundaries.md"
+      ]
+    },
+    {
+      "id": "website-pages",
+      "type": "decision",
+      "state": "approved",
+      "evidence": [
+        "docs/product/ux-decisions.md",
+        "apps/web/src/app/page.tsx",
+        "apps/web/src/app/admin/page.tsx"
+      ],
+      "description": "Local homepage/catalog/player/admin draft slice; larger launch scope remains open."
+    },
+    {
+      "id": "licensing",
+      "type": "risk",
+      "state": "needs-user-decision",
+      "evidence": [
+        "README.md",
+        "refBooks/references.json"
+      ]
+    },
+    {
+      "id": "local-check",
+      "type": "workflow",
+      "state": "current",
+      "evidence": [
+        "scripts/check_repository.py"
+      ]
+    },
+    {
+      "id": "external-integrations",
+      "type": "integration",
+      "state": "blocked",
+      "evidence": [
+        "docs/architecture/integrations.md"
+      ],
+      "description": "Owner reports GitHub CLI login; GitHub and Vercel API DNS fail in shell, credentials unverified. Mapbox tools still not exposed."
+    },
+    {
+      "id": "course-schema",
+      "type": "feature",
+      "state": "current",
+      "description": "Schema 1 with strict fields, bounded metadata, paths, completion and reference validation.",
+      "evidence": [
+        "packages/course-schema/index.mjs",
+        "tests/course-schema.test.mjs"
+      ]
+    },
+    {
+      "id": "web-app",
+      "type": "feature",
+      "state": "current",
+      "description": "Next 16.4.1 / React 19.3.1 npm workspace; local implementation, no deployment.",
+      "evidence": [
+        "apps/web/package.json",
+        "package-lock.json"
+      ]
+    },
+    {
+      "id": "admin-drafts",
+      "type": "feature",
+      "state": "current",
+      "description": "Public-content local draft preview only; no privileged writes, production defaults to 404.",
+      "evidence": [
+        "apps/web/src/components/admin-workspace.tsx",
+        "apps/web/src/app/admin/page.tsx"
+      ]
+    },
+    {
+      "id": "consistency-v1",
+      "type": "algorithm-rule",
+      "state": "proposed",
+      "description": "Shadow policy v1; disabled by default, UTC-day caps/decay, synthetic replay, no applied points.",
+      "evidence": [
+        "packages/algorithm/index.mjs",
+        "tests/algorithm.test.mjs"
+      ]
+    },
+    {
+      "id": "github-read",
+      "type": "integration",
+      "state": "current",
+      "description": "Read adapter implemented; real remote import unverified. Fixed repository, immutable SHA, bounded files, no redirects.",
+      "evidence": [
+        "packages/data/github.mjs",
+        "scripts/sync-course.mjs",
+        "tests/github-source.test.mjs"
+      ]
+    },
+    {
+      "id": "github-publication",
+      "type": "workflow",
+      "state": "blocked",
+      "description": "Course payload ready; fresh login-shell API retry still DNS-blocked. Manual isolated publication checkout documented, not created; platform bundled draft preserved.",
+      "evidence": [
+        "docs/runbooks/local-development.md",
+        "scripts/export-course.mjs",
+        "docs/runbooks/github-vercel-resume.md",
+        "docs/runbooks/separate-course-repository.md"
+      ]
+    },
+    {
+      "id": "mapbox-authorization",
+      "type": "decision",
+      "state": "approved",
+      "description": "Owner authorizes Mapbox MCP use. Tools not exposed; no token, account writes or billable map loads performed.",
+      "evidence": [
+        "docs/architecture/integrations.md"
+      ]
+    },
+    {
+      "id": "map-preview",
+      "type": "feature",
+      "state": "current",
+      "description": "Synthetic broad-region globe/list; opt-in exploration, no live location or Mapbox traffic.",
+      "evidence": [
+        "apps/web/src/components/learning-map.tsx"
+      ]
+    },
+    {
+      "id": "studio-direction",
+      "type": "decision",
+      "state": "approved",
+      "description": "Owner chose calm studio with energetic community accents.",
+      "evidence": [
+        "docs/product/ux-decisions.md"
+      ]
+    },
+    {
+      "id": "browser-validation",
+      "type": "workflow",
+      "state": "current",
+      "description": "Desktop/mobile production-build flows, axe checks, Markdown safety, progress restore/delete, policy replay.",
+      "evidence": [
+        "playwright.config.ts",
+        "tests/e2e/learning.spec.ts"
+      ]
+    },
+    {
+      "id": "deployment-authorization",
+      "type": "decision",
+      "state": "approved",
+      "description": "Owner explicitly requests Vercel CLI website deployment; further feature work deferred until connections are supplied.",
+      "evidence": [
+        "docs/context-memory/decisions.md",
+        "plan.md"
+      ]
+    },
+    {
+      "id": "vercel-deployment",
+      "type": "integration",
+      "state": "blocked",
+      "description": "CLI installed; no project link; whoami and deployment fail with DNS errors. No deployment URL returned. Local build/course tracing verified.",
+      "evidence": [
+        "docs/runbooks/github-vercel-resume.md",
+        ".vercelignore",
+        "apps/web/next.config.mjs"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "first-course",
+      "type": "implements",
+      "to": "product"
+    },
+    {
+      "from": "first-chapter",
+      "type": "implements",
+      "to": "first-course"
+    },
+    {
+      "from": "first-lesson",
+      "type": "implements",
+      "to": "first-chapter"
+    },
+    {
+      "from": "first-exercise",
+      "type": "implements",
+      "to": "first-lesson"
+    },
+    {
+      "from": "first-course",
+      "type": "visible-to",
+      "to": "first-cohort"
+    },
+    {
+      "from": "first-exercise",
+      "type": "depends-on",
+      "to": "first-ten-minutes"
+    },
+    {
+      "from": "course-onboarding",
+      "type": "implements",
+      "to": "first-ten-minutes"
+    },
+    {
+      "from": "course-onboarding",
+      "type": "visible-to",
+      "to": "first-cohort"
+    },
+    {
+      "from": "course-repository",
+      "type": "depends-on",
+      "to": "licensing"
+    },
+    {
+      "from": "product",
+      "type": "depends-on",
+      "to": "licensing"
+    },
+    {
+      "from": "local-check",
+      "type": "validates",
+      "to": "first-loop-plan"
+    },
+    {
+      "from": "web-app",
+      "type": "implements",
+      "to": "product"
+    },
+    {
+      "from": "first-course",
+      "type": "depends-on",
+      "to": "course-schema"
+    },
+    {
+      "from": "first-lesson",
+      "type": "depends-on",
+      "to": "github-read"
+    },
+    {
+      "from": "admin-drafts",
+      "type": "implements",
+      "to": "web-app"
+    },
+    {
+      "from": "admin-drafts",
+      "type": "depends-on",
+      "to": "course-schema"
+    },
+    {
+      "from": "admin-drafts",
+      "type": "depends-on",
+      "to": "consistency-v1"
+    },
+    {
+      "from": "github-publication",
+      "type": "blocked-by",
+      "to": "external-integrations"
+    },
+    {
+      "from": "github-publication",
+      "type": "depends-on",
+      "to": "licensing"
+    },
+    {
+      "from": "map-preview",
+      "type": "implements",
+      "to": "web-app"
+    },
+    {
+      "from": "map-preview",
+      "type": "depends-on",
+      "to": "mapbox-authorization"
+    },
+    {
+      "from": "browser-validation",
+      "type": "validates",
+      "to": "web-app"
+    },
+    {
+      "from": "web-app",
+      "type": "derived-from",
+      "to": "studio-direction"
+    },
+    {
+      "from": "vercel-deployment",
+      "type": "depends-on",
+      "to": "deployment-authorization"
+    },
+    {
+      "from": "vercel-deployment",
+      "type": "blocked-by",
+      "to": "external-integrations"
+    },
+    {
+      "from": "vercel-deployment",
+      "type": "depends-on",
+      "to": "web-app"
+    }
+  ],
+  "open_questions": [],
+  "deferred_entity_types": [
+    "project",
+    "team",
+    "review",
+    "event"
+  ],
+  "supported_relationship_types": [
+    "depends-on",
+    "implements",
+    "validates",
+    "supersedes",
+    "inspired-by",
+    "owned-by",
+    "visible-to",
+    "derived-from",
+    "blocked-by",
+    "rolls-back-to"
+  ],
+  "validation": {
+    "unitTests": 38,
+    "browserTests": 10,
+    "build": "passed",
+    "typecheck": "passed",
+    "lint": "passed",
+    "format": "passed",
+    "productionDependencyAudit": "zero-known-vulnerabilities",
+    "manualWcagCertification": false,
+    "liveGitHubImport": "not-verified",
+    "liveMapbox": "not-enabled",
+    "evidence": [
+      "docs/context-memory/last-handoff.md",
+      "tests/e2e/learning.spec.ts"
+    ],
+    "serverlessCourseFileTracing": "passed-all-nine-server-traces",
+    "liveVercelDeployment": "dns-failed-no-url"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "inventoried_on": "2026-10-16",
+  "references": [
+    {"id": "local-pdf-001", "filename": "Guide __to Artificial __Intelligence.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
+    {"id": "local-pdf-002", "filename": "Python - Building Machines Learning System.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
+    {"id": "local-pdf-003", "filename": "Modern_Full_Stack_React_Projects_Build,_maintain,_and_deploy_modern.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
+    {"id": "local-pdf-004", "filename": "AI and Artificial Life in Video Games.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"}
+  ]
+}

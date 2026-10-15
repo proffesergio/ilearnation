@@ -1,0 +1,26 @@
+# Source uploads must not include credentials, private references, or local artifacts.
+.git/
+.vercel/
+.aws/
+.codex/
+.agents/
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/*.pdf
+refBooks/
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+.local-data/
+.course-export/
+courses/modern-fullstack-react-projects-building/
+.npm-cache/
+artifacts/
+test-results/
+playwright-report/
+**/*.log
+**/*.tsbuildinfo
+**/__pycache__/
