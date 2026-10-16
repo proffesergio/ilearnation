@@ -11,7 +11,7 @@ export default async function Courses() {
       <Header />
       <main id="main-content" className="wrap catalog">
         <p className="eyebrow">
-          The learning library · {course.chapters.length + courseIdeas.length} paths on the board
+          The learning library · {1 + courseIdeas.length} paths on the board
         </p>
         <h1>Find a path worth exploring.</h1>
         <p className="lead">
@@ -23,15 +23,15 @@ export default async function Courses() {
           <p className="eyebrow">The first course roadmap</p>
           <h2 id="course-roadmap-title">From first setup to a deployed full-stack project.</h2>
           <p>
-            The intended course will guide learners through environment setup, web foundations,
+            The twenty-lesson course guides learners through environment setup, web foundations,
             JavaScript and TypeScript, React, Next.js, data and forms, testing, accessibility,
-            security, Git and CI, then deployment. Each chapter is planned as a short explanation,
+            security, Git and CI, then deployment. Each lesson includes a focused explanation,
             runnable checkpoint, progressive hints, feedback, and a project step.
           </p>
           <p className="small-note">
-            The eight current chapters are an early local draft, not the finished deployment course.
-            Book chapter mapping and visual adaptation are being prepared from the rights-cleared
-            reference; current official sources are recorded in the research notes.
+            Sign in and complete your private profile to enter all {course.chapters.length} lessons.
+            The curriculum remains a reviewable draft. Passing its bounded checkpoints records
+            practice; capstone review and professional competence require further evidence.
           </p>
           <ol className="curriculum-list">
             {course.chapters.map((chapter) => (

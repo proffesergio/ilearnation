@@ -1,6 +1,6 @@
-# 7. Git, CI, deployment concepts, and recovery
+# 19. Git, CI, deployment concepts, and recovery
 
-Draft lesson · course version 0.1.0.
+Draft lesson · course version 0.2.0.
 
 ![Learning route: read, run, edit, check, then reflect.](../assets/learning-route.svg)
 
@@ -23,8 +23,7 @@ This optional decoration plays once for 2.4 seconds. GitHub cannot apply your op
 
 ## Prerequisites
 
-Complete [Quality and accessibility](quality-accessibility-security.md). Know which
-folder contains your practice work. Git is required only for the local Git exercise.
+Complete [Caching, invalidation, and performance](caching-performance.md), and review any earlier topic you need. Use synthetic data and keep project credentials outside the lesson.
 
 ## Effort
 
@@ -50,6 +49,21 @@ reversible while a destructive data migration is not. Before shipping, decide ho
 to detect a failure and who can disable or roll back the change. Never assume a
 successful local build proves a live service is configured correctly.
 
+A Docker image can package an application with its runtime and build output.
+Choose and record a trusted base image, use reproducible locked dependency
+installation, and separate build dependencies from the runtime where appropriate.
+Keep credentials, local environment files, and private course records out of the
+build context and image layers. Pin the image you release to an immutable digest
+so rollback identifies an artifact rather than a moving tag. A container does not
+provide a database backup or authorization policy for the application inside it.
+
+Choose a deployment mode that supports the features you built. A static export
+cannot provide a private server endpoint by itself; a Node.js or container runtime
+can host server behavior but still needs correctly injected secrets, a reachable
+database, and operational monitoring. Record which responsibilities belong to the
+host and which remain yours. This lesson plans and rehearses those boundaries
+locally; a deployment needs its own explicit approval and evidence.
+
 ## Runnable checkpoint
 
 Save as `checkpoint.mjs` and run `node checkpoint.mjs`. This is a release-readiness
@@ -72,6 +86,10 @@ console.log('Checkpoint passed');
 
 ## Exercise
 
+**Online scenario: Gate a release.** A release needs lint, type checking, tests, and a production build; any failed check blocks it. Green checks still need explicit approval. Keep secrets out of public bundles and recover a failed health check using the previously tested artifact. Choices: approval "automatic"/"required", secretScope "public"/"server", rollback "rebuild-latest"/"previous-artifact".
+
+The lesson player now includes the **production-workflows** activity. Read its prompt, repair the failing starter, submit it, and inspect the behavioral checks. This activity uses a small JSON configuration to drive synthetic scenarios; it never executes your submitted code. Passing checks verifies only the bounded activity, not full framework competence. Reset restores the original failing starter; copy your work first if needed. Malformed or oversized input returns a repair message.
+
 1. Add a test proving the string `'true'` does not satisfy a required check.
 2. In a new empty scratch folder, use `git init`, write a harmless README, inspect
    `git status` and `git diff`, then stage that file explicitly and review `git diff --cached`.
@@ -80,6 +98,13 @@ console.log('Checkpoint passed');
    minimum permissions, and artifact retention. Describe one failure for each gate.
 4. Write a release rehearsal: version, checks, explicit approval, health signal,
    rollback trigger, and rollback owner. Keep it a local proposal.
+5. Write a packaging plan listing the runtime/base-image digest, lockfile, build
+   command, start command, nonsecret environment names, health path, and excluded
+   files. Trace a deliberate missing-variable failure and explain how the service
+   should fail closed. If Docker is already available, an optional local build may
+   use your project's reviewed Dockerfile and synthetic configuration; no registry
+   push or cloud provisioning is needed. Never bake secrets into build arguments
+   or image layers.
 
 Reset: restore the checkpoint block. For Git practice, keep or remove only your own
 scratch folder after reviewing its contents; never reset the shared project history.
@@ -130,3 +155,5 @@ rollback, and which might require a data repair plan?
 
 - GitHub documentation contributors, [Understanding GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), official reference, accessed 2026-10-16.
 - See [source and rights records](../references.md).
+- Vercel Next.js team, [Deploying](https://nextjs.org/docs/app/getting-started/deploying), official primary documentation, accessed 2026-10-16; link only.
+- Docker documentation team, [Building best practices](https://docs.docker.com/build/building/best-practices/), official primary documentation, accessed 2026-10-16; link only.

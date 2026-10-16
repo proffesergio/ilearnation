@@ -1,5 +1,27 @@
 # Outcome backlog
 
+## Current local feature phase (draft 0.2.0)
+
+- [x] Author exactly 20 lessons with activities, preserving eight draft 0.1.0 IDs and snapshotting that version.
+- [x] Add open Google entry when configured, single-use invitation links, profile gate, and private SQL progress.
+- [x] Add guarded admin activity and immutable policy history with zero-point shadow replay.
+- [x] Add full account download and deletion routes.
+- [x] Add explicit durable SQLite and Neon adapters with manual local outbox sync.
+- [x] Add three original reviewed-draft blog articles and search metadata infrastructure.
+- [x] Complete current feature-phase verification: 70 native tests, 12 desktop/mobile browser checks, accessibility, build, types, lint, formatting, repository/credential checks, and production dependency audit.
+- [x] Create the authorized Neon project/schema, save its credentials privately, and verify hosted data/sync plus the local browser account loop; delete synthetic accounts afterward.
+- [ ] Create Google web OAuth credentials using docs/runbooks/google-oauth-setup.md, save them locally, and verify real Google sign-in.
+- [ ] Define fixed event retention, operator access, private incident channel, backups, and abuse policy before public account launch.
+- [ ] Human-review and release the twenty-lesson draft; do not claim a published course or measured outcomes.
+- [ ] Deploy and smoke-test the new feature only after configuration and approval. Existing production is the earlier baseline.
+
+Vercel CLI rechecked the existing production deployment as Ready with homepage
+HTTP 200 on 2026-10-16. Its production environment has no variables. Existing
+deployment authorization persists; Google configuration and launch policies remain
+the next prerequisites, rather than a repeated request for the same permission.
+
+Historical unchecked items below may describe work now completed in this local phase; use this section and the current handoff for status.
+
 ## Foundation
 
 - [x] Inspect the actual workspace; preserve AGENTS.md and supplied PDFs.
@@ -19,8 +41,8 @@
 - [x] Record course/platform boundaries and source of truth in ADR 0001.
 - [x] Scope the first local homepage/catalog/player/admin draft slice.
 - [x] Select calm studio with energetic community accents.
-- [ ] Specify languages, devices, accessibility, and bandwidth priorities.
-- [ ] Set privacy defaults before persistence, profiles, or sharing.
+- [x] Select English first and phone/desktop support with a low-bandwidth path.
+- [x] Set initial profile and progress visibility to private; no public leaderboard or real-location map.
 - [ ] Identify essential interactions and explicitly deferred behavior.
 
 ## First learning loop — after plan approval
@@ -35,7 +57,7 @@
 - [x] Link the dedicated course repository from the shared website footer.
 - [x] Review the first course PDF chapter list and map all 20 chapters to proposed original interactive activities; record owner-confirmed adaptation rights and source dates.
 - [x] Add a responsive book-inspired lesson reading style: strong section hierarchy, serif body text, procedure/callout/table treatments, and accessible semantic content.
-- [ ] Author and validate the complete 20-chapter learning path, including updated-framework checks, deployment practice, and capstone acceptance evidence.
+- [x] Author the 20-lesson draft and bounded interactive activities; human curriculum review and publication remain open.
 - [x] Constrained text-only JSX editing/checking, deterministic feedback, hints, and reset; no arbitrary code execution.
 - [x] Explicit device-only progress save/restore/clear controls; no learner account data.
 - [x] Local admin draft editing/download, policy shadow replay, and flag proposals.
@@ -43,10 +65,10 @@
 - [ ] Create/populate the course remote after access and visibility/licensing decisions.
 - [ ] Verify the website reads an actual reviewed GitHub commit end to end.
 - [x] Prepare Vercel source exclusions and explicit course runtime file tracing.
-- [ ] Complete authorized Vercel CLI deployment once shell network/project access works; verify the returned URL.
+- [x] Deploy baseline 563aedb to Vercel and verify core routes; the current feature phase is local only.
 - [ ] Connect authorized Mapbox MCP; separately decide browser token and map-load scope.
 - [ ] Human-review the course before any release or credential/completion claims.
-- [ ] Implement authenticated, authorized, auditable CMS persistence before production editing.
+- [x] Implement authenticated SQL admin roles, activity visibility, and versioned policy history; production configuration/review remains open.
 - [x] Relevant lint/type/unit/content/accessibility/build and 10 desktop/mobile E2E checks.
 - [x] Production dependency advisory audit: zero known vulnerabilities reported.
 

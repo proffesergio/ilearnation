@@ -1,6 +1,6 @@
-# 5. Data, validation, persistence, and identity
+# 7. Data, validation, persistence, and identity
 
-Draft lesson · course version 0.1.0.
+Draft lesson · course version 0.2.0.
 
 ![Learning route: read, run, edit, check, then reflect.](../assets/learning-route.svg)
 
@@ -23,8 +23,7 @@ This optional decoration plays once for 2.4 seconds. GitHub cannot apply your op
 
 ## Prerequisites
 
-Complete [Next.js routing](nextjs-routing.md). Recognize a form, an async function,
-and an error response. Use fake users and notes throughout this lesson.
+Complete [Asynchronous data and request races](async-data.md), and review any earlier topic you need. Use synthetic data and keep project credentials outside the lesson.
 
 ## Effort
 
@@ -79,12 +78,17 @@ console.log('Checkpoint passed');
 
 ## Exercise
 
+**Online scenario: Validate before saving.** Save a trimmed title of 1–120 characters for the verified actor. Forged input ownership must not be trusted. Blank/oversized input never writes, and a failed write keeps the draft. Choices: ownerSource "input"/"session", onFailure "clear"/"preserve".
+
+The lesson player now includes the **data-and-forms** activity. Read its prompt, repair the failing starter, submit it, and inspect the behavioral checks. This activity uses a small JSON configuration to drive synthetic scenarios; it never executes your submitted code. Passing checks verifies only the bounded activity, not full framework competence. Reset restores the original failing starter; copy your work first if needed. Malformed or oversized input returns a repair message.
+
 1. Add tests for an absent input object, a numeric title, and 121 characters.
 2. Make repository failure return `{ ok: false, error: 'Saving failed. Try again.' }`.
    Test a rejecting repository before adding handling. Preserve the draft after failure.
 3. In your app, create a labeled note form and a server action using the same
    validation rules. Use a fixed demo identity only in a clearly labeled local demo;
-   it provides no real authorization. Keep real accounts deferred.
+   it provides no real authorization. Develop real-account boundaries in the next
+   identity lesson before connecting an actual account provider.
 4. Design an owner-scoped read and delete interface. Write down the permission
    check and what happens when the owner requests export or deletion.
 

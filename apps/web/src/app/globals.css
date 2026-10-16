@@ -55,7 +55,8 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+.markdown pre:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
@@ -2543,4 +2544,361 @@ textarea.code-editor {
 .hero {
   overflow: clip;
   overflow-clip-margin: 12px;
+}
+
+/* Account, learning, and owner workspaces share the studio's reading surface. */
+.account-page {
+  min-height: 72vh;
+  padding-block: 56px 80px;
+}
+.account-card {
+  width: 100%;
+  max-width: 640px;
+  padding: 32px;
+  margin-inline: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.account-card h1 {
+  font-size: clamp(32px, 5vw, 44px);
+}
+.account-card label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 18px 0 7px;
+}
+.account-card input,
+.account-card textarea:not(.code-editor) {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #90998e;
+  border-radius: 6px;
+  padding: 11px 12px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.account-card textarea {
+  resize: vertical;
+}
+.account-card form .button {
+  margin-top: 20px;
+}
+.account-full {
+  width: 100%;
+  justify-content: center;
+  min-height: 48px;
+}
+.account-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 26px;
+}
+.account-divider::before,
+.account-divider::after {
+  content: '';
+  height: 1px;
+  background: var(--line);
+  flex: 1;
+}
+.account-data-controls {
+  border-top: 1px solid var(--line);
+  padding-block: 20px;
+  margin-top: 25px;
+}
+.account-data-controls summary {
+  cursor: pointer;
+  min-height: 44px;
+  font-weight: 600;
+}
+.account-data-controls .button {
+  margin-top: 18px;
+}
+.form-status {
+  min-height: 24px;
+  margin-block: 16px;
+  color: var(--green);
+  overflow-wrap: anywhere;
+}
+.notice {
+  border-left: 3px solid var(--accent);
+  background: var(--sage);
+  padding: 16px 20px;
+  font-size: 14px;
+}
+.learner-dashboard {
+  padding-block: 60px 90px;
+  min-height: 70vh;
+}
+.learner-dashboard h1 {
+  font-size: clamp(34px, 5vw, 52px);
+}
+.dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.learning-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  background: var(--sage);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+.learning-summary h2 {
+  font-size: clamp(24px, 4vw, 34px);
+}
+.learning-summary p:last-child {
+  margin: 0;
+}
+.learning-summary .button {
+  flex-shrink: 0;
+}
+.dashboard-lessons {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.dashboard-lessons li {
+  min-width: 0;
+}
+.dashboard-lessons a {
+  display: flex;
+  gap: 18px;
+  height: 100%;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+}
+.dashboard-lessons a:hover {
+  border-color: var(--accent);
+}
+.dashboard-lessons h2 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+.dashboard-lessons p {
+  font-size: 13px;
+}
+.dashboard-lessons svg {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.lesson-number {
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+}
+.activity-editor .code-editor {
+  min-height: 260px;
+  width: 100%;
+}
+.activity-checks {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+.activity-checks li {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.activity-checks li strong,
+.activity-checks li span {
+  display: block;
+}
+.activity-checks li span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.admin-console {
+  padding-block: 25px;
+}
+.admin-console section {
+  margin-block: 32px;
+}
+.admin-metrics {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.admin-metrics article {
+  flex: 1 1 155px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 20px;
+}
+.admin-metrics span {
+  display: block;
+  text-transform: capitalize;
+  font-size: 12px;
+}
+.admin-metrics strong {
+  display: block;
+  font-size: 35px;
+  color: var(--green);
+}
+.table-scroll {
+  position: relative;
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.admin-console table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+  background: var(--surface);
+}
+.admin-console th,
+.admin-console td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.admin-console thead th {
+  background: var(--sage);
+}
+.table-secondary {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 11px;
+}
+.admin-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.admin-columns .account-card {
+  min-width: 0;
+  max-width: none;
+}
+.admin-console .policy-editor {
+  width: 100%;
+  min-height: 380px;
+  font-size: 12px;
+}
+.admin-detail {
+  border: 1px solid var(--line);
+  padding: 24px;
+  background: var(--sage);
+  border-radius: 8px;
+}
+.admin-detail ul,
+.audit-list {
+  font-size: 13px;
+  padding-left: 20px;
+}
+.admin-detail li,
+.audit-list li {
+  padding-block: 7px;
+  overflow-wrap: anywhere;
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+.blog-grid article {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.blog-grid h2 {
+  font-size: 27px;
+  line-height: 1.2;
+}
+.blog-grid h2 a:hover {
+  text-decoration: underline;
+}
+.blog-grid p {
+  font-size: 14px;
+}
+.blog-article {
+  max-width: 840px;
+  padding-block: 60px 80px;
+}
+.blog-article h1 {
+  font-size: clamp(35px, 5vw, 54px);
+  line-height: 1.12;
+}
+.blog-article .back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 850px) {
+  .dashboard-lessons,
+  .admin-columns {
+    grid-template-columns: 1fr;
+  }
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+  .learning-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .learner-dashboard .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 560px) {
+  .account-page,
+  .learner-dashboard,
+  .blog-article {
+    padding-block: 32px 50px;
+  }
+  .account-card {
+    padding: 24px 18px;
+  }
+  .dashboard-lessons a {
+    padding: 20px 16px;
+    gap: 12px;
+  }
+  .learning-summary {
+    padding: 24px 18px;
+  }
+  .admin-console th,
+  .admin-console td {
+    padding: 12px;
+  }
+  .account-full {
+    font-size: 13px;
+  }
+  .activity-checks li span {
+    overflow-wrap: anywhere;
+  }
 }

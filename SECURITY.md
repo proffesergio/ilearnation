@@ -1,37 +1,13 @@
 # Security
 
-This is a local development application. There is no deployed service, identity
-provider, learner database, or configured security-reporting address. Admin is a
-public-content draft preview and has no privileged server mutations; it defaults
-to 404 in production. Do not treat `ADMIN_PREVIEW` as an authorization system.
+The existing production deployment is the earlier baseline. The new Auth.js, account, and admin application work has not been deployed. The owner-authorized Neon schema is initialized and verified with synthetic hosted data and local browser checks; those test accounts were deleted. Google OAuth remains unconfigured. No private vulnerability reporting channel is configured; ask the repository owner for a private channel before sharing sensitive evidence. Do not put credentials or personal data in public issues.
 
-## Reporting
+Authentication requires a configured database, `AUTH_SECRET` of at least 32 characters, and a valid `AUTH_URL`. Google sign-up additionally requires OAuth credentials; one-use hashed invitation links are the other entry path. Profiles and progress are private by default. Server-side SQL roles guard admin reads and writes; editing a profile cannot grant an admin role. Keep invitation output in an ignored mode-0600 file, share it privately, and treat the URL as a bearer credential. Routes fail closed when storage or auth is unavailable.
 
-Do not place credentials, exploit payloads containing private data, or personal
-records in public issues. Ask the repository owner to establish a private reporting
-channel before sharing sensitive evidence. Private vulnerability reporting and
-an owner contact must be configured before public launch.
+Local SQLite is durable only on its configured filesystem. Vercel production forbids SQLite; Neon is required. `ALLOW_INSECURE_LOCAL_AUTH` is limited to explicit local production-start tests over loopback and must never be set on Vercel. Do not place secrets in `NEXT_PUBLIC_*`, source, logs, or chat. Operator-run local-to-Neon sync sends canonical users, profiles, and learning events; it never syncs roles, invitations, credentials, or policy versions. Review the [runbook](docs/runbooks/sql-auth-setup.md) before any remote schema or sync operation.
 
-## Development baseline
+The first activity accepts bounded JSX; the other 19 validate bounded JSON against behavioral simulations. Arbitrary learner code is not executed. The server records activity metadata, not raw code or prediction answers. Account export and deletion exist, but events are retained until account deletion; a fixed retention policy, operator access policy, incident channel, and abuse review are still launch gates. No public leaderboard or real-location map uses account data.
 
-- Keep credentials outside the repository. No integration currently needs a key.
-- Ignore `.env` files, private keys, local PDFs, and generated data. Ignore rules
-  are not a substitute for reviewing an eventual Git staging area.
-- Use synthetic fixtures. Do not log source submissions or learner data by default.
-- Treat code, Markdown, SVG, uploads, URLs, and external responses as untrusted.
-- The first checkpoint parses a bounded text-only JSX grammar; it never executes
-  learner code. Its source is sent to the same-origin server for validation, without
-  persistence or source logging. General code execution requires a separate reviewed
-  isolation model, resource limits, and network policy.
-- Saved progress is explicit, version-scoped, device-only metadata with restore and
-  clear controls. Browser progress is not proof of verified skill or leaderboard input.
-- Remote Markdown HTML is dropped; only exact text-summary disclosure syntax is
-  converted to trusted details/summary nodes. External images are not fetched.
-- GitHub reads require the selected repository, allowlisted paths, a full reviewed
-  commit SHA, bounded bodies, and no redirects. Runtime carries no GitHub write token.
-- Define storage, retention, export, deletion, consent, and authorization before
-  collecting learner data or implementing authentication/social features.
+A minimal deletion marker (opaque user ID and hashed email) remains to prevent old sync items from recreating a deleted account. That email cannot register again under the current policy. Operator audit records and sync receipts have separate operational retention; define their retention before public launch.
 
-Dependency and secret scanning, authorization tests, sandbox abuse tests, and
-incident handling remain launch gates. The baseline checker does not claim to
-provide those protections. External security/account changes require approval.
+Treat Markdown, SVG, links, submissions, OAuth responses, and imported data as untrusted. Do not commit private PDFs or learner records. The heuristic secret check, dependency audit, and tests are useful checks, not a security certification. Human review and production configuration remain required before inviting real learners.

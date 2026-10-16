@@ -1,15 +1,11 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { Course } from '../../../../packages/course-schema/index.mjs';
-import {
-  STARTER,
-  HINTS,
-  checkExercise,
-  parseProgress,
-  type Progress,
-  type ExerciseResult,
-} from '../../../../packages/course-runtime/index.mjs';
+import type { Progress } from '../../../../packages/data/learning-store.mjs';
+import { getActivity } from '../../../../packages/course-runtime/activities.mjs';
+import type { ActivityResult } from '../../../../packages/course-runtime/activity-validator.mjs';
+import { checkExercise } from '../../../../packages/course-runtime/index.mjs';
 import { Markdown } from './markdown';
 import { Arrow } from './brand';
 
@@ -18,108 +14,101 @@ export function CoursePlayer({
   chapterId,
   markdown,
   source,
+  initialProgress,
+  signedIn,
 }: {
   course: Course;
   chapterId: string;
   markdown: string;
   source: string;
+  initialProgress: Progress | null;
+  signedIn: boolean;
 }) {
-  const storageKey = `ilearnnation.progress.${course.id}.${course.version}`;
-  const [progress, setProgress] = useState<Progress>({
-    schemaVersion: 1,
-    courseId: course.id,
-    courseVersion: course.version,
-    completed: [],
-    exercisePassed: false,
-  });
-  const [message, setMessage] = useState(
-    'Progress stays in this tab until you choose to save on this device.',
-  );
-  const [code, setCode] = useState(STARTER);
-  const [result, setResult] = useState<ExerciseResult | null>(null);
-  const [hints, setHints] = useState(0);
-  const [running, setRunning] = useState(false);
   const chapter = course.chapters.find((item) => item.id === chapterId);
   const index = course.chapters.findIndex((item) => item.id === chapterId);
   const next = course.chapters[index + 1];
-  const isExercise = chapter?.exerciseId === 'first-component';
-  function persist() {
-    try {
-      localStorage.setItem(storageKey, JSON.stringify(progress));
-      setMessage('Saved on this device only. Use Restore saved progress when you return.');
-    } catch {
-      setMessage('This browser could not save progress. You can keep learning in this tab.');
+  const activity = chapter?.exerciseId ? getActivity(chapter.exerciseId) : null;
+  const [progress, setProgress] = useState<Progress>(
+    initialProgress || { readChapters: [], passedChapters: [], storage: 'sqlite', pendingSync: 0 },
+  );
+  const [sourceText, setSourceText] = useState(activity?.starter || '');
+  const [result, setResult] = useState<ActivityResult | null>(null);
+  const [hintCount, setHintCount] = useState(0);
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState(
+    'Your checkpoint outcomes are saved to your account. Exercise input stays in this tab.',
+  );
+  const pendingAttempt = useRef<{ id: string; kind: 'read' | 'checkpoint'; source: string } | null>(
+    null,
+  );
+  const textPreview = activity?.inputType === 'jsx' ? checkExercise(sourceText) : null;
+
+  async function submit(kind: 'checkpoint' | 'read') {
+    if (!chapter || busy) return;
+    setBusy(true);
+    const snapshot = kind === 'checkpoint' ? sourceText : '';
+    if (
+      !pendingAttempt.current ||
+      pendingAttempt.current.kind !== kind ||
+      pendingAttempt.current.source !== snapshot
+    ) {
+      pendingAttempt.current = { id: crypto.randomUUID(), kind, source: snapshot };
     }
-  }
-  function restore() {
     try {
-      const stored = localStorage.getItem(storageKey);
-      const parsed = parseProgress(
-        stored,
-        course.chapters.map((item) => item.id),
-        { courseId: course.id, courseVersion: course.version },
-      );
-      if (parsed) {
-        setProgress(parsed);
-        setMessage('Restored this course version’s saved progress.');
-      } else setMessage('No compatible saved progress was found. Nothing was changed.');
-    } catch {
-      setMessage('Browser storage is unavailable. Your current session still works.');
-    }
-  }
-  function erase() {
-    try {
-      localStorage.removeItem(storageKey);
-      setProgress({ ...progress, completed: [], exercisePassed: false });
-      setMessage('Saved progress for this course was removed from this device.');
-    } catch {
-      setMessage('Could not remove browser storage. Check your browser’s site-data controls.');
-    }
-  }
-  async function run() {
-    setRunning(true);
-    try {
-      const response = await fetch('/api/exercises/first-component', {
+      const response = await fetch('/api/learning', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ source: code }),
+        body: JSON.stringify({
+          courseId: course.id,
+          courseVersion: course.version,
+          chapterId: chapter.id,
+          kind,
+          ...(kind === 'checkpoint' ? { source: sourceText } : {}),
+          attemptId: pendingAttempt.current.id,
+        }),
       });
+      const body = await response.json();
       if (!response.ok)
-        throw new Error('Unable to validate this attempt right now. Try again shortly.');
-      const checked: ExerciseResult = await response.json();
-      setResult(checked);
-      if (checked.passed) setProgress((current) => ({ ...current, exercisePassed: true }));
+        throw new Error(body.error || 'Your activity could not be saved. Please try again.');
+      setProgress(body.progress);
+      if (body.result) setResult(body.result);
+      setMessage(
+        kind === 'read'
+          ? 'Lesson marked read and saved. Passing the checkpoint is recorded separately.'
+          : body.result.passed
+            ? 'Checkpoint passed and saved. You can return to this lesson at any time.'
+            : 'Attempt saved. Use the feedback and try another small change.',
+      );
+      pendingAttempt.current = null;
     } catch (error) {
-      setResult({
-        runnable: false,
-        passed: false,
-        heading: null,
-        message: error instanceof Error ? error.message : 'Validation is unavailable.',
-      });
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : 'Saving is unavailable. Your current input is still here.',
+      );
     } finally {
-      setRunning(false);
+      setBusy(false);
     }
   }
-  function markRead() {
-    if (!chapter) return;
-    if (isExercise && !progress.exercisePassed) {
-      setMessage('Pass the first component checkpoint before marking this chapter read.');
-      return;
+  async function refresh() {
+    setBusy(true);
+    try {
+      const response = await fetch('/api/learning', { cache: 'no-store' });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error || 'Could not restore progress.');
+      setProgress(body.progress);
+      setMessage('Your saved account progress is up to date.');
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : 'Please try again.');
+    } finally {
+      setBusy(false);
     }
-    setProgress((current) => ({
-      ...current,
-      completed: [...new Set([...current.completed, chapter.id])],
-    }));
-    setMessage(
-      'Marked read in this tab. Reading progress is self-reported; it is not a credential. Save if you want to keep it.',
-    );
   }
-  const preview = checkExercise(code);
   return (
     <div className="player-layout">
       <aside className="course-sidebar">
-        <Link className="back-link" href="/courses">
-          ← All courses
+        <Link className="back-link" href={signedIn ? '/dashboard' : '/courses'}>
+          ← {signedIn ? 'My learning' : 'All courses'}
         </Link>
         <p className="eyebrow">Your learning route</p>
         <h2>
@@ -132,18 +121,18 @@ export function CoursePlayer({
         </p>
         <div className="progress-track">
           <span
-            style={{ width: `${(progress.completed.length / course.chapters.length) * 100}%` }}
+            style={{ width: `${(progress.passedChapters.length / course.chapters.length) * 100}%` }}
           />
         </div>
         <p className="progress-label">
-          {progress.completed.length} of {course.chapters.length} chapters marked read
+          {progress.passedChapters.length} of {course.chapters.length} checkpoints passed
         </p>
         <nav aria-label="Course chapters">
           <Link
             href={`/courses/${course.id}/getting-started`}
             aria-current={chapterId === 'getting-started' ? 'page' : undefined}
           >
-            <span>↳</span> Getting started
+            <span>↳</span>Getting started
           </Link>
           {course.chapters.map((item, i) => (
             <Link
@@ -152,7 +141,7 @@ export function CoursePlayer({
               aria-current={item.id === chapterId ? 'page' : undefined}
             >
               <span>
-                {progress.completed.includes(item.id) ? '✓' : String(i + 1).padStart(2, '0')}
+                {progress.passedChapters.includes(item.id) ? '✓' : String(i + 1).padStart(2, '0')}
               </span>
               {item.title}
             </Link>
@@ -163,7 +152,7 @@ export function CoursePlayer({
           <p>
             Take the time you need.
             <br />
-            The route will still be here.
+            Your route will still be here.
           </p>
         </div>
       </aside>
@@ -171,7 +160,7 @@ export function CoursePlayer({
         <div className="lesson-breadcrumb">
           <Link href="/courses">Course library</Link>
           <span>/</span>
-          <span>{chapter ? `Chapter ${index + 1}` : 'Before you begin'}</span>
+          <span>{chapter ? `Lesson ${index + 1}` : 'Before you begin'}</span>
           <span className="source-label">{source}</span>
         </div>
         <div className="lesson-topline">
@@ -179,10 +168,10 @@ export function CoursePlayer({
             {chapter ? `${chapter.estimatedMinutes} min · self-paced` : 'Your first 10 minutes'}
           </span>
           <a
-            href="https://github.com/proffesergio/modern-fullstack-react-projects-building"
-            target="_blank"
-            rel="noopener noreferrer"
             className="text-link"
+            href="https://github.com/proffesergio/modern-fullstack-react-projects-building"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Course on GitHub <Arrow diagonal />
           </a>
@@ -192,36 +181,36 @@ export function CoursePlayer({
           courseId={course.id}
           chapterIds={course.chapters.map((item) => item.id)}
         />
-        {isExercise && (
+        {activity && (
           <section className="exercise" aria-labelledby="exercise-heading">
             <div className="exercise-title">
               <div>
-                <p className="eyebrow">Your turn · first component</p>
-                <h2 id="exercise-heading">Make one small change.</h2>
+                <p className="eyebrow">Your turn · lesson {index + 1}</p>
+                <h2 id="exercise-heading">{activity.title}</h2>
               </div>
               <span className="tag">Interactive checkpoint</span>
             </div>
-            <p>
-              Change the heading to a sentence of at least 12 characters that includes{' '}
-              <strong>building</strong>. Keep the component’s structure.
-            </p>
+            <p>{activity.prompt}</p>
             <p className="small-note">
-              This first checkpoint parses a text-only JSX heading. It does not execute JavaScript,
-              imports, expressions, or network requests.
+              {activity.inputType === 'jsx'
+                ? 'This checkpoint previews a bounded text-only component.'
+                : 'This lab runs your JSON configuration through a bounded model with real behavior checks.'}{' '}
+              The validator does not execute arbitrary code or store your input.
             </p>
-            <div className="editor-grid">
+            <div className={textPreview ? 'editor-grid' : 'activity-editor'}>
               <div>
                 <label className="editor-label" htmlFor="code-editor">
-                  Welcome.tsx
+                  {activity.inputLabel}
                 </label>
                 <textarea
                   id="code-editor"
                   className="code-editor"
-                  value={code}
+                  value={sourceText}
                   maxLength={8192}
                   onChange={(event) => {
-                    setCode(event.target.value);
+                    setSourceText(event.target.value);
                     setResult(null);
+                    pendingAttempt.current = null;
                   }}
                   spellCheck={false}
                   autoCapitalize="off"
@@ -232,99 +221,123 @@ export function CoursePlayer({
                   Use standard textarea keyboard controls. Tab moves to the next control.
                 </p>
               </div>
-              <div className="preview">
-                <span className="editor-label">Live text preview</span>
-                <div className="preview-content">
-                  {preview.runnable ? (
-                    <h3>{preview.heading}</h3>
-                  ) : (
-                    <p>
-                      Keep a single text-only &lt;h1&gt; inside Welcome() to preview your change.
-                    </p>
-                  )}
+              {textPreview && (
+                <div className="preview">
+                  <span className="editor-label">Live text preview</span>
+                  <div className="preview-content">
+                    {textPreview.runnable ? (
+                      <h3>{textPreview.heading}</h3>
+                    ) : (
+                      <p>{textPreview.message}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <div className="exercise-actions">
-              <button className="button" onClick={run} disabled={running}>
-                {running ? 'Checking…' : 'Run checkpoint'} <Arrow />
-              </button>
-              <button
-                className="button secondary"
-                onClick={() => {
-                  setCode(STARTER);
-                  setResult(null);
-                  setHints(0);
-                }}
-              >
-                Reset code
+              <button className="button" disabled={busy} onClick={() => void submit('checkpoint')}>
+                {busy ? 'Checking…' : 'Run checkpoint'}
               </button>
               <button
                 className="text-link"
-                disabled={hints === HINTS.length}
-                onClick={() => setHints((value) => value + 1)}
+                disabled={busy}
+                onClick={() => {
+                  setSourceText(activity.starter);
+                  setResult(null);
+                  setHintCount(0);
+                  pendingAttempt.current = null;
+                }}
               >
-                Reveal hint {Math.min(hints + 1, HINTS.length)} / {HINTS.length}
+                Reset activity
+              </button>
+              <button
+                className="text-link"
+                disabled={hintCount === activity.hints.length}
+                onClick={() => setHintCount((count) => count + 1)}
+              >
+                Reveal hint {Math.min(hintCount + 1, activity.hints.length)} /{' '}
+                {activity.hints.length}
               </button>
             </div>
-            {hints > 0 && (
+            {hintCount > 0 && (
               <ol className="hint-list">
-                {HINTS.slice(0, hints).map((hint) => (
+                {activity.hints.slice(0, hintCount).map((hint) => (
                   <li key={hint}>{hint}</li>
                 ))}
               </ol>
             )}
             <div aria-live="polite" className={result?.passed ? 'feedback success' : 'feedback'}>
               {result && (
-                <p>
-                  <strong>
-                    {result.passed
-                      ? '✓ Checkpoint passed'
-                      : result.runnable
-                        ? 'One more small step'
-                        : 'Check your component'}
-                  </strong>
-                  <br />
-                  {result.message}
-                </p>
+                <>
+                  <p>
+                    <strong>{result.passed ? '✓ Checkpoint passed' : 'One more small step'}</strong>
+                    <br />
+                    {result.message}
+                  </p>
+                  <ul className="activity-checks">
+                    {result.checks.map((check) => (
+                      <li key={check.name}>
+                        <strong>
+                          {check.passed ? '✓' : '○'} {check.name}
+                        </strong>
+                        <span>{check.detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
               )}
             </div>
           </section>
         )}
-        <section className="progress-panel" aria-labelledby="progress-heading">
-          <h2 id="progress-heading">Keep your place, your way.</h2>
-          <p>
-            Saving is optional. Only course version, chapter IDs, and checkpoint status are stored
-            in this browser. Your progress metadata stays local. Running a checkpoint sends its code
-            to this site’s validator for the response; the validator does not store it. No account,
-            location, or analytics event is collected.
-          </p>
-          <div className="progress-actions">
-            {chapter && (
-              <button className="button secondary" onClick={markRead}>
-                Mark chapter read
+        {chapter ? (
+          <section className="progress-panel" aria-labelledby="progress-heading">
+            <h2 id="progress-heading">Keep your place.</h2>
+            <p>
+              Lesson reads and checkpoint results are separate. Results are checked by the server
+              and saved for this course version. Raw activity input is not retained.
+            </p>
+            <div className="progress-actions">
+              <button
+                className="button secondary"
+                disabled={busy}
+                onClick={() => void submit('read')}
+              >
+                {progress.readChapters.includes(chapter.id)
+                  ? 'Lesson marked read'
+                  : 'Mark lesson read'}
               </button>
-            )}
-            <button className="button" onClick={persist}>
-              Save on this device
-            </button>
-            <button className="button secondary" onClick={restore}>
-              Restore saved progress
-            </button>
-            <button className="text-link" onClick={erase}>
-              Clear saved progress
-            </button>
-          </div>
-          <p role="status" className="small-note">
-            {message}
-          </p>
-        </section>
-        {next && (
+              <button className="text-link" disabled={busy} onClick={() => void refresh()}>
+                Refresh saved progress
+              </button>
+            </div>
+            <p role="status" className="small-note">
+              {message}
+            </p>
+          </section>
+        ) : (
+          <section className="progress-panel">
+            <h2>A place to start.</h2>
+            <p>
+              The overview and references are open to everyone. Sign in and complete your profile to
+              enter all twenty interactive lessons.
+            </p>
+            <Link className="button" href={signedIn ? '/dashboard' : '/signin'}>
+              {signedIn ? 'Open my learning path' : 'Sign in to start learning'} <Arrow />
+            </Link>
+          </section>
+        )}
+        {next && chapter && (
           <Link className="next-lesson" href={`/courses/${course.id}/${next.id}`}>
             <div>
               <span className="eyebrow">Next on your route</span>
               <strong>{next.title}</strong>
             </div>
+            <Arrow />
+          </Link>
+        )}
+        {chapter && !next && (
+          <Link className="next-lesson" href="/dashboard">
+            <strong>Return to my learning dashboard</strong>
             <Arrow />
           </Link>
         )}

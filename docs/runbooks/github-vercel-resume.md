@@ -1,5 +1,56 @@
 # Resume GitHub publication and Vercel deployment
 
+> Current feature status: the 20-lesson, Auth.js, SQLite/Neon, protected admin,
+> and blog changes are local and not deployed. The READY deployment below is
+> baseline commit 563aedb. See [SQL/auth setup](sql-auth-setup.md) before any
+> new deployment. Neon is initialized and verified; Google OAuth credentials
+> remain absent. Follow [the Google setup guide](google-oauth-setup.md).
+
+## Current outcome — 2026-10-16
+
+Platform commit 563aedb was pushed and the first production deployment is READY at
+https://i-lear-nation.vercel.app. Reuse project i-lear-nation in n3rd-s-projects;
+its root directory is apps/web and its framework is Next.js. Do not create another
+project. Build and core route smoke checks passed. Anonymous homepage returned the
+actual platform with 200; production admin returned 404.
+
+Recovery recheck on 2026-10-16: `vercel inspect` confirms the same deployment
+`dpl_BCmHRC3yz3PMUhgig2XBEkt39MVR` is Ready. `vercel curl /` returned HTTP 200
+with the actual brand and course-repository link. `vercel env ls production`
+returned no variables. No new deployment or production environment write occurred.
+
+Vercel Git connection failed because the account has no GitHub login connection.
+That must be resolved before claiming automatic deploys on push. The existing
+GitHub workflow runs checks; its status is not verified here. Earlier DNS and
+unlinked-project notes below are historical. Platform course files are now normal
+committed/pushed files, rather than an embedded Git pointer.
+
+## Gated GitHub Actions deployment
+
+The checked-in `Repository baseline` workflow now offers a manual
+`deploy_production` input, defaulting to false. Pushes and pull requests run checks.
+An explicitly approved dispatch on `main` can deploy only after both check jobs
+pass. The deployment job uses the `production` environment; configure its required
+reviewers and branch restrictions in GitHub before enabling it. Repository or
+environment secrets must supply `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and
+`VERCEL_PROJECT_ID`. These settings have not been changed or verified remotely.
+
+The job pins Vercel CLI 64.2.0 and follows the
+[official pull/build/prebuilt pattern](https://vercel.com/kb/guide/how-can-i-use-github-actions-with-vercel)
+(checked 2026-10-16). `scripts/check-production.mjs` requires configured Google
+sign-in, Neon mode, and the account/policy tables before building or deploying.
+It performs read-only schema probes and never runs migrations. Its local check
+currently fails closed because production account variables and Google credentials
+are absent. The approved Neon schema is initialized. Configure the production
+variables and Google callback `/api/auth/callback/google`, then use the
+manual workflow. The new CI deployment path has not been run on GitHub.
+
+The next application phase is described in
+[the next-phase scope](../product/next-phase-proposal.md), with
+[a saved continuation prompt](../context-memory/next-phase-prompt.md).
+
+## Historical deployment handoff
+
 Updated: 2026-10-16. Scope: finish the dedicated course repository, verify pinned
 GitHub lesson reads, deploy the existing website, and hand off. Further feature
 development is deferred until the owner supplies the required connections.

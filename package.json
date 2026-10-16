@@ -21,10 +21,17 @@
     "course:validate": "node scripts/validate-course.mjs",
     "course:export": "node scripts/export-course.mjs",
     "course:sync": "node scripts/sync-course.mjs",
+    "db:status": "node scripts/db.mjs status",
+    "db:init": "node scripts/db.mjs init",
+    "db:bootstrap": "node scripts/db.mjs bootstrap-admin",
+    "db:invite": "node scripts/db.mjs invite",
+    "db:sync": "node scripts/db.mjs sync",
+    "neon:setup": "node scripts/neon-setup.mjs",
     "check:repository": "python3 scripts/check_repository.py"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
+    "@electric-sql/pglite": "0.5.10",
     "@playwright/test": "1.64.1",
     "prettier": "3.9.10"
   }

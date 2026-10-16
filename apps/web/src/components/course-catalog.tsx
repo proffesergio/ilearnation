@@ -26,7 +26,7 @@ export function CourseCatalog({ course, ideas, source, compact = false }: Course
             <i />
             <span>04</span>
             <i />
-            <span>08</span>
+            <span>20</span>
           </div>
           <span className="art-footer">MAKE THE WEB YOUR WORKSHOP.</span>
         </div>
@@ -37,17 +37,17 @@ export function CourseCatalog({ course, ideas, source, compact = false }: Course
           </div>
           <h3>Modern full-stack. Built one step at a time.</h3>
           <p>
-            The planned guided route begins with setup and moves through web foundations, React,
-            Next.js, data, quality, and deployment toward a complete application.
+            The guided route begins with setup and moves through web foundations, React, Next.js,
+            data, quality, and deployment toward a complete application.
           </p>
           <div className="course-meta">
-            <span>{course.chapters.length} authored draft chapters</span>
+            <span>{course.chapters.length} guided lessons</span>
             <span>Interactive checkpoints</span>
             <span>Self-paced</span>
           </div>
           <p className="catalog-rights-note">
-            The current draft ends with a local capstone; deployment practice and the PDF chapter
-            adaptation are being developed. Reference-page styling will guide the lesson design.
+            Practice each concept with a runnable checkpoint, an interactive lab, progressive hints,
+            and feedback. Sign in to save your progress and build toward the capstone.
           </p>
           <span className="course-cta">
             Start with the getting-started guide <Arrow />

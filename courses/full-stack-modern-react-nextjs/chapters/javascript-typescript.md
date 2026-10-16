@@ -1,6 +1,6 @@
 # 2. JavaScript data and TypeScript contracts
 
-Draft lesson · course version 0.1.0.
+Draft lesson · course version 0.2.0.
 
 ![Learning route: read, run, edit, check, then reflect.](../assets/learning-route.svg)
 
@@ -23,8 +23,7 @@ This optional decoration plays once for 2.4 seconds. GitHub cannot apply your op
 
 ## Prerequisites
 
-Complete [Foundations](foundations.md). Recognize objects, arrays, functions, and
-`true`/`false`. A JavaScript object groups named values; an array preserves an order.
+Complete [Foundations: make one observable change](foundations.md), and review any earlier topic you need. Use synthetic data and keep project credentials outside the lesson.
 
 ## Effort
 
@@ -75,6 +74,10 @@ console.log('Checkpoint passed');
 ```
 
 ## Exercise
+
+**Online scenario: Transform a study queue.** A synthetic study queue contains 5-, 15-, and 20-minute sessions plus an invalid record. Keep sessions of at least 15 minutes and return trimmed titles without mutating the source. Choose operation "map" or "filter-map" and set the normalization policy.
+
+The lesson player now includes the **javascript-typescript** activity. Read its prompt, repair the failing starter, submit it, and inspect the behavioral checks. This activity uses a small JSON configuration to drive synthetic scenarios; it never executes your submitted code. Passing checks verifies only the bounded activity, not full framework competence. Reset restores the original failing starter; copy your work first if needed. Malformed or oversized input returns a repair message.
 
 1. Add a second unfinished note and update the expected list in order.
 2. Before implementing, add an assertion that a blank title is rejected.

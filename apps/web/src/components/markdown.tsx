@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { createContext, useContext, useState, type ReactNode } from 'react';
 import ReactMarkdown from 'react-markdown';
@@ -60,6 +61,7 @@ export function Markdown({
         remarkPlugins={[remarkGfm, safeDisclosures]}
         components={{
           details: SafeDetails,
+          pre: ({ children }) => <pre tabIndex={0}>{children}</pre>,
           a: ({ href, children }) => {
             const safe = lessonLink(href, courseId, chapterIds);
             if (!safe) return <span>{children}</span>;

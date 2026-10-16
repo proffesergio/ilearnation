@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { siteURL } from '@/lib/articles';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteURL),
   title: { default: 'iLearnNation — Your next chapter starts here', template: '%s · iLearnNation' },
   description:
     'A practical learning studio. Read a focused lesson, change real code, understand feedback, and build at your pace.',

@@ -14,10 +14,11 @@ debug, and explain.
 [Support the course](#help-the-next-learner-find-their-way)
 
 > [!NOTE]
-> **Original draft 0.1.0.** Eight chapters and dependency-free JavaScript checkpoints
-> are available. React/Next.js practice extensions require their declared framework
-> environment. The curriculum still needs human review; reading or self-marking
-> progress does not verify mastery or award a credential.
+> **Original draft 0.2.0.** Twenty complete lesson loops, trusted dependency-free
+> JavaScript checkpoints, and bounded online scenario activities are available.
+> The platform requires an account to submit checks and save progress. The exercises
+> verify synthetic cases; full framework implementations and deployment require
+> separate project evidence. Human curriculum review remains required before publication.
 
 ## Your first ten minutes
 
@@ -47,14 +48,26 @@ own words. Carry the idea into the chapter's framework extension or capstone.
 
 | Step | Chapter | Practice focus |
 | --- | --- | --- |
-| 01 · Get oriented | [Foundations](chapters/foundations.md) | Environment checks, browser/server responsibilities, and a first component |
-| 02 · Work with data | [JavaScript and TypeScript](chapters/javascript-typescript.md) | Immutable transformations, types, and runtime checks |
-| 03 · Build interfaces | [React components](chapters/react-components.md) | Props, state transitions, events, and labeled forms |
-| 04 · Connect the routes | [Next.js routing](chapters/nextjs-routing.md) | Layouts, data states, and server/client boundaries |
-| 05 · Handle real inputs | [Data and forms](chapters/data-and-forms.md) | Validation, ownership, identity concepts, and persistence |
-| 06 · Prove the behavior | [Quality, accessibility, and security](chapters/quality-accessibility-security.md) | Regression checks, keyboard review, and safer links |
-| 07 · Prepare to ship | [Production workflows](chapters/production-workflows.md) | Git, reproducible CI, deployment concepts, and recovery |
-| 08 · Make it yours | [Capstone](chapters/capstone.md) | A private learning notebook with tests, a README, and a retrospective |
+| 01 | [Foundations: make one observable change](chapters/foundations.md) | Orientation, environment checks, browser/server distinctions, and the first component learning loop. |
+| 02 | [JavaScript data and TypeScript contracts](chapters/javascript-typescript.md) | Immutable transformations, static types, and runtime checks with meaningful edge cases. |
+| 03 | [React: describe the next interface](chapters/react-components.md) | Props, state, transitions, events, and a labeled form practice extension. |
+| 04 | [Node.js and document data](chapters/node-and-data.md) | Model asynchronous server work, owner-scoped document queries, projection, and storage lifetimes. |
+| 05 | [APIs: make a small HTTP contract](chapters/api-contracts.md) | Validate a note creation endpoint and test status codes without opening a network port. |
+| 06 | [Asynchronous data and request races](chapters/async-data.md) | Keep server-state cache identity, out-of-order responses, retries, and refresh failures understandable. |
+| 07 | [Data, validation, persistence, and identity](chapters/data-and-forms.md) | Validate before writes, scope ownership to trusted identity, and state storage guarantees honestly. |
+| 08 | [Identity, sessions, and access](chapters/identity-and-access.md) | Trace trusted identity into authorization and reason about cookies, expiry, and forged requests. |
+| 09 | [Rendering and meaningful discovery](chapters/rendering-and-seo.md) | Compare server and client rendering, useful initial HTML, metadata, canonical URLs, and private routes. |
+| 10 | [Quality: prove behavior and include people](chapters/quality-accessibility-security.md) | Behavior tests, keyboard and form review, safe URL policies, and the limits of automated evidence. |
+| 11 | [Learning insights without surveillance](chapters/learning-insights.md) | Aggregate minimal consented events, deduplicate delivery, and explain small-group suppression. |
+| 12 | [GraphQL: a bounded server contract](chapters/graphql-api.md) | Select public fields, validate query depth, and authorize each synthetic resolver. |
+| 13 | [GraphQL: client state and mutations](chapters/graphql-client.md) | Model normalized identity, optimistic updates, duplicate confirmations, and targeted rollback. |
+| 14 | [Realtime: authenticated server events](chapters/realtime-server.md) | Check connection identity, room membership, payload limits, storage failure, and acknowledgement order. |
+| 15 | [Realtime: reconnect and reconcile](chapters/realtime-client.md) | Bound offline queues, preserve client IDs across retries, and deduplicate confirmations. |
+| 16 | [Realtime: durable replay and retention](chapters/realtime-persistence.md) | Combine scoped idempotency, sequence cursors, owner filtering, and retention in an event log. |
+| 17 | [Next.js: routes and execution boundaries](chapters/nextjs-routing.md) | App Router routes and layouts, safe server/client props, and explicit data states. |
+| 18 | [Caching, invalidation, and performance](chapters/caching-performance.md) | Partition private caches, invalidate after writes, and enforce a useful asset budget. |
+| 19 | [Git, CI, deployment concepts, and recovery](chapters/production-workflows.md) | Local diff review, reproducible checks, least privilege, release approval, and rollback rehearsal. |
+| 20 | [Capstone: a private learning notebook](chapters/capstone.md) | A bounded local app brief combining routes, forms, validated persistence, tests, accessibility, and a retrospective. |
 
 The capstone is learner project work. The Node checkpoints demonstrate individual
 concepts; they do not generate a complete React/Next.js application. Keep the
@@ -62,8 +75,7 @@ chapter acceptance criteria and actual evidence beside your implementation.
 
 ## Run your first checkpoint
 
-Use **Node.js 24 LTS**, an editor, and a terminal. The authored examples were checked
-locally with Node 24.14.0. No package installation, secret keys, or cloud account is
+Use **Node.js 22 or later**, an editor, and a terminal. The platform test harness executes all twenty authored checkpoints with its installed Node.js version. No package installation, secret keys, or cloud account is
 needed for the dependency-free checkpoints.
 
 You can read online, or clone the dedicated course repository:
@@ -94,7 +106,9 @@ create from the lesson, not a generated starter already present in this reposito
 | `courses/README.md` in the platform | A catalog linking to available courses; it is not a separate repository |
 
 The interactive lesson player belongs to the **platform repository**. It includes
-a bounded first JSX edit/check exercise and explicit device-only progress controls.
+one bounded JSX edit/check and nineteen JSON scenario labs. Authenticated submissions
+are validated on the server and saved using the configured platform backend. Read-only
+course content and offline checkpoints remain useful without a cloud account.
 Follow the platform README to run the website. This standalone course has no root
 `package.json`, web server, or platform test suite; do not run `npm ci` here.
 Changes between the two repositories require reviewed commits and an explicit
@@ -107,7 +121,7 @@ From the iLearnNation **platform root**, after its documented setup:
 
 ```sh
 npm run course:validate
-node --test tests/course-schema.test.mjs tests/course-content.test.mjs
+node --test tests/course-schema.test.mjs tests/course-content.test.mjs tests/activities.test.mjs
 ```
 
 These paths belong to the platform, not this standalone course. The checks execute
@@ -146,3 +160,18 @@ this repository does not currently grant an open-source or course reuse license.
 Keep tokens, production records, and personal learner data out of coursework and
 commits. Work with synthetic data and choose what you share. The course does not
 promise income, employment, or credentials.
+
+## Version and activity boundaries
+
+Version 0.1.0 is preserved under [versions/0.1.0](versions/0.1.0/course.json),
+including its eight original lesson texts. Version 0.2.0 preserves those chapter IDs
+and expands the pathway to twenty lessons. Progress belongs to a course version;
+previous progress must not silently be reinterpreted as completion of new activities.
+The active manifest's completion rule defines the current route.
+
+The nineteen JSON labs model behavior such as authorization, request races, query
+selection, cache invalidation, and event replay. They do not run arbitrary learner
+JavaScript, databases, GraphQL engines, sockets, or deployment tools. All twenty
+lessons also provide trusted runnable JavaScript with assertions and an application
+extension. Keep lab evidence, local project evidence, and production evidence separate.
+The English text-first flow supports phone and desktop use with low bandwidth.

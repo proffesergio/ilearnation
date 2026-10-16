@@ -14,7 +14,7 @@ test('the draft manifest is valid without mutating its input', () => {
   const result = validateCourse(manifest);
   assert.equal(result.success, true, JSON.stringify(result));
   assert.deepEqual(manifest, before);
-  assert.equal(result.data.version, '0.1.0');
+  assert.equal(result.data.version, '0.2.0');
 });
 for (const [name, change] of [
   [

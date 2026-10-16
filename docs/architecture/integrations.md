@@ -3,13 +3,18 @@
 Updated: 2026-10-16. Source: whitelisted local configuration, exposed tool metadata,
 GitHub CLI status, plugin discovery, and primary documentation. Tool exposure is
 not proof of account access. Public documentation reads, plugin discovery, dependency installation, and a
-production dependency-advisory metadata request were performed; no connected
-learner data or remote repository files were changed.
+production dependency-advisory metadata request were performed. The earlier
+authorized platform push and Vercel production deployment succeeded. During crash
+recovery the owner authorized a new Neon project/schema and synthetic hosted
+checks; the synthetic accounts were deleted. No real learner data was migrated.
 
 | Capability | Observed status | Data scope | Current use |
 | --- | --- | --- | --- |
-| GitHub | Owner reports CLI login; API read blocked by shell DNS; credentials unverified | Selected course repository and public lesson files | Local export and tested read adapter; live import unverified |
-| Vercel | Fresh shell observes CLI 64.2.0 (earlier 59.19.1); owner authorizes deployment; whoami/deploy fail on DNS; project not linked | Reviewed website source and required course/runtime files | No deployment URL returned |
+| GitHub | Platform main push of 563aedb verified using existing Git credentials; API auth remains unverified | Platform repository and selected public course repository | Existing checks workflow; live pinned import unverified |
+| Vercel | CLI production deployment READY; project i-lear-nation, team n3rd-s-projects, root apps/web | Reviewed source/course files; private PDFs and env files excluded | https://i-lear-nation.vercel.app; core route smoke passed |
+| Auth.js and Google OAuth | Implemented locally; Google credentials absent | Identity and session for private profile/progress | Open Google entry when configured; no live OAuth verification |
+| Neon Postgres | Authorized project fragrant-resonance-47092618/main/ilearnnation created in aws-ap-southeast-1; schema/data/sync/local browser verified | Synthetic account/progress/export/deletion checks; private connection only in ignored env | Local website now uses Neon; production Vercel account configuration remains pending |
+| Node 24 SQLite | Durable explicit local adapter implemented | Local account and learning data | Manual outbox sync to Neon; not Vercel storage |
 | Mapbox | Owner authorized MCP use; no Mapbox tools exposed or configured locally | Depending on MCP scopes: styles, tokens, map feedback; runtime map loads are separate | Synthetic local globe/list only |
 | Public web research | Read-only search/retrieval available | Official public documentation URLs and search terms | Dated source records; no private content |
 | Sites | Tools available; local-only skill workflow used | Hosting/source/storage if invoked | No Site registered, saved, or deployed |
@@ -65,9 +70,32 @@ regions, show freshness, respect reduced motion, and preserve a WebGL-free list.
 Before implementation, document direction, trusted authorization, data minimization,
 idempotency, retry limits/deduplication, failure/dead-letter handling, redacted audit,
 owner/disable switch, retention, deletion propagation, and conflict resolution.
-No production CMS, moderation, notification, automation, or scoring writes exist.
+SQL admin activity and policy-history writes are implemented locally; production
+configuration is pending. No moderation, notification, automation, or applied
+scoring writes exist.
 
-## Vercel CLI deployment contract — authorized, blocked
+## Current Vercel deployment outcome
+
+Production is READY at https://i-lear-nation.vercel.app. The actual homepage is
+publicly reachable. Authenticated route checks passed for course/catalog/assets
+and exercise submission; /admin returned 404. Git integration linking returned
+400 because a GitHub login connection is missing from the Vercel account.
+Automatic deployments are not configured. Do not claim GitHub Actions deploys the
+site; the existing workflow performs checks. No GitHub secret was configured.
+
+Recovery recheck: Vercel CLI confirms deployment
+`dpl_BCmHRC3yz3PMUhgig2XBEkt39MVR` remains Ready, the homepage returns HTTP 200
+with the actual brand/course link, and production has no environment variables.
+Google Cloud CLI is absent. The owner accepted a manual Google OAuth setup
+fallback; [its runbook](../runbooks/google-oauth-setup.md) records the primary
+sources, exact callbacks, and remaining Vercel variables. No Google project,
+production environment write, or new application deployment occurred in recovery.
+
+The CLI created ignored local link/environment files and generated its own
+deployment-protection bypass for route checks. Do not print or publish those
+credentials. Anonymous homepage verification used no bypass credential.
+
+## Earlier deployment blockers and continuing constraints
 
 The owner's latest instruction explicitly authorizes website deployment by CLI.
 GitHub course completion is also already requested; do not ask again merely because

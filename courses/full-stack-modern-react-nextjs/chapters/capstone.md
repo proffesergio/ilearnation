@@ -1,6 +1,6 @@
-# 8. Capstone: a private learning notebook
+# 20. Capstone: a private learning notebook
 
-Draft lesson · course version 0.1.0. This is a project brief with a tested planning
+Draft lesson · course version 0.2.0. This is a project brief with a tested planning
 checkpoint, not a claim that completing the checkpoint creates a full-stack app.
 
 ![Learning route: read, run, edit, check, then reflect.](../assets/learning-route.svg)
@@ -24,9 +24,7 @@ This optional decoration plays once for 2.4 seconds. GitHub cannot apply your op
 
 ## Prerequisites
 
-Complete chapters 1–7 and retain your checkpoint experiments. You need an existing
-Next.js App Router practice project and a reviewed local persistence adapter for
-the full project. The planning checkpoint itself requires only Node.js 24 LTS.
+Complete [Git, CI, deployment concepts, and recovery](production-workflows.md), and review any earlier topic you need. Use synthetic data and keep project credentials outside the lesson.
 
 ## Effort
 
@@ -72,6 +70,10 @@ console.log('Checkpoint passed');
 ```
 
 ## Exercise
+
+**Online scenario: Integrate a private notebook.** Integrate the notebook lifecycle: trusted session ownership, server-side validation, confirmation only after commit, owner-scoped deletion, and a machine-readable JSON export. Deny another account's reads/deletes and never report invalid or failed writes as successful. Choose the policy values that make those cases hold.
+
+The lesson player now includes the **capstone** activity. Read its prompt, repair the failing starter, submit it, and inspect the behavioral checks. This activity uses a small JSON configuration to drive synthetic scenarios; it never executes your submitted code. Passing checks verifies only the bounded activity, not full framework competence. Reset restores the original failing starter; copy your work first if needed. Malformed or oversized input returns a repair message.
 
 1. Write three acceptance scenarios before implementation: save a valid note and
    see it after restart; reject a blank title without writing; delete a note and
@@ -144,3 +146,4 @@ a real learner complete their work?
 - Vercel Next.js team, [Forms with Server Actions](https://nextjs.org/docs/app/guides/forms), official reference, accessed 2026-10-16.
 - W3C Web Accessibility Initiative, [Labeling Controls](https://www.w3.org/WAI/tutorials/forms/labels/), official reference, accessed 2026-10-16.
 - See [source and rights records](../references.md).
+- Vercel Next.js team, [Deploying](https://nextjs.org/docs/app/getting-started/deploying), official primary documentation, accessed 2026-10-16; link only.

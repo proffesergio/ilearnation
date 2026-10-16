@@ -1,6 +1,6 @@
 # Local development and source handoff
 
-Use Node.js 22 or later and npm. Dependencies are pinned in package-lock.json.
+Use Node.js 24 and npm. Dependencies are pinned in package-lock.json.
 The first implementation was checked on Node 24.14.0. From the repository root:
 
 ```sh
@@ -16,11 +16,11 @@ npm run test:e2e
 python3 scripts/check_repository.py
 ```
 
-The local site is `http://127.0.0.1:3000`. The admin draft preview is `/admin` in
-development. It edits tab-local drafts and downloads proposals; it is not a
-production CMS authorization system. Production admin defaults to unavailable.
+The local site is `http://127.0.0.1:3000`. Both `/admin` and the draft workbench
+at `/admin/studio` require a signed-in account with a current SQL admin role.
+Configure accounts and storage with the [SQL/auth runbook](sql-auth-setup.md).
 Run `npm run build` before browser checks. E2E starts its own production server on
-port 3130 with only the public-data admin preview enabled; it stops that server
+port 3130 with an isolated test SQLite database and real invitation sessions; it stops that server
 afterward. Override `ILEARNNATION_E2E_PORT` if an interrupted test left a listener;
 do not terminate an unrelated process to free a port. The browser configuration uses installed Chrome where available; set
 `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to override. CI uses Playwright Chromium.
@@ -38,7 +38,7 @@ its Next.js lint rules are checked locally.
 npm run course:export
 ```
 
-Review `.course-export/modern-fullstack-react-projects-building/0.1.0/` before
+Review `.course-export/modern-fullstack-react-projects-building/0.2.0/` before
 creating/pushing the selected remote. The exporter refuses to overwrite an existing
 payload. License selection, human curriculum review, remote existence/visibility,
 and GitHub access must be resolved. Do not include refBooks or platform secrets.
@@ -81,8 +81,9 @@ MCP authorization does not configure a browser token or approve billable map loa
 
 ## Current limits
 
-The first JSX exercise intentionally accepts only a text heading; it never evaluates
-JavaScript. The API has a process-local anonymous request cap, not a distributed
-production abuse-control service. Progress is device-local, self-reported, and not
-a verified credential. No account signup, profile, learner deletion service, live
-policy activation, moderation, remote publishing, or analytics has been built.
+The first JSX activity accepts bounded text; the other 19 validate bounded JSON
+simulations. The new local SQL store holds private profiles and version-scoped
+activity, with account export/deletion and guarded admin reads. The previous
+device-only progress path remains historical. Google OAuth and Neon cloud setup
+have not been verified. No live policy points, moderation, or analytics service
+has been enabled.

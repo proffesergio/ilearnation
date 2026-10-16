@@ -1,19 +1,37 @@
-import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { notFound, redirect } from 'next/navigation';
 import { Header } from '@/components/brand';
-import { AdminWorkspace } from '@/components/admin-workspace';
-import { loadCourse } from '@/lib/course';
+import { AdminConsole } from '@/components/admin-console';
+import { currentUser } from '@/lib/auth';
+import { loadAdminData } from '@/lib/admin-data';
 export const dynamic = 'force-dynamic';
 export const metadata = {
-  title: 'Studio admin — local draft preview',
+  title: 'Learning administration',
   robots: { index: false, follow: false },
 };
 export default async function Admin() {
-  if (process.env.NODE_ENV !== 'development' && process.env.ADMIN_PREVIEW !== 'true') notFound();
-  const { course, lessons, source } = await loadCourse();
+  const user = await currentUser({ authoritative: true });
+  if (!user) redirect('/signin');
+  if (user.role !== 'admin') notFound();
+  const data = await loadAdminData(user.id);
   return (
     <>
       <Header />
-      <AdminWorkspace course={course} lessons={lessons} source={source} />
+      <main id="main-content" className="wrap learner-dashboard">
+        <p className="eyebrow">Owner workspace</p>
+        <h1>Learning administration.</h1>
+        <p className="lead">Understand progress and review the rules that explain it.</p>
+        <p>
+          <Link className="text-link" href="/admin/studio">
+            Open curriculum draft studio
+          </Link>{' '}
+          ·{' '}
+          <Link className="text-link" href="/dashboard">
+            My learning
+          </Link>
+        </p>
+        <AdminConsole initial={data} />
+      </main>
     </>
   );
 }

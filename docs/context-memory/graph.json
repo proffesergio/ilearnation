@@ -20,7 +20,7 @@
       "type": "course",
       "state": "current",
       "evidence": ["courses/full-stack-modern-react-nextjs/course.json"],
-      "description": "Original draft 0.1.0, schema 1, eight authored chapters; not a published release."
+      "description": "Original draft 0.2.0, schema 1, twenty authored lessons; eight old IDs preserved and draft 0.1.0 snapshotted. Not published."
     },
     {
       "id": "first-chapter",
@@ -37,14 +37,14 @@
       "type": "lesson",
       "state": "current",
       "evidence": ["apps/web/src/components/course-player.tsx"],
-      "description": "Website lesson player: safe Markdown, disclosures, explicit version-scoped device progress."
+      "description": "Lesson player with public activity metadata and private version-scoped SQL progress after sign-in and profile setup."
     },
     {
       "id": "first-exercise",
       "type": "exercise",
       "state": "current",
       "evidence": ["packages/course-runtime/index.mjs", "tests/runtime.test.mjs"],
-      "description": "Constrained text-only JSX grammar with feedback, hints and reset; no arbitrary execution."
+      "description": "First bounded JSX activity plus nineteen bounded JSON simulations; no arbitrary learner execution."
     },
     {
       "id": "first-loop-plan",
@@ -118,15 +118,22 @@
       "id": "web-app",
       "type": "feature",
       "state": "current",
-      "description": "Next 16.4.1 / React 19.3.1 npm workspace; local implementation, no deployment. Shared footer links to the dedicated course repository and main navigation opens the course catalog.",
-      "evidence": ["apps/web/package.json", "package-lock.json", "apps/web/src/components/brand.tsx"]
+      "description": "Next 16.4.1 / React 19.3.1 workspace. Current feature work is local; earlier baseline 563aedb was deployed. Footer links to dedicated course repository.",
+      "evidence": [
+        "apps/web/package.json",
+        "package-lock.json",
+        "apps/web/src/components/brand.tsx"
+      ]
     },
     {
       "id": "admin-drafts",
       "type": "feature",
       "state": "current",
-      "description": "Public-content local draft preview only; no privileged writes, production defaults to 404.",
-      "evidence": ["apps/web/src/components/admin-workspace.tsx", "apps/web/src/app/admin/page.tsx"]
+      "description": "Authenticated SQL-admin curriculum draft workspace; tab-local drafts and downloads only, no CMS publishing.",
+      "evidence": [
+        "apps/web/src/components/admin-workspace.tsx",
+        "apps/web/src/app/admin/studio/page.tsx"
+      ]
     },
     {
       "id": "consistency-v1",
@@ -150,7 +157,7 @@
       "id": "github-publication",
       "type": "workflow",
       "state": "current",
-      "description": "Owner reports both repositories pushed to main. Local main tracking refs agree: platform 9bbab18 and course a21819c. Live reads and remote CI unverified.",
+      "description": "Platform main push of 563aedb verified. Course history remains a21819c with local README/assets changes. Remote CI and live pinned course imports remain unverified.",
       "evidence": [
         "docs/runbooks/local-development.md",
         "scripts/export-course.mjs",
@@ -183,21 +190,21 @@
       "id": "browser-validation",
       "type": "workflow",
       "state": "current",
-      "description": "Desktop/mobile production-build flows, axe checks, Markdown safety, progress restore/delete, policy replay.",
+      "description": "Desktop/mobile production-build flows for invitation/profile, all20 checkpoints and SQL persistence, admin policies, export/deletion, accessibility, keyboard and reduced motion.",
       "evidence": ["playwright.config.ts", "tests/e2e/learning.spec.ts"]
     },
     {
       "id": "deployment-authorization",
       "type": "decision",
       "state": "approved",
-      "description": "Owner explicitly requests Vercel CLI website deployment; further feature work deferred until connections are supplied.",
+      "description": "Owner authorized platform push and Vercel deployment. Subsequent request asks for a proposed twenty-lesson account/admin/blog phase and questions before application code.",
       "evidence": ["docs/context-memory/decisions.md", "plan.md"]
     },
     {
       "id": "vercel-deployment",
       "type": "integration",
-      "state": "blocked",
-      "description": "CLI installed; no project link; whoami and deployment fail with DNS errors. No deployment URL returned. Local build/course tracing verified.",
+      "state": "current",
+      "description": "Production READY at https://i-lear-nation.vercel.app, project i-lear-nation, root apps/web. Build and route smoke passed; actual anonymous homepage 200. Automatic Git deploys need a Vercel GitHub login connection.",
       "evidence": [
         "docs/runbooks/github-vercel-resume.md",
         ".vercelignore",
@@ -233,7 +240,7 @@
       "id": "course-file-inclusion",
       "type": "workflow",
       "state": "current",
-      "description": "Owner replaced embedded pointer with normal staged course files and preserved independent metadata in ignored .local-data/course-git/full-stack-modern-react-nextjs.git. Eight chapters verified; inclusion still needs commit and latest docs/assets need restaging.",
+      "description": "Platform baseline tracks normal course files; independent course Git metadata is preserved in ignored local storage. Current20-lesson expansion awaits its own platform commit.",
       "evidence": [
         "docs/runbooks/include-courses-in-platform.md",
         "docs/context-memory/last-handoff.md"
@@ -243,7 +250,7 @@
       "id": "course-roadmap",
       "type": "course",
       "state": "proposed",
-      "description": "All 20 chapters from the owner-rights-confirmed 2024 Packt reference are mapped to original interactive activities; full conversion and deployment path remain unfinished.",
+      "description": "Twenty original draft lessons and activities authored against the source map; human review and deployment remain unfinished.",
       "evidence": [
         "docs/research/2026-10-16-course-roadmap-sources.md",
         "refBooks/references.json",
@@ -260,9 +267,80 @@
         "apps/web/src/lib/course-ideas.ts",
         "apps/web/src/app/globals.css"
       ]
+    },
+    {
+      "id": "sql-auth",
+      "type": "feature",
+      "state": "current",
+      "description": "Auth.js Google or single-use invitation entry, profile gate, private SQL progress; Neon schema/data/sync and local hosted-backed browser flow verified. Explicit durable SQLite remains available; Google OAuth unconfigured.",
+      "evidence": [
+        "docs/adr/0002-sql-auth-and-sync.md",
+        "apps/web/src/lib/auth.ts",
+        "packages/data/learning-store.mjs"
+      ]
+    },
+    {
+      "id": "neon-project",
+      "type": "integration",
+      "state": "current",
+      "description": "Owner-authorized CLI creation of ilearnnation project fragrant-resonance-47092618, main branch, ilearnnation database, aws-ap-southeast-1. Schema initialized; credentials only in ignored env; synthetic hosted checks passed and accounts deleted.",
+      "evidence": ["docs/runbooks/sql-auth-setup.md", "docs/context-memory/last-handoff.md"]
+    },
+    {
+      "id": "local-sync",
+      "type": "workflow",
+      "state": "current",
+      "description": "Operator-run SQLite to Neon outbox for canonical users, profiles and events; excludes roles, invitations, credentials and policies.",
+      "evidence": ["scripts/db.mjs", "docs/runbooks/sql-auth-setup.md"]
+    },
+    {
+      "id": "private-admin",
+      "type": "feature",
+      "state": "current",
+      "description": "SQL-role guarded learner activity and immutable policy history, shadow replay, zero applied points; local only.",
+      "evidence": ["apps/web/src/app/admin/studio/page.tsx", "packages/data/learning-store.mjs"]
+    },
+    {
+      "id": "animated-study-book",
+      "type": "decision",
+      "state": "approved",
+      "description": "Owner adds an animated study book direction: readable lessons, AI-assisted step-by-step concept animations, and What happens next predictions before key reveals. Include explanations, replay, and equivalent accessible static/text steps. Planned feature; implementation and AI tooling are not yet selected.",
+      "evidence": ["docs/product/ux-decisions.md", "docs/context-memory/project-state.yaml"]
+    },
+    {
+      "id": "deployment-gate",
+      "type": "workflow",
+      "state": "current",
+      "description": "Manual main-only production dispatch after checks, production environment gate, read-only Google/Neon schema preflight. Remote credentials/review settings and deployment run unverified.",
+      "evidence": [".github/workflows/repository-checks.yml", "scripts/check-production.mjs"]
     }
   ],
   "relationships": [
+    {
+      "from": "sql-auth",
+      "type": "depends-on",
+      "to": "neon-project"
+    },
+    {
+      "from": "sql-auth",
+      "type": "implements",
+      "to": "web-app"
+    },
+    {
+      "from": "local-sync",
+      "type": "depends-on",
+      "to": "sql-auth"
+    },
+    {
+      "from": "private-admin",
+      "type": "depends-on",
+      "to": "sql-auth"
+    },
+    {
+      "from": "web-app",
+      "type": "derived-from",
+      "to": "animated-study-book"
+    },
     {
       "from": "first-course",
       "type": "implements",
@@ -380,11 +458,6 @@
     },
     {
       "from": "vercel-deployment",
-      "type": "blocked-by",
-      "to": "external-integrations"
-    },
-    {
-      "from": "vercel-deployment",
       "type": "depends-on",
       "to": "web-app"
     },
@@ -412,9 +485,25 @@
       "from": "course-roadmap",
       "type": "depends-on",
       "to": "first-course"
+    },
+    {
+      "from": "deployment-gate",
+      "type": "depends-on",
+      "to": "sql-auth"
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "id": "account-launch-policy",
+      "state": "needs-user-decision",
+      "question": "What fixed event-retention and operator-access policy should apply before public accounts?",
+      "why": "Events now persist until account deletion, and public account operations require a defined operator boundary.",
+      "options": ["Agree a policy before public launch", "Keep accounts local for review"],
+      "recommended_default": "Keep accounts local for review",
+      "owner": "project owner",
+      "evidence": ["SECURITY.md", "docs/adr/0002-sql-auth-and-sync.md"]
+    }
+  ],
   "deferred_entity_types": ["project", "team", "review", "event"],
   "supported_relationship_types": [
     "depends-on",
@@ -429,8 +518,9 @@
     "rolls-back-to"
   ],
   "validation": {
-    "unitTests": 38,
-    "browserTests": 10,
+    "currentFeaturePhase": "70-native-tests-pass; 12-desktop-mobile-tests-pass; live-Neon-data-sync-and-local-browser-pass",
+    "unitTests": 70,
+    "browserTests": 12,
     "build": "passed",
     "typecheck": "passed",
     "lint": "passed",
@@ -441,10 +531,15 @@
     "liveMapbox": "not-enabled",
     "evidence": ["docs/context-memory/last-handoff.md", "tests/e2e/learning.spec.ts"],
     "serverlessCourseFileTracing": "passed-all-nine-server-traces",
-    "liveVercelDeployment": "dns-failed-no-url",
+    "liveVercelDeployment": "READY-https-i-lear-nation-vercel-app; anonymous-homepage-200; authenticated-core-routes-200-admin-404",
     "readmeAssets": "static-svg-safety-xml-and-rendered-review-passed",
     "courseFileInclusionFixture": "passed-history-preservation-and-normal-clone-eight-chapters",
-    "courseFileInclusionActual": "verified-normal-files-staged-eight-chapters-history-preserved-uncommitted",
-    "standaloneCourseReadme": "17-contained-relative-links-and-safe-static-assets-passed"
+    "courseFileInclusionActual": "verified-normal-files-committed-and-pushed-eight-chapters",
+    "standaloneCourseReadme": "17-contained-relative-links-and-safe-static-assets-passed",
+    "serverlessSqlTracing": "all-three-migrations-in-auth-and-learning-function-traces",
+    "productionAccountPreflight": "fails-closed-as-expected-without-production-account-env-and-Google",
+    "liveNeon": "schema-invitation-profile-progress-export-sync-replay-deletion-and-local-browser-pass-synthetic-accounts-deleted",
+    "recoveryMobileFixes": "admin-overflow-and-scrollable-code-keyboard-access-fixed",
+    "recoveryVercelCli": "existing-deployment-Ready-homepage-200-production-env-empty"
   }
 }

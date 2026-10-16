@@ -228,8 +228,8 @@ export function AdminWorkspace({
                   content checks
                 </li>
                 <li>
-                  <span className="tag">Local</span> First component checkpoint and device-only
-                  progress
+                  <span className="tag">Local</span> {course.chapters.length} checkpoints and
+                  private SQL account progress
                 </li>
                 <li>
                   <span className="draft-tag">Pending</span> Course licenses, GitHub publication,

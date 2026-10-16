@@ -1,0 +1,22 @@
+{
+  "first-component": "export default function Welcome() { return <h1>I learn by building useful things.</h1>; }",
+  "javascript-typescript": "{\n  \"operation\": \"filter-map\",\n  \"minimumMinutes\": 15,\n  \"trimTitles\": true\n}",
+  "react-components": "{\n  \"step\": 1,\n  \"minimum\": 0,\n  \"maximum\": 5,\n  \"update\": \"immutable\"\n}",
+  "node-and-data": "{\n  \"ownerField\": \"ownerId\",\n  \"limit\": 2,\n  \"sort\": \"newest\",\n  \"projection\": [\n    \"id\",\n    \"title\"\n  ]\n}",
+  "api-contracts": "{\n  \"method\": \"POST\",\n  \"maxTitleLength\": 120,\n  \"trim\": true,\n  \"createdStatus\": 201,\n  \"invalidStatus\": 400\n}",
+  "async-data": "{\n  \"queryKey\": [\n    \"notes\",\n    \"ownerId\"\n  ],\n  \"staleResponse\": \"ignore\",\n  \"failure\": \"preserve\",\n  \"retries\": 1\n}",
+  "data-and-forms": "{\n  \"ownerSource\": \"session\",\n  \"maxTitleLength\": 120,\n  \"trim\": true,\n  \"onFailure\": \"preserve\"\n}",
+  "identity-and-access": "{\n  \"identitySource\": \"session\",\n  \"requireOwner\": true,\n  \"rejectExpired\": true,\n  \"cookieMode\": \"httpOnly\"\n}",
+  "rendering-and-seo": "{\n  \"publicRendering\": \"server\",\n  \"privateRobots\": \"noindex\",\n  \"title\": \"Learning notebook\",\n  \"canonicalOrigin\": \"https://learn.example\"\n}",
+  "quality-accessibility-security": "{\n  \"locator\": \"role\",\n  \"assertSaved\": true,\n  \"assertRejected\": true,\n  \"urlSchemes\": [\n    \"https:\"\n  ],\n  \"inputLabel\": \"Note title\"\n}",
+  "learning-insights": "{\n  \"consentOnly\": true,\n  \"deduplicate\": true,\n  \"groupBy\": \"day\",\n  \"minimumGroup\": 3\n}",
+  "graphql-api": "{\n  \"fields\": [\n    \"id\",\n    \"title\"\n  ],\n  \"maxDepth\": 2,\n  \"ownerSource\": \"session\",\n  \"unknownField\": \"reject\"\n}",
+  "graphql-client": "{\n  \"keyFields\": [\n    \"__typename\",\n    \"id\"\n  ],\n  \"mutationPolicy\": \"upsert\",\n  \"rollbackOnError\": true,\n  \"errorPolicy\": \"show\"\n}",
+  "realtime-server": "{\n  \"actorSource\": \"session\",\n  \"roomPolicy\": \"member\",\n  \"maxMessageLength\": 280,\n  \"acknowledge\": \"after-persist\"\n}",
+  "realtime-client": "{\n  \"offline\": \"queue\",\n  \"maxQueue\": 3,\n  \"deduplicate\": true,\n  \"retry\": \"same-id\"\n}",
+  "realtime-persistence": "{\n  \"uniqueBy\": [\n    \"ownerId\",\n    \"clientId\"\n  ],\n  \"afterSequence\": 2,\n  \"retentionDays\": 30,\n  \"order\": \"ascending\"\n}",
+  "nextjs-routing": "{\n  \"dataComponent\": \"server\",\n  \"interactiveComponent\": \"client\",\n  \"publicProps\": [\n    \"id\",\n    \"title\"\n  ],\n  \"missingRoute\": \"not-found\"\n}",
+  "caching-performance": "{\n  \"cacheKey\": [\n    \"ownerId\",\n    \"noteId\"\n  ],\n  \"privatePolicy\": \"no-store\",\n  \"invalidateOnWrite\": true,\n  \"assetBudgetKb\": 150\n}",
+  "production-workflows": "{\n  \"checks\": [\n    \"lint\",\n    \"typecheck\",\n    \"test\",\n    \"build\"\n  ],\n  \"approval\": \"required\",\n  \"secretScope\": \"server\",\n  \"rollback\": \"previous-artifact\"\n}",
+  "capstone": "{\n  \"ownerSource\": \"session\",\n  \"validation\": \"server\",\n  \"saveOrder\": \"commit-then-confirm\",\n  \"deleteScope\": \"owner\",\n  \"exportFormat\": \"json\"\n}"
+}

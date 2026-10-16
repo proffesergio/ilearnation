@@ -1,6 +1,6 @@
 # 1. Foundations: make one observable change
 
-Draft lesson · course version 0.1.0. Start from [the entry guide](../getting-started.md).
+Draft lesson · course version 0.2.0. Start from [the entry guide](../getting-started.md).
 
 ![Learning route: read, run, edit, check, then reflect.](../assets/learning-route.svg)
 
@@ -68,6 +68,10 @@ console.log('Checkpoint passed');
 ```
 
 ## Exercise
+
+**Online scenario: Your first component.** Change Welcome so its text-only h1 contains a sentence of at least 12 characters including “building”.
+
+The lesson player now includes the **first-component** activity. Read its prompt, repair the failing starter, submit it, and inspect the behavioral checks. This first activity uses a bounded text-only JSX grammar. Passing checks verifies only the bounded activity, not full framework competence. Reset restores the original failing starter; copy your work first if needed. Malformed or oversized input returns a repair message.
 
 1. Run the unchanged checkpoint. Record the exact greeting.
 2. Change `learner` to a chosen nickname and update only the first expected

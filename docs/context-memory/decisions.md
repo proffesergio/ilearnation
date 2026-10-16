@@ -1,5 +1,60 @@
 # Decision log
 
+## Deploy now with invitations and the shorter Vercel name
+
+2026-10-16 · explicitly approved by the owner: push/deploy all current work,
+configure Vercel production with Neon now, and add Google credentials manually
+later. Renamed the existing project to `ilearnation` and selected
+`https://ilearnation.vercel.app` as its canonical/auth origin. Six production
+variables are configured through CLI; Neon and a separate generated production
+session secret are stored as Vercel Secrets. Google remains optional and absent.
+The preflight retains core auth/Neon/schema checks while permitting invitations.
+This instruction supersedes earlier notes that Google credentials block this
+deployment. Public launch policy work remains documented; no social features,
+real-location display, or paid functionality is introduced.
+
+## Recovery — authorized Neon creation and Google manual setup
+
+2026-10-16 · owner authorized creating a Neon project through the existing CLI
+and saving its credentials in the local environment. Created `ilearnnation`
+(`fragrant-resonance-47092618`), `main` branch, `ilearnnation` database, in
+`aws-ap-southeast-1` under the existing free organization, with 0.25 CU.
+Initialized the schema and switched the ignored web environment to Neon. Hosted
+data/sync and a local browser account flow passed; synthetic accounts were deleted.
+Existing local learner records were not migrated and no admin role was created.
+
+The owner then authorized attempting Google CLI setup or providing manual
+instructions, and checking Vercel through its CLI. `gcloud` is not installed;
+the manual web-client guide records exact callbacks and variables. Existing Vercel
+deployment is Ready/HTTP 200 and production env is empty. No new application
+deployment occurred. Evidence: docs/runbooks/google-oauth-setup.md,
+docs/runbooks/sql-auth-setup.md, docs/context-memory/last-handoff.md.
+
+## Beta privacy and manual deployment gate
+
+2026-10-16 · approved privacy choice · owner: project owner.
+Profiles and progress remain private. Admins may view lesson reads and checkpoint
+outcomes for learner support. No raw submission or keystroke tracking is added.
+The CI deployment path requires an explicit manual dispatch on main after checks;
+production environment reviewers/secrets remain unconfigured and unverified.
+The read-only preflight requires Google and all Neon account schema columns.
+Evidence: docs/product/ux-decisions.md, .github/workflows/repository-checks.yml,
+scripts/check-production.mjs.
+
+## D-NEW — Local SQL/auth/course phase
+
+2026-10-16 · approved for local implementation · owner: project owner.
+Draft 0.2.0 has 20 lessons; retain the eight old IDs and snapshot 0.1.0. Use
+Auth.js open Google sign-up when configured, or single-use hashed invitations;
+profile setup gates lessons. Use Neon as the hosted SQL target and explicit
+durable Node 24 SQLite locally, with operator-run one-way outbox sync. Admin
+access uses SQL role checks and immutable policy history; replay applies zero
+points. Initial profiles/progress are private. English comes first, with phone,
+desktop, and low-bandwidth support. ADR 0002 is the architecture record; the
+first deployed baseline remains 563aedb, and this phase is not deployed.
+Evidence: docs/adr/0002-sql-auth-and-sync.md, docs/product/ux-decisions.md,
+docs/context-memory/project-state.yaml.
+
 Use stable IDs, dates, status, rationale, and evidence. Record owner decisions
 explicitly; do not treat silence as approval. Add an ADR for consequential choices.
 

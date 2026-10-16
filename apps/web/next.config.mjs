@@ -6,6 +6,7 @@ const nextConfig = {
   outputFileTracingRoot: root,
   outputFileTracingIncludes: {
     '/*': [
+      '../../packages/data/migrations/*.sql',
       '../../courses/full-stack-modern-react-nextjs/*.json',
       '../../courses/full-stack-modern-react-nextjs/*.md',
       '../../courses/full-stack-modern-react-nextjs/chapters/*.md',

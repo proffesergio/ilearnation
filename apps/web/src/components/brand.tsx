@@ -40,15 +40,15 @@ export function Header() {
       <Brand />
       <nav aria-label="Main navigation">
         <Link href="/courses">Explore courses</Link>
-        <Link href="/#how-it-works" className="hide-small">
-          How it works
+        <Link href="/blog" className="hide-small">
+          Field notes
         </Link>
-        <Link href="/admin" className="quiet-link">
-          Studio admin
+        <Link href="/signin" className="quiet-link">
+          Sign in
         </Link>
       </nav>
-      <Link href="/courses/full-stack-modern-react-nextjs/getting-started" className="button small">
-        Start learning <Arrow />
+      <Link href="/dashboard" className="button small">
+        My learning <Arrow />
       </Link>
     </header>
   );

@@ -1,6 +1,6 @@
-# 4. Next.js: routes and execution boundaries
+# 17. Next.js: routes and execution boundaries
 
-Draft lesson · course version 0.1.0.
+Draft lesson · course version 0.2.0.
 
 ![Learning route: read, run, edit, check, then reflect.](../assets/learning-route.svg)
 
@@ -23,8 +23,7 @@ This optional decoration plays once for 2.4 seconds. GitHub cannot apply your op
 
 ## Prerequisites
 
-Complete [React components](react-components.md). Understand imports, async
-functions, and props. Keep any real credentials outside this course.
+Complete [Realtime: durable replay and retention](realtime-persistence.md), and review any earlier topic you need. Use synthetic data and keep project credentials outside the lesson.
 
 ## Effort
 
@@ -85,6 +84,10 @@ console.log('Checkpoint passed');
 ```
 
 ## Exercise
+
+**Online scenario: Place the component boundary.** Keep database access out of the browser and place stateful click handling in the interactive component. Serialize the note ID and title without its database URL. An absent note needs a not-found response. Component choices: "server"/"client"; missingRoute: "empty-success"/"not-found".
+
+The lesson player now includes the **nextjs-routing** activity. Read its prompt, repair the failing starter, submit it, and inspect the behavioral checks. This activity uses a small JSON configuration to drive synthetic scenarios; it never executes your submitted code. Passing checks verifies only the bounded activity, not full framework competence. Reset restores the original failing starter; copy your work first if needed. Malformed or oversized input returns a repair message.
 
 1. Add a test asserting that internal exception text never appears in the returned error.
 2. In your project, add a navigation link to `/notes` and visit it directly as well.

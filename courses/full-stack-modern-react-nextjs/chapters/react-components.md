@@ -1,6 +1,6 @@
 # 3. React: describe the next interface
 
-Draft lesson · course version 0.1.0.
+Draft lesson · course version 0.2.0.
 
 ![Learning route: read, run, edit, check, then reflect.](../assets/learning-route.svg)
 
@@ -23,8 +23,7 @@ This optional decoration plays once for 2.4 seconds. GitHub cannot apply your op
 
 ## Prerequisites
 
-Complete [JavaScript and TypeScript](javascript-typescript.md). Understand functions
-and immutable array changes. Browser extensions or a public account are unnecessary.
+Complete [JavaScript data and TypeScript contracts](javascript-typescript.md), and review any earlier topic you need. Use synthetic data and keep project credentials outside the lesson.
 
 ## Effort
 
@@ -81,6 +80,10 @@ console.log('Checkpoint passed');
 ```
 
 ## Exercise
+
+**Online scenario: Repair a state transition.** A practice counter starts at 2. One increment must produce 3 without changing its input object. Decrement at 0 and increment at 5 must stay at the boundary; reset returns 0. Choose update "mutate" or "immutable" and appropriate step/bounds.
+
+The lesson player now includes the **react-components** activity. Read its prompt, repair the failing starter, submit it, and inspect the behavioral checks. This activity uses a small JSON configuration to drive synthetic scenarios; it never executes your submitted code. Passing checks verifies only the bounded activity, not full framework competence. Reset restores the original failing starter; copy your work first if needed. Malformed or oversized input returns a repair message.
 
 1. Add an `undo` event. Write tests before implementation: three becomes two;
    zero stays zero. Negative counts must never appear.
