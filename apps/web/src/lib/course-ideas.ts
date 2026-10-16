@@ -5,28 +5,27 @@ export type CourseIdea = {
   sourceTitle: string;
 };
 
-// Catalog concepts based only on locally supplied PDF filenames. Their contents
-// have not been reviewed or turned into lessons.
+// Rights and chapter inventories are confirmed; these courses are not authored yet.
 export const courseIdeas: CourseIdea[] = [
   {
     title: 'Python for Machine Learning',
     category: 'Python · Machine learning',
     description:
       'A practical path from Python foundations to understanding a small learning system.',
-    sourceTitle: 'Python - Building Machines Learning System.pdf',
+    sourceTitle: 'Building Machine Learning Systems with Python — Richert and Coelho',
   },
   {
-    title: 'Artificial Intelligence, Step by Step',
-    category: 'Artificial intelligence',
+    title: 'The Executive Guide to Artificial Intelligence',
+    category: 'AI adoption · Evaluation',
     description:
-      'A proposed introduction to core AI ideas, experiments, and responsible evaluation.',
-    sourceTitle: 'Guide __to Artificial __Intelligence.pdf',
+      'A planned course on identifying useful applications, prototyping, and evaluating organizational AI responsibly.',
+    sourceTitle: 'The Executive Guide to Artificial Intelligence — Andrew Burgess',
   },
   {
     title: 'Living Worlds: AI for Games',
     category: 'AI · Game development',
     description:
       'An idea for exploring game agents and simulated life through small playable projects.',
-    sourceTitle: 'AI and Artificial Life in Video Games.pdf',
+    sourceTitle: 'AI and Artificial Life in Video Games — Guy W. Lecky-Thompson',
   },
 ];

@@ -2,9 +2,70 @@
   "schema_version": 1,
   "inventoried_on": "2026-10-16",
   "references": [
-    {"id": "local-pdf-001", "filename": "Guide __to Artificial __Intelligence.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
-    {"id": "local-pdf-002", "filename": "Python - Building Machines Learning System.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"},
-    {"id": "local-pdf-003", "filename": "Modern_Full_Stack_React_Projects_Build,_maintain,_and_deploy_modern.pdf", "title": "Modern Full-Stack React Projects: Build, maintain, and deploy modern full-stack web applications using React, Node.js, MongoDB, and Docker", "author": "Daniel Bugl", "url": "https://www.packtpub.com/en-GB/product/modern-full-stack-react-projects-9781837637959", "license_status": "owner-confirmed-adaptation-rights-2026-10-16; Packt copyright and all-rights-reserved statement in source PDF", "accessed_on": "2026-10-16", "supported_chapters": ["first-course-roadmap"], "use_status": "chapter-map-reviewed; original interactive adaptation planned; no source prose/code/page images copied"},
-    {"id": "local-pdf-004", "filename": "AI and Artificial Life in Video Games.pdf", "title": null, "author": null, "url": null, "license_status": "unverified", "accessed_on": null, "supported_chapters": [], "use_status": "not-used"}
+    {
+      "id": "local-pdf-001",
+      "filename": "Guide __to Artificial __Intelligence.pdf",
+      "title": "The Executive Guide to Artificial Intelligence: How to identify and implement applications for AI in your organization",
+      "author": "Andrew Burgess",
+      "url": "https://doi.org/10.1007/978-3-319-63820-1",
+      "license_status": "owner-confirmed-adaptation-and-publication-rights-2026-10-16; raw PDF redistribution not part of course publication",
+      "accessed_on": "2026-10-16",
+      "supported_chapters": [],
+      "use_status": "metadata and chapter sequence privately inventoried; course not authored yet"
+    },
+    {
+      "id": "local-pdf-002",
+      "filename": "Python - Building Machines Learning System.pdf",
+      "title": "Building Machine Learning Systems with Python",
+      "author": "Willi Richert and Luis Pedro Coelho",
+      "url": null,
+      "license_status": "owner-confirmed-adaptation-and-publication-rights-2026-10-16; raw PDF redistribution not part of course publication",
+      "accessed_on": "2026-10-16",
+      "supported_chapters": [],
+      "use_status": "metadata and chapter sequence privately inventoried; course not authored yet"
+    },
+    {
+      "id": "local-pdf-003",
+      "filename": "Modern_Full_Stack_React_Projects_Build,_maintain,_and_deploy_modern.pdf",
+      "title": "Modern Full-Stack React Projects: Build, maintain, and deploy modern full-stack web applications using React, Node.js, MongoDB, and Docker",
+      "author": "Daniel Bugl",
+      "url": "https://www.packtpub.com/en-GB/product/modern-full-stack-react-projects-9781837637959",
+      "license_status": "owner-confirmed-adaptation-and-publication-rights-2026-10-16; raw PDF redistribution not part of course publication",
+      "accessed_on": "2026-10-16",
+      "supported_chapters": [
+        "preparing-full-stack-development",
+        "nodejs-and-mongodb",
+        "express-mongoose-and-jest",
+        "react-and-tanstack-query",
+        "docker-and-cicd",
+        "jwt-authentication",
+        "server-side-rendering",
+        "search-engine-optimization",
+        "playwright-end-to-end-testing",
+        "mongodb-and-victory-analytics",
+        "graphql-backend",
+        "apollo-client-frontend",
+        "express-socketio-backend",
+        "realtime-react-frontend",
+        "mongodb-event-persistence",
+        "getting-started-nextjs",
+        "react-server-components",
+        "advanced-nextjs-optimization",
+        "deploying-nextjs",
+        "deeper-full-stack-development"
+      ],
+      "use_status": "20 chapters adapted as original course 0.3.0; private source reviewed; no source book files published"
+    },
+    {
+      "id": "local-pdf-004",
+      "filename": "AI and Artificial Life in Video Games.pdf",
+      "title": "AI and Artificial Life in Video Games",
+      "author": "Guy W. Lecky-Thompson",
+      "url": null,
+      "license_status": "owner-confirmed-adaptation-and-publication-rights-2026-10-16; raw PDF redistribution not part of course publication",
+      "accessed_on": "2026-10-16",
+      "supported_chapters": [],
+      "use_status": "metadata and chapter sequence privately inventoried; course not authored yet"
+    }
   ]
 }

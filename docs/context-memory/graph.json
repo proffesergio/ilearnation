@@ -6,51 +6,65 @@
       "id": "product",
       "type": "product",
       "state": "current",
-      "evidence": ["AGENTS.md", "README.md"]
+      "evidence": [
+        "AGENTS.md",
+        "README.md"
+      ]
     },
     {
       "id": "first-cohort",
       "type": "learner",
       "state": "approved",
       "description": "Mixed self-directed learners, selected by the owner on 2026-10-16.",
-      "evidence": ["docs/product/ux-decisions.md"]
+      "evidence": [
+        "docs/product/ux-decisions.md"
+      ]
     },
     {
       "id": "first-course",
       "type": "course",
       "state": "current",
-      "evidence": ["courses/full-stack-modern-react-nextjs/course.json"],
-      "description": "Original draft 0.2.0, schema 1, twenty authored lessons; eight old IDs preserved and draft 0.1.0 snapshotted. Not published."
+      "evidence": [
+        "courses/full-stack-modern-react-nextjs/course.json"
+      ],
+      "description": "Original review edition 0.3.0: all20 book chapters in exact order, original Field Notes project; earlier0.1 and0.2 snapshots retained."
     },
     {
       "id": "first-chapter",
       "type": "chapter",
       "state": "current",
       "evidence": [
-        "courses/full-stack-modern-react-nextjs/chapters/foundations.md",
+        "courses/full-stack-modern-react-nextjs/chapters/preparing-full-stack-development.md",
         "tests/course-content.test.mjs"
       ],
-      "description": "Authored foundations chapter with trusted Node checkpoint and first component exercise."
+      "description": "Public preparation chapter with project setup and bounded JSX activity; first3 chapters allow anonymous preview."
     },
     {
       "id": "first-lesson",
       "type": "lesson",
       "state": "current",
-      "evidence": ["apps/web/src/components/course-player.tsx"],
-      "description": "Lesson player with public activity metadata and private version-scoped SQL progress after sign-in and profile setup."
+      "evidence": [
+        "apps/web/src/components/course-player.tsx"
+      ],
+      "description": "Public first3 chapters with no-persistence preview validator; remaining web chapters and saved SQL progress require account/profile."
     },
     {
       "id": "first-exercise",
       "type": "exercise",
       "state": "current",
-      "evidence": ["packages/course-runtime/index.mjs", "tests/runtime.test.mjs"],
+      "evidence": [
+        "packages/course-runtime/index.mjs",
+        "tests/runtime.test.mjs"
+      ],
       "description": "First bounded JSX activity plus nineteen bounded JSON simulations; no arbitrary learner execution."
     },
     {
       "id": "first-loop-plan",
       "type": "decision",
       "state": "approved",
-      "evidence": ["plan.md"],
+      "evidence": [
+        "plan.md"
+      ],
       "description": "Owner instructed app/course implementation on 2026-10-16; external release remains gated."
     },
     {
@@ -58,7 +72,9 @@
       "type": "decision",
       "state": "approved",
       "description": "Read getting-started.md in a course-named GitHub repository.",
-      "evidence": ["docs/product/ux-decisions.md"]
+      "evidence": [
+        "docs/product/ux-decisions.md"
+      ]
     },
     {
       "id": "course-onboarding",
@@ -75,7 +91,9 @@
       "type": "decision",
       "state": "approved",
       "description": "Owner-selected proffesergio/modern-fullstack-react-projects-building; owner reports publication to main; local course HEAD a21819c matches its origin/main. Live remote not independently verified.",
-      "evidence": ["docs/adr/0001-course-source-and-admin-boundaries.md"]
+      "evidence": [
+        "docs/adr/0001-course-source-and-admin-boundaries.md"
+      ]
     },
     {
       "id": "website-pages",
@@ -92,33 +110,43 @@
       "id": "licensing",
       "type": "risk",
       "state": "needs-user-decision",
-      "evidence": ["README.md", "refBooks/references.json"]
+      "evidence": [
+        "README.md",
+        "refBooks/references.json"
+      ]
     },
     {
       "id": "local-check",
       "type": "workflow",
       "state": "current",
-      "evidence": ["scripts/check_repository.py"]
+      "evidence": [
+        "scripts/check_repository.py"
+      ]
     },
     {
       "id": "external-integrations",
       "type": "integration",
-      "state": "blocked",
-      "evidence": ["docs/architecture/integrations.md"],
-      "description": "Owner reports GitHub CLI login; GitHub and Vercel API DNS fail in shell, credentials unverified. Mapbox tools still not exposed."
+      "state": "current",
+      "evidence": [
+        "docs/architecture/integrations.md"
+      ],
+      "description": "GitHub/Vercel/Neon CLI authenticated and prior production verified. Current release tests/deploy in progress. Google OAuth deferred manually."
     },
     {
       "id": "course-schema",
       "type": "feature",
       "state": "current",
       "description": "Schema 1 with strict fields, bounded metadata, paths, completion and reference validation.",
-      "evidence": ["packages/course-schema/index.mjs", "tests/course-schema.test.mjs"]
+      "evidence": [
+        "packages/course-schema/index.mjs",
+        "tests/course-schema.test.mjs"
+      ]
     },
     {
       "id": "web-app",
       "type": "feature",
       "state": "current",
-      "description": "Next 16.4.1 / React 19.3.1 workspace. Current feature work is local; earlier baseline 563aedb was deployed. Footer links to dedicated course repository.",
+      "description": "Next16.4.1/React19.3.1; astronomical atlas theme, course overview/previews, public trust pages, optional analytics off by default.",
       "evidence": [
         "apps/web/package.json",
         "package-lock.json",
@@ -140,7 +168,10 @@
       "type": "algorithm-rule",
       "state": "proposed",
       "description": "Shadow policy v1; disabled by default, UTC-day caps/decay, synthetic replay, no applied points.",
-      "evidence": ["packages/algorithm/index.mjs", "tests/algorithm.test.mjs"]
+      "evidence": [
+        "packages/algorithm/index.mjs",
+        "tests/algorithm.test.mjs"
+      ]
     },
     {
       "id": "github-read",
@@ -170,35 +201,47 @@
       "type": "decision",
       "state": "approved",
       "description": "Owner authorizes Mapbox MCP use. Tools not exposed; no token, account writes or billable map loads performed.",
-      "evidence": ["docs/architecture/integrations.md"]
+      "evidence": [
+        "docs/architecture/integrations.md"
+      ]
     },
     {
       "id": "map-preview",
       "type": "feature",
       "state": "current",
       "description": "Synthetic broad-region globe/list; opt-in exploration, no live location or Mapbox traffic.",
-      "evidence": ["apps/web/src/components/learning-map.tsx"]
+      "evidence": [
+        "apps/web/src/components/learning-map.tsx"
+      ]
     },
     {
       "id": "studio-direction",
       "type": "decision",
       "state": "approved",
-      "description": "Owner chose calm studio with energetic community accents.",
-      "evidence": ["docs/product/ux-decisions.md"]
+      "description": "Owner requested astronomical/gravitational cool theme on2026-10-16. Deep ink, ice/copper, orbital mesh, pause and reduced-motion static behavior.",
+      "evidence": [
+        "docs/product/ux-decisions.md"
+      ]
     },
     {
       "id": "browser-validation",
       "type": "workflow",
       "state": "current",
       "description": "Desktop/mobile production-build flows for invitation/profile, all20 checkpoints and SQL persistence, admin policies, export/deletion, accessibility, keyboard and reduced motion.",
-      "evidence": ["playwright.config.ts", "tests/e2e/learning.spec.ts"]
+      "evidence": [
+        "playwright.config.ts",
+        "tests/e2e/learning.spec.ts"
+      ]
     },
     {
       "id": "deployment-authorization",
       "type": "decision",
       "state": "approved",
       "description": "Owner authorized platform push and Vercel deployment. Subsequent request asks for a proposed twenty-lesson account/admin/blog phase and questions before application code.",
-      "evidence": ["docs/context-memory/decisions.md", "plan.md"]
+      "evidence": [
+        "docs/context-memory/decisions.md",
+        "plan.md"
+      ]
     },
     {
       "id": "vercel-deployment",
@@ -250,7 +293,7 @@
       "id": "course-roadmap",
       "type": "course",
       "state": "proposed",
-      "description": "Twenty original draft lessons and activities authored against the source map; human review and deployment remain unfinished.",
+      "description": "First PDF adapted into20 original book-ordered lessons and real framework project. Other3 source rights confirmed; their courses are still planned.",
       "evidence": [
         "docs/research/2026-10-16-course-roadmap-sources.md",
         "refBooks/references.json",
@@ -261,7 +304,7 @@
       "id": "course-catalog-mockups",
       "type": "feature",
       "state": "current",
-      "description": "Homepage and catalog show one playable React/Next.js draft plus three non-playable course concepts based only on PDF filenames.",
+      "description": "One authored20-chapter course and3 nonplayable future courses. Adaptation/publication rights for all4 confirmed.",
       "evidence": [
         "apps/web/src/components/course-catalog.tsx",
         "apps/web/src/lib/course-ideas.ts",
@@ -284,35 +327,81 @@
       "type": "integration",
       "state": "current",
       "description": "Owner-authorized CLI creation of ilearnnation project fragrant-resonance-47092618, main branch, ilearnnation database, aws-ap-southeast-1. Schema initialized; credentials only in ignored env; synthetic hosted checks passed and accounts deleted.",
-      "evidence": ["docs/runbooks/sql-auth-setup.md", "docs/context-memory/last-handoff.md"]
+      "evidence": [
+        "docs/runbooks/sql-auth-setup.md",
+        "docs/context-memory/last-handoff.md"
+      ]
     },
     {
       "id": "local-sync",
       "type": "workflow",
       "state": "current",
       "description": "Operator-run SQLite to Neon outbox for canonical users, profiles and events; excludes roles, invitations, credentials and policies.",
-      "evidence": ["scripts/db.mjs", "docs/runbooks/sql-auth-setup.md"]
+      "evidence": [
+        "scripts/db.mjs",
+        "docs/runbooks/sql-auth-setup.md"
+      ]
     },
     {
       "id": "private-admin",
       "type": "feature",
       "state": "current",
       "description": "Deployed SQL-role guarded learner activity and immutable policy history, shadow replay, zero applied points. Anonymous and learner admin access denied; real operator role not yet bootstrapped.",
-      "evidence": ["apps/web/src/app/admin/studio/page.tsx", "packages/data/learning-store.mjs"]
+      "evidence": [
+        "apps/web/src/app/admin/studio/page.tsx",
+        "packages/data/learning-store.mjs"
+      ]
     },
     {
       "id": "animated-study-book",
       "type": "decision",
       "state": "approved",
       "description": "Owner adds an animated study book direction: readable lessons, AI-assisted step-by-step concept animations, and What happens next predictions before key reveals. Include explanations, replay, and equivalent accessible static/text steps. Planned feature; implementation and AI tooling are not yet selected.",
-      "evidence": ["docs/product/ux-decisions.md", "docs/context-memory/project-state.yaml"]
+      "evidence": [
+        "docs/product/ux-decisions.md",
+        "docs/context-memory/project-state.yaml"
+      ]
     },
     {
       "id": "deployment-gate",
       "type": "workflow",
       "state": "current",
       "description": "Manual main-only production dispatch after checks and environment approval; read-only core auth/Neon schema preflight permits optional Google. Vercel Secrets need matching protected CI secrets. CI deploy job unconfigured; latest release used authorized CLI.",
-      "evidence": [".github/workflows/repository-checks.yml", "scripts/check-production.mjs"]
+      "evidence": [
+        ".github/workflows/repository-checks.yml",
+        "scripts/check-production.mjs"
+      ]
+    },
+    {
+      "id": "course-previews",
+      "type": "feature",
+      "state": "current",
+      "description": "Anonymous first3 chapter reading/checkpoints; no SQL progress writes.",
+      "evidence": [
+        "packages/course-runtime/access.mjs",
+        "apps/web/src/app/api/preview/route.ts",
+        "tests/course-access.test.mjs"
+      ]
+    },
+    {
+      "id": "astronomical-theme",
+      "type": "feature",
+      "state": "current",
+      "description": "Decorative orbital background with pause and OS reduced-motion support; solid lesson surfaces.",
+      "evidence": [
+        "apps/web/src/components/cosmic-background.tsx",
+        "apps/web/src/app/globals.css"
+      ]
+    },
+    {
+      "id": "publisher-foundation",
+      "type": "feature",
+      "state": "current",
+      "description": "Public trust pages and opt-in basic GA4 foundation; analytics/ads unconfigured and AdSense not approved.",
+      "evidence": [
+        "apps/web/src/components/analytics-consent.tsx",
+        "apps/web/src/app/privacy/page.tsx"
+      ]
     }
   ],
   "relationships": [
@@ -498,13 +587,24 @@
       "state": "needs-user-decision",
       "question": "What fixed event-retention and operator-access policy should apply before public accounts?",
       "why": "Events now persist until account deletion, and public account operations require a defined operator boundary.",
-      "options": ["Agree a policy before wider public launch", "Keep enrollment limited to invitations"],
+      "options": [
+        "Agree a policy before wider public launch",
+        "Keep enrollment limited to invitations"
+      ],
       "recommended_default": "Keep enrollment limited to invitations",
       "owner": "project owner",
-      "evidence": ["SECURITY.md", "docs/adr/0002-sql-auth-and-sync.md"]
+      "evidence": [
+        "SECURITY.md",
+        "docs/adr/0002-sql-auth-and-sync.md"
+      ]
     }
   ],
-  "deferred_entity_types": ["project", "team", "review", "event"],
+  "deferred_entity_types": [
+    "project",
+    "team",
+    "review",
+    "event"
+  ],
   "supported_relationship_types": [
     "depends-on",
     "implements",
@@ -518,8 +618,8 @@
     "rolls-back-to"
   ],
   "validation": {
-    "currentFeaturePhase": "73-native-tests-pass; 12-desktop-mobile-tests-pass-in-CI; live-production-account-browser-pass",
-    "unitTests": 73,
+    "currentFeaturePhase": "75 native tests pass; Field Notes11 unit/integration tests and1 actual browser flow pass; platform browser checks in progress",
+    "unitTests": 75,
     "browserTests": 12,
     "build": "passed",
     "typecheck": "passed",
@@ -529,7 +629,10 @@
     "manualWcagCertification": false,
     "liveGitHubImport": "not-verified",
     "liveMapbox": "not-enabled",
-    "evidence": ["docs/context-memory/last-handoff.md", "tests/e2e/learning.spec.ts"],
+    "evidence": [
+      "docs/context-memory/last-handoff.md",
+      "tests/e2e/learning.spec.ts"
+    ],
     "serverlessCourseFileTracing": "passed-all-nine-server-traces",
     "liveVercelDeployment": "READY-https-ilearnation-vercel-app; public-pages-200; production-invitation-profile-checkpoint-progress-export-deletion-pass; old-domain-308",
     "readmeAssets": "static-svg-safety-xml-and-rendered-review-passed",

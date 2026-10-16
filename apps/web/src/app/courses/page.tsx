@@ -15,23 +15,24 @@ export default async function Courses() {
         </p>
         <h1>Find a path worth exploring.</h1>
         <p className="lead">
-          Start with a chapter-by-chapter React and Next.js course draft. Other subjects are visible
-          as concepts so you can see where the library may grow.
+          Try three chapters without login, then continue through the complete React and Next.js
+          course. Other subjects show the planned library and have no playable lessons yet.
         </p>
         <CourseCatalog course={course} ideas={courseIdeas} source={source} />
         <section className="catalog-roadmap" aria-labelledby="course-roadmap-title">
           <p className="eyebrow">The first course roadmap</p>
           <h2 id="course-roadmap-title">From first setup to a deployed full-stack project.</h2>
           <p>
-            The twenty-lesson course guides learners through environment setup, web foundations,
-            JavaScript and TypeScript, React, Next.js, data and forms, testing, accessibility,
-            security, Git and CI, then deployment. Each lesson includes a focused explanation,
-            runnable checkpoint, progressive hints, feedback, and a project step.
+            Follow all twenty chapters in the reference book’s order. Build with Node.js, MongoDB,
+            Express, React, Docker, JWT, server rendering, SEO, tests, GraphQL, Socket.IO, and
+            Next.js. Each chapter connects explanations and practice to the original Field Notes
+            project.
           </p>
           <p className="small-note">
-            Sign in and complete your private profile to enter all {course.chapters.length} lessons.
-            The curriculum remains a reviewable draft. Passing its bounded checkpoints records
-            practice; capstone review and professional competence require further evidence.
+            The first three chapters are public previews. Sign in and complete your private profile
+            to save progress and enter the remaining web chapters. The full course is also browsable
+            on GitHub. Bounded checkpoints record practice; the capstone requires separate project
+            evidence.
           </p>
           <ol className="curriculum-list">
             {course.chapters.map((chapter) => (

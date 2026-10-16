@@ -79,3 +79,14 @@ Historical unchecked items below may describe work now completed in this local p
 - [ ] Versioned Algorithm governance and replay/abuse tests before scoring.
 - [ ] Integration contracts and exact-action approvals before external operations.
 - [ ] Git/remote proposal and approval before repository creation or publication.
+
+## Book-ordered release and astronomical theme — 2026-10-16
+
+- [x] Author first course0.3.0, chapters1–20 in exact book order, and finishing conclusion.
+- [x] Provide executable API/SPA/SSR/Next project, real browser flow, and CI.
+- [x] Enable three free chapter previews and preserve private version-scoped progress.
+- [x] Add astronomical cool theme with pause/reduced-motion, course SEO and policy pages.
+- [x] Confirm rights for all4 books and inventory remaining chapter sequences.
+- [ ] Complete the remaining3 original courses one at a time; do not expose planned lessons as playable.
+- [ ] Owner supplies Google credentials, Search Console token and optional GA4 ID.
+- [ ] Human editorial review, private operator contact, fixed retention policy and certified advertising CMP before AdSense application.

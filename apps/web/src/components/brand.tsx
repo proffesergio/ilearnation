@@ -5,13 +5,23 @@ export function Brand() {
     <Link href="/" className="brand" aria-label="iLearnNation home">
       <svg viewBox="0 0 32 32" width="31" height="31" aria-hidden="true">
         <path
-          d="M7 25V12l9-6 9 6v13M7 17h18M16 6v19"
+          d="M7 23V10l9 3 9-3v13l-9 3-9-3M16 13v13"
           fill="none"
           stroke="currentColor"
           strokeWidth="2.2"
           strokeLinejoin="round"
         />
-        <circle cx="16" cy="17" r="4" fill="var(--accent)" stroke="var(--paper)" strokeWidth="2" />
+        <ellipse
+          cx="16"
+          cy="15"
+          rx="15"
+          ry="6"
+          transform="rotate(-30 16 15)"
+          fill="none"
+          stroke="var(--accent)"
+          strokeWidth="1"
+        />
+        <circle cx="28" cy="7" r="2" fill="var(--accent)" />
       </svg>
       <span>
         iL<span className="earn">earn</span>Nation<span className="brand-dot">.</span>
@@ -58,6 +68,13 @@ export function Footer() {
     <footer className="site-footer wrap">
       <Brand />
       <p>Learn. Build. Share when you’re ready.</p>
+      <nav className="footer-links" aria-label="About and policies">
+        <Link href="/about">About</Link>
+        <Link href="/contact">Contact</Link>
+        <Link href="/editorial-policy">Editorial policy</Link>
+        <Link href="/privacy">Privacy</Link>
+        <Link href="/terms">Terms</Link>
+      </nav>
       <a
         className="text-link"
         href="https://github.com/proffesergio/modern-fullstack-react-projects-building"

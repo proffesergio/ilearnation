@@ -14,38 +14,105 @@ const solutions: Record<string, string> = JSON.parse(
   await readFile(new URL('../fixtures/activity-solutions.json', import.meta.url), 'utf8'),
 );
 
-test('public overview and blog are available; lessons and admin data require sign-in', async ({
+test('astronomical sky pauses, remembers the choice, respects reduced motion and sends no unconfigured analytics', async ({
+  page,
+}, testInfo) => {
+  const googleRequests: string[] = [];
+  page.on('request', (request) => {
+    if (/googletagmanager\.com|google-analytics\.com|googlesyndication\.com/.test(request.url()))
+      googleRequests.push(request.url());
+  });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Pause sky', exact: true }).click();
+  await expect(page.locator('.cosmic-field')).toHaveAttribute('data-paused', 'true');
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Resume sky', exact: true })).toBeVisible();
+  await page.screenshot({
+    path: `artifacts/home-${testInfo.project.name}.png`,
+    fullPage: true,
+    animations: 'disabled',
+  });
+  await page.getByRole('button', { name: 'Resume sky', exact: true }).click();
+  await expect(page.locator('.cosmic-field')).toHaveAttribute('data-paused', 'false');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(page.locator('.cosmic-field')).toHaveAttribute('data-paused', 'true');
+  await expect(page.getByRole('button', { name: 'Pause sky', exact: true })).toHaveCount(0);
+  expect(googleRequests).toEqual([]);
+  await expectNoOverflow(page);
+});
+
+test('public course previews are crawlable and playable; saved progress and later lessons stay protected', async ({
   page,
   request,
   baseURL,
 }) => {
-  await page.goto(`/courses/${course.id}/getting-started`);
-  await expect(page.getByRole('heading', { name: 'Getting started', exact: true })).toBeVisible();
-  await page.goto(`/courses/${course.id}/foundations`);
-  await expect(page).toHaveURL(/\/signin$/);
-  await expect(page.getByRole('button', { name: 'Continue with Google' })).toBeDisabled();
-  const api = await request.post('/api/learning', {
-    headers: { Origin: baseURL! },
-    data: {
-      kind: 'checkpoint',
-      source: solutions['first-component'],
-      courseId: course.id,
-      courseVersion: course.version,
-      chapterId: 'foundations',
-      attemptId: randomUUID(),
-    },
-  });
-  expect(api.status()).toBe(401);
-  expect((await request.get('/api/admin')).status()).toBe(401);
-  await page.goto('/blog');
-  await expect(page.getByRole('heading', { name: 'Small ideas. Better building.' })).toBeVisible();
-  await page
-    .getByRole('link', { name: 'Where should this React component run?', exact: true })
-    .click();
+  await page.goto('/courses/' + course.id);
+  await expect(page.getByRole('heading', { name: course.title, exact: true })).toBeVisible();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',
-    /\/blog\/server-components-or-client-components$/,
+    new RegExp('/courses/' + course.id + '$'),
   );
+  for (const chapter of course.chapters.slice(0, 3)) {
+    await page.goto('/courses/' + course.id + '/' + chapter.id);
+    await expect(page.getByRole('heading', { name: chapter.title, exact: true })).toBeVisible();
+    await page
+      .getByLabel(getActivity(chapter.exerciseId)!.inputLabel, { exact: true })
+      .fill(solutions[chapter.exerciseId]);
+    await page.getByRole('button', { name: 'Run checkpoint', exact: true }).click();
+    await expect(page.getByText('✓ Checkpoint passed', { exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Mark lesson read', exact: true })).toHaveCount(
+      0,
+    );
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index, follow/);
+  }
+  await page.goto('/courses/' + course.id + '/' + course.chapters[3].id);
+  await expect(page).toHaveURL(/\/signin$/);
+  await expect(page.getByRole('button', { name: 'Continue with Google' })).toBeDisabled();
+  const input = {
+    courseId: course.id,
+    courseVersion: course.version,
+    chapterId: course.chapters[0].id,
+    source: solutions['first-component'],
+  };
+  expect(
+    (
+      await request.post('/api/learning', {
+        headers: { Origin: baseURL! },
+        data: { ...input, kind: 'checkpoint', attemptId: randomUUID() },
+      })
+    ).status(),
+  ).toBe(401);
+  expect(
+    (
+      await request.post('/api/preview', {
+        headers: { Origin: 'https://untrusted.example' },
+        data: input,
+      })
+    ).status(),
+  ).toBe(403);
+  expect(
+    (
+      await request.post('/api/preview', {
+        headers: { Origin: baseURL! },
+        data: { ...input, chapterId: course.chapters[3].id },
+      })
+    ).status(),
+  ).toBe(400);
+  expect(
+    (
+      await request.post('/api/preview', {
+        headers: { Origin: baseURL! },
+        data: { ...input, source: 'x'.repeat(8193) },
+      })
+    ).status(),
+  ).toBe(400);
+  expect((await request.get('/api/admin')).status()).toBe(401);
+  const xml = await (await request.get('/sitemap.xml')).text();
+  for (const chapter of course.chapters.slice(0, 3)) expect(xml).toContain('/' + chapter.id);
+  expect(xml).not.toContain('/' + course.chapters[3].id);
+  expect(xml).not.toContain('/profile');
+  await page.goto('/blog/server-components-or-client-components');
   await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
   await expect(
     page.getByRole('contentinfo').getByRole('link', { name: 'Course repository on GitHub' }),
@@ -53,15 +120,10 @@ test('public overview and blog are available; lessons and admin data require sig
     'href',
     'https://github.com/proffesergio/modern-fullstack-react-projects-building',
   );
-  const sitemap = await request.get('/sitemap.xml');
-  const xml = await sitemap.text();
-  expect(xml).toContain('/blog/server-components-or-client-components');
-  expect(xml).not.toContain('/profile');
-  expect(xml).not.toContain('/foundations');
   await expectNoOverflow(page);
 });
 
-test('an invited learner completes all twenty real checkpoints and resumes on another device', async ({
+test('an invited learner completes all twenty bounded checkpoints and resumes on another device', async ({
   page,
   browser,
 }) => {
@@ -209,7 +271,6 @@ test('profile ownership, same-origin writes, account export and deletion are enf
 
 test('keyboard activity, progressive hints, reset, and reduced motion remain usable', async ({
   page,
-  baseURL,
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await signInLearner(page, 'Keyboard Learner');
@@ -228,11 +289,8 @@ test('keyboard activity, progressive hints, reset, and reduced motion remain usa
   await expect(page.getByText('✓ Checkpoint passed', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Reset activity', exact: true }).click();
   await expect(editor).toHaveValue(getActivity('first-component')!.starter);
-  await page.getByText('Optional route animation (decorative)', { exact: true }).click();
-  await expect(page.locator('picture:has(source) img')).toHaveJSProperty(
-    'currentSrc',
-    `${baseURL}/api/course-assets/learning-route.svg`,
-  );
+  await expect(page.locator('.cosmic-field')).toHaveAttribute('data-paused', 'true');
+  await expect(page.getByRole('button', { name: 'Pause sky' })).toHaveCount(0);
   expect(gifRequests).toBe(0);
 });
 

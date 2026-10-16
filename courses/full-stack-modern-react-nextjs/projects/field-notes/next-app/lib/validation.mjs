@@ -1,0 +1,1 @@
+export function noteInput(form){const title=String(form.get('title')||'').trim();const body=String(form.get('body')||'').trim();if(!title||title.length>120||!body||body.length>5000)throw new Error('Use a title of 1–120 characters and body of 1–5000.');return {title,body};}

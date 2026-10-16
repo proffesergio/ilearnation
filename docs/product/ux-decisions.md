@@ -124,3 +124,7 @@ retention period and operator access policy must be settled before public launch
 Public-launch scope, social/review visibility, additional languages/RTL, and
 essential social interactions remain open. The owner-authorized account application
 is deployed with invitations and Neon; live Google sign-in remains unconfigured.
+
+## Astronomical theme — owner instruction, 2026-10-16
+
+Use a distinct galactic/astronomical gravitational background with cool colors. Implemented as an ink/ice/copper atlas, orbital mesh and slow accretion-ring motion. Text reading surfaces remain solid. A visible pause/resume control persists locally; OS reduced-motion always makes the sky static. No new image, font, animation or tracking service is needed. This updates the previous calm-studio palette while keeping its readable lesson hierarchy.

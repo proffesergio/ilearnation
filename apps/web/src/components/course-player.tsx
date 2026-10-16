@@ -16,6 +16,7 @@ export function CoursePlayer({
   source,
   initialProgress,
   signedIn,
+  repository,
 }: {
   course: Course;
   chapterId: string;
@@ -23,6 +24,7 @@ export function CoursePlayer({
   source: string;
   initialProgress: Progress | null;
   signedIn: boolean;
+  repository: string;
 }) {
   const chapter = course.chapters.find((item) => item.id === chapterId);
   const index = course.chapters.findIndex((item) => item.id === chapterId);
@@ -36,7 +38,9 @@ export function CoursePlayer({
   const [hintCount, setHintCount] = useState(0);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState(
-    'Your checkpoint outcomes are saved to your account. Exercise input stays in this tab.',
+    signedIn
+      ? 'Your checkpoint outcomes are saved to your account. Exercise input stays in this tab.'
+      : 'Free preview: try this checkpoint without an account. Results stay in this tab.',
   );
   const pendingAttempt = useRef<{ id: string; kind: 'read' | 'checkpoint'; source: string } | null>(
     null,
@@ -55,29 +59,32 @@ export function CoursePlayer({
       pendingAttempt.current = { id: crypto.randomUUID(), kind, source: snapshot };
     }
     try {
-      const response = await fetch('/api/learning', {
+      const response = await fetch(signedIn ? '/api/learning' : '/api/preview', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           courseId: course.id,
           courseVersion: course.version,
           chapterId: chapter.id,
-          kind,
+          ...(signedIn ? { kind, attemptId: pendingAttempt.current.id } : {}),
           ...(kind === 'checkpoint' ? { source: sourceText } : {}),
-          attemptId: pendingAttempt.current.id,
         }),
       });
       const body = await response.json();
       if (!response.ok)
         throw new Error(body.error || 'Your activity could not be saved. Please try again.');
-      setProgress(body.progress);
+      if (body.progress) setProgress(body.progress);
       if (body.result) setResult(body.result);
       setMessage(
-        kind === 'read'
-          ? 'Lesson marked read and saved. Passing the checkpoint is recorded separately.'
-          : body.result.passed
-            ? 'Checkpoint passed and saved. You can return to this lesson at any time.'
-            : 'Attempt saved. Use the feedback and try another small change.',
+        !signedIn
+          ? body.result.passed
+            ? 'Preview checkpoint passed. Sign in to save future progress.'
+            : 'Use the feedback and try again. No account needed.'
+          : kind === 'read'
+            ? 'Lesson marked read and saved. Passing the checkpoint is recorded separately.'
+            : body.result.passed
+              ? 'Checkpoint passed and saved. You can return to this lesson at any time.'
+              : 'Attempt saved. Use the feedback and try another small change.',
       );
       pendingAttempt.current = null;
     } catch (error) {
@@ -93,7 +100,9 @@ export function CoursePlayer({
   async function refresh() {
     setBusy(true);
     try {
-      const response = await fetch('/api/learning', { cache: 'no-store' });
+      const response = await fetch(`/api/learning?courseId=${encodeURIComponent(course.id)}`, {
+        cache: 'no-store',
+      });
       const body = await response.json();
       if (!response.ok) throw new Error(body.error || 'Could not restore progress.');
       setProgress(body.progress);
@@ -111,11 +120,7 @@ export function CoursePlayer({
           ← {signedIn ? 'My learning' : 'All courses'}
         </Link>
         <p className="eyebrow">Your learning route</p>
-        <h2>
-          Modern full-stack
-          <br />
-          React + Next.js
-        </h2>
+        <h2>{course.title}</h2>
         <p className="small-note">
           v{course.version} · {course.status} curriculum
         </p>
@@ -167,12 +172,7 @@ export function CoursePlayer({
           <span className="tag">
             {chapter ? `${chapter.estimatedMinutes} min · self-paced` : 'Your first 10 minutes'}
           </span>
-          <a
-            className="text-link"
-            href="https://github.com/proffesergio/modern-fullstack-react-projects-building"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <a className="text-link" href={repository} rel="noopener noreferrer" target="_blank">
             Course on GitHub <Arrow diagonal />
           </a>
         </div>
@@ -289,7 +289,7 @@ export function CoursePlayer({
             </div>
           </section>
         )}
-        {chapter ? (
+        {chapter && signedIn ? (
           <section className="progress-panel" aria-labelledby="progress-heading">
             <h2 id="progress-heading">Keep your place.</h2>
             <p>
@@ -316,15 +316,21 @@ export function CoursePlayer({
           </section>
         ) : (
           <section className="progress-panel">
-            <h2>A place to start.</h2>
+            <h2>{chapter ? 'Save your learning progress.' : 'A place to start.'}</h2>
             <p>
-              The overview and references are open to everyone. Sign in and complete your profile to
-              enter all twenty interactive lessons.
+              The first three chapters, orientation, and references are open to everyone. Preview
+              results stay in this tab. Sign in and complete your profile to save progress and enter
+              the remaining chapters.
             </p>
             <Link className="button" href={signedIn ? '/dashboard' : '/signin'}>
               {signedIn ? 'Open my learning path' : 'Sign in to start learning'} <Arrow />
             </Link>
           </section>
+        )}
+        {!signedIn && chapter && (
+          <p role="status" className="small-note">
+            {message}
+          </p>
         )}
         {next && chapter && (
           <Link className="next-lesson" href={`/courses/${course.id}/${next.id}`}>

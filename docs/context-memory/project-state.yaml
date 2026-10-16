@@ -1,7 +1,7 @@
 schema_version: 1
-updated_on: '2026-10-16'
+updated_on: '2026-10-17'
 product: iLearnNation
-phase: production-Neon-invitations-deployed-Google-manual-later
+phase: book-ordered-course-and-astronomical-theme-release
 contract: AGENTS.md
 plan:
   path: plan.md
@@ -68,9 +68,9 @@ integrations:
   account_access_verified: Vercel-platform-Git-push-GitHub-Actions-and-production-invitation-loop-verified
 references:
   local_pdfs: 4
-  adaptation_rights: owner-confirmed-for-first-course-book-2026-10-16
-  other_pdf_rights: unverified
-  pdf_contents_read: first-course-metadata-and-table-of-contents-only
+  adaptation_rights: owner-confirmed-adaptation-and-publication-for-all-four-2026-10-16
+  other_pdf_rights: owner-confirmed
+  pdf_contents_read: first-course-private-extraction-and-four-book-metadata-TOCs
   source_prose_code_images_copied: false
   metadata: refBooks/references.json
 first_cohort: mixed-self-directed-learners
@@ -96,13 +96,13 @@ course_repository:
     dedicated_course: courses/full-stack-modern-react-nextjs/README.md
 course:
   schema_version: 1
-  version: '0.2.0'
+  version: '0.3.0'
   status: draft
   authored_chapters: 20
-  trusted_node_checkpoints: 20
+  real_project_workspaces: 4
   interactive_web_exercises: 20
-  prior_version_snapshot: courses/full-stack-modern-react-nextjs/versions/0.1.0
-  preserved_old_ids: 8
+  prior_version_snapshots: [versions/0.1.0, versions/0.2.0]
+  legacy_redirects: 20
   mapped_reference_chapters: 20
   full_reference_adaptation: locally-authored-draft-human-review-pending
   optional_animation: finite-2.4-second-gif-with-static-fallback
@@ -111,7 +111,7 @@ website:
   pages: [homepage, catalog, player, local-admin-preview, signin, join, profile, dashboard, admin-studio, blog]
   catalog: one-playable-react-next-draft-plus-three-nonplayable-mock-ideas
   lesson_style: book-inspired-serif-reading-hierarchy-responsive-headings-tables-and-callouts
-  visual_direction: calm-studio-with-energetic-community-accents
+  visual_direction: astronomical-atlas-ink-ice-copper-orbital-motion-with-pause-and-reduced-motion
   planned_learning_experience:
     direction: an-animated-study-book
     approved_on: '2026-10-16'
@@ -204,7 +204,7 @@ validation:
   deployment_upload_dry_run: passed-109-files-env-local-and-four-private-PDFs-excluded
   live_deployment: READY-https-ilearnation-vercel-app
   live_smoke: public-pages-200; secure-invitation-profile-checkpoint-progress-export-deletion-pass; anonymous-admin-401-learner-admin-403
-  unit_tests: 73-passed
+  unit_tests: 75-passed
   production_build: passed
   typecheck: passed
   formatter: passed
@@ -214,10 +214,23 @@ validation:
   homepage_automated_accessibility: passed-not-full-wcag-certification
   screenshot_review: desktop-homepage-and-desktop-mobile-admin-reviewed
   lint: passed
-  browser_checks: 12-passed-desktop-and-mobile-current-production-build
+  browser_checks: 12-functional-and-2-sky-controls-pass-desktop-mobile
   catalog_slice: production-build-typecheck-lint-format-course-and-repository-checks-passed; 10-desktop-mobile-e2e-passed
   catalog_manual_screenshot: local-chrome-sigtrap-e2e-browser-suite-passed
   credential_signatures: passed-heuristic-only
   dependency_advisories: production-audit-passed-zero-reported
   scope_exclusions:
     [yaml-schema, external-links-live-check, live-Google-OAuth, real-operator-admin-onboarding, live-Mapbox]
+
+current_release:
+  date: '2026-10-17'
+  course: 0.3.0-schema1-book-ordered20-chapters-plus-conclusion
+  guest_access: first3-chapters-no-account-and-no-persisted-input
+  project: API-SPA-SSR-Next-original-Field-Notes
+  source_rights: all4-owner-confirmed
+  other_courses: inventoried-not-authored
+  theme: astronomical-gravitational-orbits-cool-ink-ice-copper
+  analytics: optional-basic-consent-disabled-no-measurement-ID
+  ads: absent-AdSense-not-applied-or-approved
+  publisher_runbook: docs/runbooks/course-publishing-and-google.md
+  publish_status: final-checks-complete-publication-in-progress

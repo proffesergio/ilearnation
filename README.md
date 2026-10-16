@@ -4,13 +4,16 @@
 
 **Build something you can explain. Then make it better.** iLearnNation is a GitHub-first learning studio for mixed self-directed learners. Begin with the [getting-started guide](courses/full-stack-modern-react-nextjs/getting-started.md), browse the [course](courses/full-stack-modern-react-nextjs/README.md), or read the [contribution guide](CONTRIBUTING.md).
 
-> The included React and Next.js course is **draft 0.2.0**, with 20 authored lessons and interactive activities. The eight original IDs remain, and draft 0.1.0 is preserved under `versions/0.1.0`. Human curriculum review and course release remain pending. The [production site](https://ilearnation.vercel.app) now runs the latest course, private accounts, admin, and blog application from commit `ea1b8b5`, with Neon and invitation sign-in. Google OAuth credentials will be added manually later; its button remains disabled until configured.
+> The React/Next.js course is original review edition **0.3.0**: all20 book chapters in order, a real API/SPA/SSR/Next project, and a capstone conclusion. Earlier0.1/0.2 drafts remain snapshots. Try the first3 web chapters without login; sign in for saved progress and remaining web chapters. The entire course is browsable in its dedicated repository. The [production site](https://ilearnation.vercel.app) uses Neon and invitation sign-in; Google credentials will be added manually later.
+
 
 ## Learn by doing
 
-Read → Run → Change → Check → Reflect → Build. Each lesson offers objectives, prerequisites, a runnable authored JavaScript checkpoint, a bounded interactive activity, feedback, hints, reset, common mistakes, reflection, and references. The first web activity validates a small text-only JSX grammar. The other 19 use bounded JSON inputs and deterministic behavioral simulation. Learner submissions are never executed as arbitrary server-side code. Public activity metadata comes from `getActivity`; signed-in learners with completed profiles use the course player. The course [reference list](courses/full-stack-modern-react-nextjs/references.md) records sources and rights.
+Read → Run → Change → Check → Reflect → Build. Each lesson offers objectives, prerequisites, a runnable project checkpoint, a bounded interactive activity, feedback, hints, reset, common mistakes, reflection, and references. The first web activity validates a small text-only JSX grammar. Other activities use bounded JSON inputs and deterministic behavioral simulation. Learner submissions are never executed as arbitrary server-side code. Public activity metadata comes from `getActivity`; guests can try the first three chapters, while signed-in learners with completed profiles save progress. The course [reference list](courses/full-stack-modern-react-nextjs/references.md) records sources and rights.
 
 The website also has a public catalog, three original reviewed-draft blog articles, and SEO metadata, canonical links, structured data, a sitemap, and robots rules. These are discoverability tools, not a traffic claim. A synthetic region map and list illustrate the design without showing learner locations. The shared footer links to the [dedicated course repository](https://github.com/proffesergio/modern-fullstack-react-projects-building); local and remote course copies do not synchronize automatically.
+
+The astronomical atlas theme uses deep ink, ice and copper accents, a decorative orbital mesh, pause/resume, and OS reduced-motion support. Public about/contact/privacy/terms/editorial pages and optional opt-in analytics provide a publishing foundation. Analytics and ads remain off until configured. [Owner setup and publishing](docs/runbooks/course-publishing-and-google.md) covers Google, Search Console, GA4, future AdSense, and course repositories. Three additional PDF courses have confirmed rights and inventoried chapter sequences but are not yet authored.
 
 ## Local setup
 
@@ -25,7 +28,7 @@ npm run db:init
 npm run dev
 ```
 
-Edit `apps/web/.env.local` before using accounts: set a unique `AUTH_SECRET` of at least 32 characters and `AUTH_URL=http://127.0.0.1:3000`. `DATABASE_MODE=sqlite` uses durable Node 24 SQLite at an ignored local path. With no Google credentials, an operator can issue a single-use invitation to an ignored private file. Google sign-up is open when its OAuth credentials are configured; it needs no invitation. Both routes require profile setup before lessons and the dashboard. See the [SQL and auth runbook](docs/runbooks/sql-auth-setup.md) for exact commands, Neon setup, sync limits, and failure behavior. Keep secret values out of Git and chat.
+Edit `apps/web/.env.local` before using accounts: set a unique `AUTH_SECRET` of at least 32 characters and `AUTH_URL=http://127.0.0.1:3000`. `DATABASE_MODE=sqlite` uses durable Node 24 SQLite at an ignored local path. With no Google credentials, an operator can issue a single-use invitation to an ignored private file. Google sign-up is open when its OAuth credentials are configured; it needs no invitation. Both routes require profile setup for saved learning and the dashboard; public chapter previews need no account. See the [SQL and auth runbook](docs/runbooks/sql-auth-setup.md) for exact commands, Neon setup, sync limits, and failure behavior. Keep secret values out of Git and chat.
 
 The backend is Auth.js with server-side authorization and a SQL learning store. Neon is the intended production database; Vercel production requires it and fails closed without configuration. Local SQLite is an explicit durable mode, with an operator-run outbox sync to Neon. There is no automatic failover or browser offline mode. [ADR 0002](docs/adr/0002-sql-auth-and-sync.md) records the decision. Admin roles are assigned through an operator command, not profile fields. The protected admin studio shows actual learner activity and immutable policy history, with shadow replay and zero applied points. Learners can export their account data through `/api/account/download` and delete their accounts.
 
@@ -41,7 +44,7 @@ npm run check:repository
 python3 scripts/check_secrets.py
 ```
 
-Current verification passed 73 native tests, all 12 desktop/mobile browser checks, build, types, lint, formatting, repository checks, and the deployed commit's GitHub Actions. A real production browser check also passed secure invitation sign-in, profile, checkpoint progress across sessions, export, and deletion; synthetic accounts were deleted afterward. See the [handoff](docs/context-memory/last-handoff.md) for evidence, [Google setup](docs/runbooks/google-oauth-setup.md) for the remaining optional provider configuration, and [security](SECURITY.md) and [TODO](TODO.md) for launch limits.
+Current verification passed 75 native tests, all 12 desktop/mobile browser checks, build, types, lint, formatting, repository checks, and the deployed commit's GitHub Actions. A real production browser check also passed secure invitation sign-in, profile, checkpoint progress across sessions, export, and deletion; synthetic accounts were deleted afterward. See the [handoff](docs/context-memory/last-handoff.md) for evidence, [Google setup](docs/runbooks/google-oauth-setup.md) for the remaining optional provider configuration, and [security](SECURITY.md) and [TODO](TODO.md) for launch limits.
 
 ## A small star, a wider learning circle
 

@@ -1,0 +1,659 @@
+{
+  "schemaVersion": 1,
+  "id": "full-stack-modern-react-nextjs",
+  "version": "0.2.0",
+  "status": "draft",
+  "title": "Full-Stack Modern React and Next.js Application Development",
+  "description": "Twenty original draft lessons with executable dependency-free JavaScript checkpoints and bounded interactive scenario labs. The pathway covers React, Node/document data, APIs, identity, rendering, testing, analytics, GraphQL, realtime, Next.js, caching, and a private notebook capstone. Framework builds and deployment remain learner project work.",
+  "locale": "en",
+  "level": "beginner-to-intermediate",
+  "tags": [
+    "javascript",
+    "typescript",
+    "react",
+    "nextjs",
+    "accessibility",
+    "full-stack"
+  ],
+  "prerequisites": [
+    "Recognize basic HTML and CSS",
+    "Recognize JavaScript variables and functions",
+    "Use an editor and navigate a folder"
+  ],
+  "learningOutcomes": [
+    "Build and test a private note workflow across UI, API, and owner-scoped storage",
+    "Model asynchronous data, GraphQL mutations, and realtime replay with explicit failure states",
+    "Choose React and Next.js boundaries, metadata, and caching policies",
+    "Validate inputs, authorization, privacy, accessibility, and release gates with evidence"
+  ],
+  "accessibilityNotes": [
+    "All essential content is text with static diagrams",
+    "Hints use native disclosure controls",
+    "Optional decorative GIFs are collapsed and play once for 2.4 seconds; GitHub cannot apply OS reduced-motion settings to GIFs",
+    "No animation, precise location, or public profile is required",
+    "Framework exercises require keyboard and mobile review"
+  ],
+  "chapters": [
+    {
+      "id": "foundations",
+      "title": "Foundations: make one observable change",
+      "summary": "Orientation, environment checks, browser/server distinctions, and the first component learning loop.",
+      "estimatedMinutes": 35,
+      "objectives": [
+        "Describe browser, server, and file responsibilities",
+        "Run and change a JavaScript checkpoint",
+        "Connect a heading to a component"
+      ],
+      "prerequisites": [
+        "Recognize an HTML heading and a JavaScript string"
+      ],
+      "lessonPath": "chapters/foundations.md",
+      "exerciseId": "first-component"
+    },
+    {
+      "id": "javascript-typescript",
+      "title": "JavaScript data and TypeScript contracts",
+      "summary": "Immutable transformations, static types, and runtime checks with meaningful edge cases.",
+      "estimatedMinutes": 45,
+      "objectives": [
+        "Transform arrays without changing originals",
+        "Distinguish types from runtime validation",
+        "Check invalid and successful inputs"
+      ],
+      "prerequisites": [
+        "foundations"
+      ],
+      "lessonPath": "chapters/javascript-typescript.md",
+      "exerciseId": "javascript-typescript"
+    },
+    {
+      "id": "react-components",
+      "title": "React: describe the next interface",
+      "summary": "Props, state, transitions, events, and a labeled form practice extension.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Separate input, state, event, and output",
+        "Compute immutable state transitions",
+        "Connect a labeled control to UI changes"
+      ],
+      "prerequisites": [
+        "javascript-typescript"
+      ],
+      "lessonPath": "chapters/react-components.md",
+      "exerciseId": "react-components"
+    },
+    {
+      "id": "node-and-data",
+      "title": "Node.js and document data",
+      "summary": "Model asynchronous server work, owner-scoped document queries, projection, and storage lifetimes.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Distinguish asynchronous I/O from synchronous computation",
+        "Filter and project a synthetic document collection",
+        "Describe durable storage boundaries"
+      ],
+      "prerequisites": [
+        "react-components"
+      ],
+      "lessonPath": "chapters/node-and-data.md",
+      "exerciseId": "node-and-data"
+    },
+    {
+      "id": "api-contracts",
+      "title": "APIs: make a small HTTP contract",
+      "summary": "Validate a note creation endpoint and test status codes without opening a network port.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Map method and path to a request contract",
+        "Reject invalid data before writes",
+        "Test successful and unsuccessful HTTP outcomes"
+      ],
+      "prerequisites": [
+        "node-and-data"
+      ],
+      "lessonPath": "chapters/api-contracts.md",
+      "exerciseId": "api-contracts"
+    },
+    {
+      "id": "async-data",
+      "title": "Asynchronous data and request races",
+      "summary": "Keep server-state cache identity, out-of-order responses, retries, and refresh failures understandable.",
+      "estimatedMinutes": 50,
+      "objectives": [
+        "Represent loading, empty, success, and error states",
+        "Reject stale request results",
+        "Partition cache entries by owner"
+      ],
+      "prerequisites": [
+        "api-contracts"
+      ],
+      "lessonPath": "chapters/async-data.md",
+      "exerciseId": "async-data"
+    },
+    {
+      "id": "data-and-forms",
+      "title": "Data, validation, persistence, and identity",
+      "summary": "Validate before writes, scope ownership to trusted identity, and state storage guarantees honestly.",
+      "estimatedMinutes": 60,
+      "objectives": [
+        "Validate form values before writing",
+        "Separate authentication and authorization",
+        "Explain persistence and deletion boundaries"
+      ],
+      "prerequisites": [
+        "async-data"
+      ],
+      "lessonPath": "chapters/data-and-forms.md",
+      "exerciseId": "data-and-forms"
+    },
+    {
+      "id": "identity-and-access",
+      "title": "Identity, sessions, and access",
+      "summary": "Trace trusted identity into authorization and reason about cookies, expiry, and forged requests.",
+      "estimatedMinutes": 60,
+      "objectives": [
+        "Separate authentication from authorization",
+        "Check ownership and expiry at the server boundary",
+        "Describe session and token exposure risks"
+      ],
+      "prerequisites": [
+        "data-and-forms"
+      ],
+      "lessonPath": "chapters/identity-and-access.md",
+      "exerciseId": "identity-and-access"
+    },
+    {
+      "id": "rendering-and-seo",
+      "title": "Rendering and meaningful discovery",
+      "summary": "Compare server and client rendering, useful initial HTML, metadata, canonical URLs, and private routes.",
+      "estimatedMinutes": 50,
+      "objectives": [
+        "Inspect initial HTML separately from hydrated UI",
+        "Choose public metadata and canonical origin",
+        "Keep private pages protected and out of indexing"
+      ],
+      "prerequisites": [
+        "identity-and-access"
+      ],
+      "lessonPath": "chapters/rendering-and-seo.md",
+      "exerciseId": "rendering-and-seo"
+    },
+    {
+      "id": "quality-accessibility-security",
+      "title": "Quality: prove behavior and include people",
+      "summary": "Behavior tests, keyboard and form review, safe URL policies, and the limits of automated evidence.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Write a meaningful regression check",
+        "Review labels, focus, and keyboard use",
+        "Reject unsafe link schemes"
+      ],
+      "prerequisites": [
+        "rendering-and-seo"
+      ],
+      "lessonPath": "chapters/quality-accessibility-security.md",
+      "exerciseId": "quality-accessibility-security"
+    },
+    {
+      "id": "learning-insights",
+      "title": "Learning insights without surveillance",
+      "summary": "Aggregate minimal consented events, deduplicate delivery, and explain small-group suppression.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Define a minimal event contract",
+        "Count distinct consented learners",
+        "Label chart limits and data freshness"
+      ],
+      "prerequisites": [
+        "quality-accessibility-security"
+      ],
+      "lessonPath": "chapters/learning-insights.md",
+      "exerciseId": "learning-insights"
+    },
+    {
+      "id": "graphql-api",
+      "title": "GraphQL: a bounded server contract",
+      "summary": "Select public fields, validate query depth, and authorize each synthetic resolver.",
+      "estimatedMinutes": 60,
+      "objectives": [
+        "Describe fields, variables, queries, and mutations",
+        "Limit resolver output and work",
+        "Apply authorization independently of query shape"
+      ],
+      "prerequisites": [
+        "learning-insights"
+      ],
+      "lessonPath": "chapters/graphql-api.md",
+      "exerciseId": "graphql-api"
+    },
+    {
+      "id": "graphql-client",
+      "title": "GraphQL: client state and mutations",
+      "summary": "Model normalized identity, optimistic updates, duplicate confirmations, and targeted rollback.",
+      "estimatedMinutes": 60,
+      "objectives": [
+        "Choose stable normalized cache keys",
+        "Reconcile a confirmed mutation without duplication",
+        "Keep errors and rollback visible"
+      ],
+      "prerequisites": [
+        "graphql-api"
+      ],
+      "lessonPath": "chapters/graphql-client.md",
+      "exerciseId": "graphql-client"
+    },
+    {
+      "id": "realtime-server",
+      "title": "Realtime: authenticated server events",
+      "summary": "Check connection identity, room membership, payload limits, storage failure, and acknowledgement order.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Authorize every room event",
+        "Validate and bound message payloads",
+        "Acknowledge only successful durable writes"
+      ],
+      "prerequisites": [
+        "graphql-client"
+      ],
+      "lessonPath": "chapters/realtime-server.md",
+      "exerciseId": "realtime-server"
+    },
+    {
+      "id": "realtime-client",
+      "title": "Realtime: reconnect and reconcile",
+      "summary": "Bound offline queues, preserve client IDs across retries, and deduplicate confirmations.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Represent connected, pending, offline, and failed states",
+        "Apply bounded backpressure",
+        "Reconcile duplicate message delivery"
+      ],
+      "prerequisites": [
+        "realtime-server"
+      ],
+      "lessonPath": "chapters/realtime-client.md",
+      "exerciseId": "realtime-client"
+    },
+    {
+      "id": "realtime-persistence",
+      "title": "Realtime: durable replay and retention",
+      "summary": "Combine scoped idempotency, sequence cursors, owner filtering, and retention in an event log.",
+      "estimatedMinutes": 60,
+      "objectives": [
+        "Persist before acknowledging an event",
+        "Replay after a stable sequence cursor",
+        "Apply owner and retention limits to reads"
+      ],
+      "prerequisites": [
+        "realtime-client"
+      ],
+      "lessonPath": "chapters/realtime-persistence.md",
+      "exerciseId": "realtime-persistence"
+    },
+    {
+      "id": "nextjs-routing",
+      "title": "Next.js: routes and execution boundaries",
+      "summary": "App Router routes and layouts, safe server/client props, and explicit data states.",
+      "estimatedMinutes": 55,
+      "objectives": [
+        "Map route folders to URLs",
+        "Choose server and client boundaries",
+        "Represent empty and failure states"
+      ],
+      "prerequisites": [
+        "realtime-persistence"
+      ],
+      "lessonPath": "chapters/nextjs-routing.md",
+      "exerciseId": "nextjs-routing"
+    },
+    {
+      "id": "caching-performance",
+      "title": "Caching, invalidation, and performance",
+      "summary": "Partition private caches, invalidate after writes, and enforce a useful asset budget.",
+      "estimatedMinutes": 60,
+      "objectives": [
+        "Choose cache identity and shared-cache policy",
+        "Reproduce and fix a stale read",
+        "Measure a budget without inventing performance claims"
+      ],
+      "prerequisites": [
+        "nextjs-routing"
+      ],
+      "lessonPath": "chapters/caching-performance.md",
+      "exerciseId": "caching-performance"
+    },
+    {
+      "id": "production-workflows",
+      "title": "Git, CI, deployment concepts, and recovery",
+      "summary": "Local diff review, reproducible checks, least privilege, release approval, and rollback rehearsal.",
+      "estimatedMinutes": 50,
+      "objectives": [
+        "Review a local change before staging",
+        "Explain reproducible CI checks",
+        "Plan observation and rollback"
+      ],
+      "prerequisites": [
+        "caching-performance"
+      ],
+      "lessonPath": "chapters/production-workflows.md",
+      "exerciseId": "production-workflows"
+    },
+    {
+      "id": "capstone",
+      "title": "Capstone: a private learning notebook",
+      "summary": "A bounded local app brief combining routes, forms, validated persistence, tests, accessibility, and a retrospective.",
+      "estimatedMinutes": 480,
+      "objectives": [
+        "Build a complete local note workflow",
+        "Collect tests and accessibility evidence",
+        "Document limitations and release plans"
+      ],
+      "prerequisites": [
+        "foundations",
+        "javascript-typescript",
+        "react-components",
+        "node-and-data",
+        "api-contracts",
+        "async-data",
+        "data-and-forms",
+        "identity-and-access",
+        "rendering-and-seo",
+        "quality-accessibility-security",
+        "learning-insights",
+        "graphql-api",
+        "graphql-client",
+        "realtime-server",
+        "realtime-client",
+        "realtime-persistence",
+        "nextjs-routing",
+        "caching-performance",
+        "production-workflows"
+      ],
+      "lessonPath": "chapters/capstone.md",
+      "exerciseId": "capstone"
+    }
+  ],
+  "completion": {
+    "requiredChapters": [
+      "foundations",
+      "javascript-typescript",
+      "react-components",
+      "node-and-data",
+      "api-contracts",
+      "async-data",
+      "data-and-forms",
+      "identity-and-access",
+      "rendering-and-seo",
+      "quality-accessibility-security",
+      "learning-insights",
+      "graphql-api",
+      "graphql-client",
+      "realtime-server",
+      "realtime-client",
+      "realtime-persistence",
+      "nextjs-routing",
+      "caching-performance",
+      "production-workflows",
+      "capstone"
+    ],
+    "capstone": "capstone",
+    "rule": "Complete all twenty server-checked scenario activities and practice the authored checkpoints; record project tests and reflections. Scenario passing verifies the bounded model only, not framework mastery, production readiness, or a credential. Review capstone implementation evidence separately."
+  },
+  "references": [
+    {
+      "title": "Download Node.js",
+      "author": "Node.js contributors",
+      "url": "https://nodejs.org/en/download",
+      "status": "Official installation destination linked for reference; no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "foundations"
+      ]
+    },
+    {
+      "title": "Test runner",
+      "author": "Node.js contributors",
+      "url": "https://nodejs.org/api/test.html",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "foundations",
+        "quality-accessibility-security"
+      ]
+    },
+    {
+      "title": "Your First Component",
+      "author": "React team",
+      "url": "https://react.dev/learn/your-first-component",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "foundations"
+      ]
+    },
+    {
+      "title": "Everyday Types",
+      "author": "Microsoft TypeScript team",
+      "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "javascript-typescript"
+      ]
+    },
+    {
+      "title": "State: A Component's Memory",
+      "author": "React team",
+      "url": "https://react.dev/learn/state-a-components-memory",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "react-components"
+      ]
+    },
+    {
+      "title": "Server and Client Components",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/getting-started/server-and-client-components",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "nextjs-routing"
+      ]
+    },
+    {
+      "title": "Installation",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/getting-started/installation",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "nextjs-routing"
+      ]
+    },
+    {
+      "title": "Forms with Server Actions",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/guides/forms",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "data-and-forms",
+        "capstone"
+      ]
+    },
+    {
+      "title": "Labeling Controls",
+      "author": "W3C Web Accessibility Initiative",
+      "url": "https://www.w3.org/WAI/tutorials/forms/labels/",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "quality-accessibility-security",
+        "capstone"
+      ]
+    },
+    {
+      "title": "Understanding GitHub Actions",
+      "author": "GitHub documentation contributors",
+      "url": "https://docs.github.com/en/actions/get-started/understand-github-actions",
+      "status": "Official documentation linked for reference; original examples, no source content redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "production-workflows"
+      ]
+    },
+    {
+      "title": "The Node.js Event Loop",
+      "author": "Node.js contributors",
+      "url": "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "node-and-data"
+      ]
+    },
+    {
+      "title": "Data Modeling in MongoDB",
+      "author": "MongoDB documentation team",
+      "url": "https://www.mongodb.com/docs/manual/data-modeling/",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "node-and-data"
+      ]
+    },
+    {
+      "title": "HTTP",
+      "author": "Node.js contributors",
+      "url": "https://nodejs.org/api/http.html",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "api-contracts"
+      ]
+    },
+    {
+      "title": "Queries",
+      "author": "TanStack Query contributors",
+      "url": "https://tanstack.com/query/latest/docs/framework/react/guides/queries",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "async-data"
+      ]
+    },
+    {
+      "title": "Authentication",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/guides/authentication",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "identity-and-access"
+      ]
+    },
+    {
+      "title": "Metadata and OG images",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/getting-started/metadata-and-og-images",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "rendering-and-seo"
+      ]
+    },
+    {
+      "title": "Writing tests",
+      "author": "Playwright contributors",
+      "url": "https://playwright.dev/docs/writing-tests",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "quality-accessibility-security"
+      ]
+    },
+    {
+      "title": "Aggregation Operations",
+      "author": "MongoDB documentation team",
+      "url": "https://www.mongodb.com/docs/manual/aggregation/",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "learning-insights"
+      ]
+    },
+    {
+      "title": "Queries",
+      "author": "GraphQL Foundation",
+      "url": "https://graphql.org/learn/queries/",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "graphql-api"
+      ]
+    },
+    {
+      "title": "Mutations in Apollo Client",
+      "author": "Apollo GraphQL team",
+      "url": "https://www.apollographql.com/docs/react/data/mutations",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "graphql-client"
+      ]
+    },
+    {
+      "title": "Delivery guarantees",
+      "author": "Socket.IO contributors",
+      "url": "https://socket.io/docs/v4/delivery-guarantees/",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "realtime-server",
+        "realtime-persistence"
+      ]
+    },
+    {
+      "title": "Offline behavior",
+      "author": "Socket.IO contributors",
+      "url": "https://socket.io/docs/v4/client-offline-behavior/",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "realtime-client"
+      ]
+    },
+    {
+      "title": "Caching",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/getting-started/caching",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "caching-performance"
+      ]
+    },
+    {
+      "title": "Deploying",
+      "author": "Vercel Next.js team",
+      "url": "https://nextjs.org/docs/app/getting-started/deploying",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "production-workflows",
+        "capstone"
+      ]
+    },
+    {
+      "title": "Building best practices",
+      "author": "Docker documentation team",
+      "url": "https://docs.docker.com/build/building/best-practices/",
+      "status": "Official primary documentation, link only; original prose and examples, no third-party source redistributed",
+      "accessedOn": "2026-10-16",
+      "chapters": [
+        "production-workflows"
+      ]
+    }
+  ]
+}

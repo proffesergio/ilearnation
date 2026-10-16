@@ -9,17 +9,17 @@ check the prerequisites, and work through one small learning loop at a time.
 
 | Course | Start here | Current scope |
 | --- | --- | --- |
-| Full-Stack Modern React and Next.js Application Development | [Getting started](full-stack-modern-react-nextjs/getting-started.md) · [Course overview](full-stack-modern-react-nextjs/README.md) | Original draft 0.1.0; eight chapters, runnable Node checkpoints, and a first interactive website exercise |
+| Full-Stack Modern React and Next.js Application Development | [Getting started](full-stack-modern-react-nextjs/getting-started.md) · [Course overview](full-stack-modern-react-nextjs/README.md) | Original review edition 0.3.0; 20 book-ordered chapters, runnable four-workspace Field Notes project, and three free web previews |
 
 ## Choose a route
 
 1. Read the guide before installing tools; it describes prerequisites and expectations.
-2. Begin with [Foundations](full-stack-modern-react-nextjs/chapters/foundations.md).
+2. Begin with [Preparing for Full-Stack Development](full-stack-modern-react-nextjs/chapters/preparing-full-stack-development.md).
 3. Run a checkpoint, make a change, check it, and explain what happened.
 4. Use the progressive hints and reflection prompts, then build toward the capstone.
 
 The chapter Markdown works on GitHub. The website adds the lesson player and
-bounded first JSX exercise; follow the [platform setup](../README.md#run-the-learning-studio).
+bounded browser activities and private account progress; follow the [platform setup](../README.md#run-the-learning-studio).
 Framework project extensions require the environment named in each lesson.
 
 ## For course contributors

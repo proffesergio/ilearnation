@@ -247,3 +247,7 @@ website footer; use the existing visual style and same-tab navigation. Update th
 main navigation to “Explore courses” to match the catalog. The remaining 20-chapter
 curriculum work stays open. No publication or deployment is part of this pass.
 Evidence: `apps/web/src/components/brand.tsx`, `docs/context-memory/last-handoff.md`.
+
+## Book-ordered edition and public preview — 2026-10-16
+
+The owner confirms adaptation/publication rights for all4 supplied PDFs and authorizes publishing complete courses. First React0.3.0 follows exact20-chapter book order and adds original Field Notes implementation. Earlier snapshots/progress stay versioned. First3 web chapters use no-persistence guest validation; later web chapters retain account/profile guards. The astronomical theme is owner-requested. Analytics defaults off; basic consent and public-route allowlist prepare optional GA4, while certified ad CMP and AdSense review remain future owner work.

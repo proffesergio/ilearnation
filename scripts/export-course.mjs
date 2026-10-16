@@ -21,13 +21,26 @@ for (const name of [
   'references.md',
   'chapters',
   'assets',
+  'projects',
+  'versions',
+  '.github',
 ]) {
   try {
     await cp(path.join(source, name), path.join(destination, name), {
       recursive: true,
       errorOnExist: true,
       force: false,
-      filter: (entry) => !entry.endsWith('.pdf') && !path.basename(entry).startsWith('.'),
+      filter: (entry) => {
+        const name = path.basename(entry);
+        return (
+          !entry.endsWith('.pdf') &&
+          !['node_modules', 'dist', 'test-results', 'playwright-report', 'coverage'].includes(
+            name,
+          ) &&
+          (!name.startsWith('.') ||
+            ['.github', '.gitignore', '.dockerignore', '.env.example'].includes(name))
+        );
+      },
     });
   } catch (error) {
     if (name === 'assets' && error.code === 'ENOENT') continue;
@@ -36,7 +49,7 @@ for (const name of [
 }
 await writeFile(
   path.join(destination, 'PUBLICATION-STATUS.md'),
-  '# Local course export\n\nOriginal draft for owner review. No project license selected; no redistribution permission is granted by this export. No remote was created, no Git history was initialized, and no files were pushed. The publisher must review rights, curriculum, links, and accessibility before publication.\n',
+  '# Course publication payload\n\nOriginal public review edition. Source adaptation/publication rights are owner-confirmed; supplied books and private files are excluded. No project reuse license is granted by this export. This command does not modify remote repositories; publication uses a separately reviewed Git commit. Human curriculum review remains ongoing.\n',
   { flag: 'wx' },
 );
 console.log(`Local course repository payload ready: ${destination}`);

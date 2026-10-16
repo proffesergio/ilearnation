@@ -14,7 +14,7 @@ export default async function Home() {
         <section className="hero wrap">
           <div className="hero-copy">
             <p className="eyebrow">
-              <span className="status-dot" /> A little curiosity can go a long way
+              <span className="status-dot" /> A field guide for curious builders / 01
             </p>
             <h1>
               Learn deeply.
@@ -143,7 +143,7 @@ export default async function Home() {
               {
                 n: '03',
                 title: 'Keep what you learn',
-                text: 'Use hints and feedback, reflect, and save progress on your device.',
+                text: 'Use hints and feedback, reflect, and sign in to save your progress.',
               },
             ].map((step) => (
               <article key={step.n}>

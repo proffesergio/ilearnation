@@ -1,0 +1,28 @@
+{
+  "name": "field-notes-course-project",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "api",
+    "web",
+    "ssr",
+    "next-app"
+  ],
+  "scripts": {
+    "test": "npm test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "check": "npm run check --workspace=@field-notes/api",
+    "dev:api": "npm run dev --workspace=@field-notes/api",
+    "dev:web": "npm run dev --workspace=@field-notes/web",
+    "dev:ssr": "npm run dev --workspace=@field-notes/ssr",
+    "dev:next": "npm run dev --workspace=@field-notes/next-app",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  }
+}

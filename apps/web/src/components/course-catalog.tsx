@@ -12,7 +12,7 @@ type CourseCatalogProps = {
 export function CourseCatalog({ course, ideas, source, compact = false }: CourseCatalogProps) {
   return (
     <div className={compact ? 'course-collection course-collection-compact' : 'course-collection'}>
-      <Link className="featured-course" href={`/courses/${course.id}/getting-started`}>
+      <Link className="featured-course" href={`/courses/${course.id}`}>
         <div className="course-art" aria-hidden="true">
           <span className="art-caption">FROM FIRST CHANGE TO FULL-STACK CAPSTONE</span>
           <div className="framework-symbol">
@@ -50,7 +50,7 @@ export function CourseCatalog({ course, ideas, source, compact = false }: Course
             and feedback. Sign in to save your progress and build toward the capstone.
           </p>
           <span className="course-cta">
-            Start with the getting-started guide <Arrow />
+            Explore the course · try 3 free chapters <Arrow />
           </span>
         </div>
       </Link>
@@ -78,8 +78,8 @@ export function CourseCatalog({ course, ideas, source, compact = false }: Course
               <h4>{idea.title}</h4>
               <p>{idea.description}</p>
               <p className="small-note">
-                Reference title: <span>{idea.sourceTitle}</span>. Content and permissions not
-                reviewed.
+                Reference title: <span>{idea.sourceTitle}</span>. Adaptation rights are confirmed;
+                this course has not been authored yet.
               </p>
             </div>
           </article>

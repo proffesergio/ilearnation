@@ -24,3 +24,9 @@ playwright-report/
 **/*.log
 **/*.tsbuildinfo
 **/__pycache__/
+**/dist/
+**/test-results/
+**/playwright-report/
+# Tutorials are published to GitHub; the web server needs Markdown/manifests only.
+courses/**/projects/
+courses/**/versions/

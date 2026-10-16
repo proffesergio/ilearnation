@@ -2,6 +2,12 @@
 
 ## Unreleased — 2026-10-16
 
+- Added review edition0.3.0 with all20 React-book chapters in exact order, real Field Notes REST/GraphQL/Socket.IO/SSR/Next workspaces, project/browser tests, preserved0.2 snapshot, and conclusion.
+- Opened three anonymous chapter previews and a bounded no-persistence validator; added crawlable course overview, per-course GitHub links, canonical previews, policy pages, and optional basic-consent GA4. Analytics/ads remain unconfigured.
+- Added the owner-requested astronomical atlas theme with cool ink/ice/copper palette, orbital background, pause and reduced-motion behavior.
+- Recorded adaptation/publication rights for all4 PDFs and manual Google/publishing instructions; the remaining3 courses remain planned.
+
+
 - Pushed application commit ea1b8b5 and deployed the owner-authorized Neon/invitation application to https://ilearnation.vercel.app; registered the shorter production domain and redirected the old address. Six production variables include hidden database/session Secrets, while Google remains optional for manual setup later. Production browser/account checks and GitHub Actions passed.
 - Recovered the interrupted verification, fixed mobile admin overflow and keyboard access to scrolling lesson code, and passed all 70 native and 12 desktop/mobile browser tests.
 - Created the owner-authorized Neon project, initialized its schema, saved the connection string in the ignored local environment, and verified hosted account/progress/export/deletion and explicit sync with synthetic records. Added manual Google OAuth instructions and rechecked the unchanged Vercel baseline as Ready/HTTP 200.

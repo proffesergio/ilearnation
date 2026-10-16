@@ -96,3 +96,7 @@ credentials/connections. Acceptance: verified course remote commit, website read
 that SHA, successful deployment URL and smoke checks, or precise external blockers.
 The current shell cannot resolve either API host; do not interpret that as proof
 of invalid credentials. See docs/runbooks/github-vercel-resume.md.
+
+## Current authorized release — 2026-10-16
+
+The owner asks for complete book-ordered courses, first React before later PDFs, public previews, per-course GitHub browsing, SEO/Google foundations, and live publication. Rights for all4 PDFs are confirmed. The latest design instruction adds an astronomical gravitational theme with cool colors, accessible motion controls, and a distinctive atlas pattern. Implementation focuses on React0.3.0 with a real four-workspace project. Later3 curricula remain sequential authoring work, documented separately. Existing Neon/Vercel configuration is preserved; Google credentials will arrive manually.

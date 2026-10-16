@@ -1,5 +1,6 @@
 import { currentUser } from '@/lib/auth';
-import { loadCourse } from '@/lib/course';
+import { loadCourse, COURSE_ID } from '@/lib/course';
+import { coursePublication } from '../../../../../../packages/course-runtime/access.mjs';
 import { getStore, StoreError } from '../../../../../../packages/data/learning-store.mjs';
 import {
   assertSameOrigin,
@@ -9,12 +10,14 @@ import {
 import { checkActivity } from '../../../../../../packages/course-runtime/activity-validator.mjs';
 
 export const runtime = 'nodejs';
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const user = await currentUser();
     if (!user) throw new StoreError('UNAUTHORIZED');
     if (!user.displayName) throw new StoreError('PROFILE_REQUIRED');
-    const { course } = await loadCourse();
+    const courseId = new URL(request.url).searchParams.get('courseId') || COURSE_ID;
+    if (!Object.hasOwn(coursePublication, courseId)) throw new StoreError('INVALID_INPUT');
+    const { course } = await loadCourse(courseId);
     const progress = await (await getStore()).getProgress(user.id, course.id, course.version);
     return Response.json({ progress }, { headers: { 'Cache-Control': 'no-store' } });
   } catch (error) {
@@ -36,7 +39,9 @@ export async function POST(request: Request) {
       !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(body.attemptId)
     )
       throw new StoreError('INVALID_INPUT');
-    const { course } = await loadCourse();
+    if (typeof body.courseId !== 'string' || !Object.hasOwn(coursePublication, body.courseId))
+      throw new StoreError('INVALID_INPUT');
+    const { course } = await loadCourse(body.courseId);
     const chapter = course.chapters.find((item) => item.id === body.chapterId);
     if (
       !chapter?.exerciseId ||

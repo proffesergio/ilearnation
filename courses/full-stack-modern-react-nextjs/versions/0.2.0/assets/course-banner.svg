@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">Modern full-stack React and Next.js — an iLearnNation course</title>
+  <desc id="description">A static course banner connecting JavaScript and TypeScript, React, Next.js, and a capstone. One idea, one useful change, one project at a time.</desc>
+  <rect width="1200" height="360" rx="24" fill="#fbfaf7"/>
+  <rect x="1" y="1" width="1198" height="358" rx="23" fill="none" stroke="#dedfd6" stroke-width="2"/>
+  <path d="M705 0V360M960 0V360M705 180H1200" stroke="#e9eee5" stroke-width="2"/>
+  <circle cx="1130" cy="20" r="130" fill="#e9eee5"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="52" y="52" font-size="13" letter-spacing="3" font-weight="700" fill="#244c42">iLearnNation / COURSE STUDIO</text>
+    <text x="52" y="119" font-size="28" fill="#626b66">MODERN FULL-STACK</text>
+    <text x="50" y="184" font-size="61" letter-spacing="-2" font-weight="700" fill="#202e2b">React &amp; Next.js</text>
+    <text x="52" y="239" font-size="24" fill="#244c42">One idea. One useful change.</text>
+    <text x="52" y="275" font-size="24" fill="#244c42">One project at a time.</text>
+    <rect x="52" y="302" width="216" height="30" rx="15" fill="#f4dfd2"/>
+    <text x="71" y="322" font-size="12" letter-spacing="1" font-weight="700" fill="#8c391e">DRAFT 0.2.0 / 20 LESSONS</text>
+  </g>
+  <path d="M775 95H1050Q1090 95 1090 135V232Q1090 270 1050 270H775" fill="none" stroke="#244c42" stroke-width="3"/>
+  <g fill="#fbfaf7" stroke="#244c42" stroke-width="3">
+    <circle cx="775" cy="95" r="11"/>
+    <circle cx="1090" cy="132" r="11"/>
+    <circle cx="1090" cy="232" r="11"/>
+    <circle cx="775" cy="270" r="11"/>
+  </g>
+  <circle cx="775" cy="270" r="5" fill="#ae4b2d"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1" fill="#244c42">
+    <text x="755" y="62">JS / TS</text>
+    <text x="980" y="139">REACT</text>
+    <text x="975" y="238">NEXT.JS</text>
+    <text x="755" y="310">CAPSTONE</text>
+  </g>
+</svg>

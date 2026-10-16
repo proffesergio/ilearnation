@@ -1,0 +1,25 @@
+{
+  "name": "@field-notes/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "test": "node --test src/*.test.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@tanstack/react-query": "^5.90.0",
+    "@apollo/client": "^4.0.0",
+    "graphql": "^16.11.0",
+    "rxjs": "^7.8.2",
+    "victory": "^37.3.6",
+    "socket.io-client": "^4.8.1",
+    "react-router": "^7.9.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.0",
+    "@vitejs/plugin-react": "^5.0.0"
+  }
+}
