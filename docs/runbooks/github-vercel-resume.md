@@ -1,12 +1,34 @@
 # Resume GitHub publication and Vercel deployment
 
-> Current feature status: the 20-lesson, Auth.js, SQLite/Neon, protected admin,
+## Current release — 2026-10-16
+
+Application commit `ea1b8b5` is pushed to platform `origin/main` and deployed at
+https://ilearnation.vercel.app. Deployment `dpl_4bspUWUJiG8UkGbWvANQP8NbwvAA`
+is Ready. The same project ID was renamed to `ilearnation` in `n3rd-s-projects`;
+reuse it with root `apps/web`. The shorter domain is registered on the project;
+the previous `i-lear-nation.vercel.app` domain redirects to it with HTTP 308.
+
+Six production variables are set through CLI: `DATABASE_MODE`, `DATABASE_URL`,
+`AUTH_SECRET`, `AUTH_URL`, `SITE_URL`, and `COURSE_SOURCE`. Database/session values
+are Vercel Secrets; a private ignored local recovery file preserves them.
+Google values are intentionally absent, as requested by the owner. The preflight
+permits invitations while requiring valid HTTPS auth, Neon, and all schema probes.
+
+The deployed application's GitHub Actions baseline/web jobs passed:
+https://github.com/proffesergio/ilearnation/actions/runs/38862069430.
+Actual production browser checks passed public routes, sitemap, disabled Google,
+secure HttpOnly invitation sessions, profile, checkpoint/read, progress recovery
+in another session, admin denial, export, and deletion. Synthetic accounts were
+deleted. [Add Google later](google-oauth-setup.md), then redeploy the same project.
+No automatic Git deployment connection or GitHub deployment secrets were added.
+
+> Historical feature status before this release: the 20-lesson, Auth.js, SQLite/Neon, protected admin,
 > and blog changes are local and not deployed. The READY deployment below is
 > baseline commit 563aedb. See [SQL/auth setup](sql-auth-setup.md) before any
 > new deployment. Neon is initialized and verified; Google OAuth credentials
 > remain absent. Follow [the Google setup guide](google-oauth-setup.md).
 
-## Current outcome — 2026-10-16
+## Earlier baseline outcome — 2026-10-16
 
 Platform commit 563aedb was pushed and the first production deployment is READY at
 https://i-lear-nation.vercel.app. Reuse project i-lear-nation in n3rd-s-projects;
@@ -37,13 +59,13 @@ environment secrets must supply `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and
 
 The job pins Vercel CLI 64.2.0 and follows the
 [official pull/build/prebuilt pattern](https://vercel.com/kb/guide/how-can-i-use-github-actions-with-vercel)
-(checked 2026-10-16). `scripts/check-production.mjs` requires configured Google
-sign-in, Neon mode, and the account/policy tables before building or deploying.
-It performs read-only schema probes and never runs migrations. Its local check
-currently fails closed because production account variables and Google credentials
-are absent. The approved Neon schema is initialized. Configure the production
-variables and Google callback `/api/auth/callback/google`, then use the
-manual workflow. The new CI deployment path has not been run on GitHub.
+(checked 2026-10-16). `scripts/check-production.mjs` requires configured invitation
+sign-in configuration, Neon mode, and the account/policy tables before building or
+deploying; Google itself is now optional. It performs read-only schema probes and
+never runs migrations. Vercel Secret values cannot be pulled, so the protected
+GitHub production environment must also supply matching `DATABASE_URL` and
+`AUTH_SECRET` for this preflight. Those GitHub settings remain unconfigured and
+the deploy job has not been run. The latest release used the authorized Vercel CLI.
 
 The next application phase is described in
 [the next-phase scope](../product/next-phase-proposal.md), with

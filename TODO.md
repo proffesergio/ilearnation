@@ -13,12 +13,12 @@
 - [ ] Create Google web OAuth credentials using docs/runbooks/google-oauth-setup.md, save them locally, and verify real Google sign-in.
 - [ ] Define fixed event retention, operator access, private incident channel, backups, and abuse policy before public account launch.
 - [ ] Human-review and release the twenty-lesson draft; do not claim a published course or measured outcomes.
-- [ ] Deploy and smoke-test the new feature only after configuration and approval. Existing production is the earlier baseline.
+- [x] Push the full feature phase and deploy the owner-authorized invitation/Neon application to https://ilearnation.vercel.app; verify production sign-in/progress/export/deletion.
 
-Vercel CLI rechecked the existing production deployment as Ready with homepage
-HTTP 200 on 2026-10-16. Its production environment has no variables. Existing
-deployment authorization persists; Google configuration and launch policies remain
-the next prerequisites, rather than a repeated request for the same permission.
+Vercel project `ilearnation` now has six production variables, including private
+Neon and a separate session secret. Deployment `dpl_4bspUWUJiG8UkGbWvANQP8NbwvAA`
+is Ready; the old address redirects to the shorter domain. Google configuration
+is intentionally deferred by the owner and does not block invitation sign-in.
 
 Historical unchecked items below may describe work now completed in this local phase; use this section and the current handoff for status.
 
@@ -69,7 +69,7 @@ Historical unchecked items below may describe work now completed in this local p
 - [ ] Connect authorized Mapbox MCP; separately decide browser token and map-load scope.
 - [ ] Human-review the course before any release or credential/completion claims.
 - [x] Implement authenticated SQL admin roles, activity visibility, and versioned policy history; production configuration/review remains open.
-- [x] Relevant lint/type/unit/content/accessibility/build and 10 desktop/mobile E2E checks.
+- [x] Relevant lint/type/unit/content/accessibility/build, 73 native tests and 12 desktop/mobile E2E checks; deployed application CI passed.
 - [x] Production dependency advisory audit: zero known vulnerabilities reported.
 
 ## Later gates

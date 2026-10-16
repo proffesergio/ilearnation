@@ -1,5 +1,12 @@
 # First learning loop plan
 
+Latest outcome, 2026-10-16: the owner explicitly authorized pushing/deploying the
+completed feature phase with Neon and invitation sign-in now, adding Google
+credentials manually later. Application `ea1b8b5` is pushed and live at
+https://ilearnation.vercel.app, with verified production account behavior.
+The historical slices and approval notes below describe how the work was scoped;
+use the current handoff and project state for release status.
+
 Status: **local implementation authorized on 2026-10-16** by the owner's instruction
 to start app and course development. Owner: project owner. External access and
 public release remain separate gates; this is not deployment approval.

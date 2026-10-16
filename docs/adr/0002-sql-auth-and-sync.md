@@ -1,6 +1,6 @@
 # ADR 0002: Auth.js, SQL storage, and explicit local sync
 
-Date: 2026-10-16. Status: accepted; Neon schema and local hosted-backed checks verified. Google OAuth configuration and application deployment remain pending.
+Date: 2026-10-16. Status: accepted; Neon and the invitation application are deployed and production-browser verified. Google OAuth configuration remains optional and pending, as authorized by the owner.
 
 ## Decision
 

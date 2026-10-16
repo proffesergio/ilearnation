@@ -204,7 +204,7 @@
       "id": "vercel-deployment",
       "type": "integration",
       "state": "current",
-      "description": "Production READY at https://i-lear-nation.vercel.app, project i-lear-nation, root apps/web. Build and route smoke passed; actual anonymous homepage 200. Automatic Git deploys need a Vercel GitHub login connection.",
+      "description": "Production READY at https://ilearnation.vercel.app, renamed same project ID, root apps/web. Application ea1b8b5 has Neon/invitations; secure production browser account checks passed. Old domain redirects 308. Google optional and deferred; Git auto-deploy still unconfigured.",
       "evidence": [
         "docs/runbooks/github-vercel-resume.md",
         ".vercelignore",
@@ -272,7 +272,7 @@
       "id": "sql-auth",
       "type": "feature",
       "state": "current",
-      "description": "Auth.js Google or single-use invitation entry, profile gate, private SQL progress; Neon schema/data/sync and local hosted-backed browser flow verified. Explicit durable SQLite remains available; Google OAuth unconfigured.",
+      "description": "Auth.js invitations deployed with profile gate and private SQL progress; Neon schema/data/sync and production browser account flow verified. Explicit durable SQLite remains available; Google optional and unconfigured.",
       "evidence": [
         "docs/adr/0002-sql-auth-and-sync.md",
         "apps/web/src/lib/auth.ts",
@@ -297,7 +297,7 @@
       "id": "private-admin",
       "type": "feature",
       "state": "current",
-      "description": "SQL-role guarded learner activity and immutable policy history, shadow replay, zero applied points; local only.",
+      "description": "Deployed SQL-role guarded learner activity and immutable policy history, shadow replay, zero applied points. Anonymous and learner admin access denied; real operator role not yet bootstrapped.",
       "evidence": ["apps/web/src/app/admin/studio/page.tsx", "packages/data/learning-store.mjs"]
     },
     {
@@ -311,7 +311,7 @@
       "id": "deployment-gate",
       "type": "workflow",
       "state": "current",
-      "description": "Manual main-only production dispatch after checks, production environment gate, read-only Google/Neon schema preflight. Remote credentials/review settings and deployment run unverified.",
+      "description": "Manual main-only production dispatch after checks and environment approval; read-only core auth/Neon schema preflight permits optional Google. Vercel Secrets need matching protected CI secrets. CI deploy job unconfigured; latest release used authorized CLI.",
       "evidence": [".github/workflows/repository-checks.yml", "scripts/check-production.mjs"]
     }
   ],
@@ -498,8 +498,8 @@
       "state": "needs-user-decision",
       "question": "What fixed event-retention and operator-access policy should apply before public accounts?",
       "why": "Events now persist until account deletion, and public account operations require a defined operator boundary.",
-      "options": ["Agree a policy before public launch", "Keep accounts local for review"],
-      "recommended_default": "Keep accounts local for review",
+      "options": ["Agree a policy before wider public launch", "Keep enrollment limited to invitations"],
+      "recommended_default": "Keep enrollment limited to invitations",
       "owner": "project owner",
       "evidence": ["SECURITY.md", "docs/adr/0002-sql-auth-and-sync.md"]
     }
@@ -518,8 +518,8 @@
     "rolls-back-to"
   ],
   "validation": {
-    "currentFeaturePhase": "70-native-tests-pass; 12-desktop-mobile-tests-pass; live-Neon-data-sync-and-local-browser-pass",
-    "unitTests": 70,
+    "currentFeaturePhase": "73-native-tests-pass; 12-desktop-mobile-tests-pass-in-CI; live-production-account-browser-pass",
+    "unitTests": 73,
     "browserTests": 12,
     "build": "passed",
     "typecheck": "passed",
@@ -531,15 +531,16 @@
     "liveMapbox": "not-enabled",
     "evidence": ["docs/context-memory/last-handoff.md", "tests/e2e/learning.spec.ts"],
     "serverlessCourseFileTracing": "passed-all-nine-server-traces",
-    "liveVercelDeployment": "READY-https-i-lear-nation-vercel-app; anonymous-homepage-200; authenticated-core-routes-200-admin-404",
+    "liveVercelDeployment": "READY-https-ilearnation-vercel-app; public-pages-200; production-invitation-profile-checkpoint-progress-export-deletion-pass; old-domain-308",
     "readmeAssets": "static-svg-safety-xml-and-rendered-review-passed",
     "courseFileInclusionFixture": "passed-history-preservation-and-normal-clone-eight-chapters",
     "courseFileInclusionActual": "verified-normal-files-committed-and-pushed-eight-chapters",
     "standaloneCourseReadme": "17-contained-relative-links-and-safe-static-assets-passed",
     "serverlessSqlTracing": "all-three-migrations-in-auth-and-learning-function-traces",
-    "productionAccountPreflight": "fails-closed-as-expected-without-production-account-env-and-Google",
+    "productionAccountPreflight": "passed-core-auth-Neon-and-nine-schema-probes-with-optional-Google",
     "liveNeon": "schema-invitation-profile-progress-export-sync-replay-deletion-and-local-browser-pass-synthetic-accounts-deleted",
     "recoveryMobileFixes": "admin-overflow-and-scrollable-code-keyboard-access-fixed",
-    "recoveryVercelCli": "existing-deployment-Ready-homepage-200-production-env-empty"
+    "recoveryVercelCli": "same-project-renamed-ilearnation-six-production-vars-two-hidden-Secrets-deployed-and-domain-verified",
+    "applicationGitHubActions": "https://github.com/proffesergio/ilearnation/actions/runs/38862069430-success"
   }
 }

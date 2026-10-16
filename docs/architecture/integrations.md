@@ -1,5 +1,13 @@
 # Integration inventory and contracts
 
+Current release, 2026-10-16: platform application `ea1b8b5` is pushed and deployed
+at https://ilearnation.vercel.app, Vercel project `ilearnation` (same project ID).
+Production Neon/invitation browser checks and application GitHub Actions passed.
+Six production variables include hidden database/session Secrets; Google remains
+absent for manual setup later. The old domain redirects 308. No Git auto-deploy
+connection or GitHub deploy secrets were added. See the
+[current runbook](../runbooks/github-vercel-resume.md).
+
 Updated: 2026-10-16. Source: whitelisted local configuration, exposed tool metadata,
 GitHub CLI status, plugin discovery, and primary documentation. Tool exposure is
 not proof of account access. Public documentation reads, plugin discovery, dependency installation, and a
@@ -11,9 +19,9 @@ checks; the synthetic accounts were deleted. No real learner data was migrated.
 | Capability | Observed status | Data scope | Current use |
 | --- | --- | --- | --- |
 | GitHub | Platform main push of 563aedb verified using existing Git credentials; API auth remains unverified | Platform repository and selected public course repository | Existing checks workflow; live pinned import unverified |
-| Vercel | CLI production deployment READY; project i-lear-nation, team n3rd-s-projects, root apps/web | Reviewed source/course files; private PDFs and env files excluded | https://i-lear-nation.vercel.app; core route smoke passed |
-| Auth.js and Google OAuth | Implemented locally; Google credentials absent | Identity and session for private profile/progress | Open Google entry when configured; no live OAuth verification |
-| Neon Postgres | Authorized project fragrant-resonance-47092618/main/ilearnnation created in aws-ap-southeast-1; schema/data/sync/local browser verified | Synthetic account/progress/export/deletion checks; private connection only in ignored env | Local website now uses Neon; production Vercel account configuration remains pending |
+| Vercel | Latest CLI production deployment READY; renamed same project to ilearnation, root apps/web | Reviewed source/course files; private PDFs and env files excluded | https://ilearnation.vercel.app; production account browser checks passed |
+| Auth.js and Google OAuth | Invitations deployed and verified; Google credentials absent by owner choice | Identity and session for private profile/progress | Google enabled only when both credentials are added; no live Google verification |
+| Neon Postgres | Authorized project fragrant-resonance-47092618/main/ilearnnation in aws-ap-southeast-1; schema/data/sync/production browser verified | Synthetic account/progress/export/deletion checks; private connection in ignored env and Vercel Secret | Local and production websites use Neon; no local learner records migrated |
 | Node 24 SQLite | Durable explicit local adapter implemented | Local account and learning data | Manual outbox sync to Neon; not Vercel storage |
 | Mapbox | Owner authorized MCP use; no Mapbox tools exposed or configured locally | Depending on MCP scopes: styles, tokens, map feedback; runtime map loads are separate | Synthetic local globe/list only |
 | Public web research | Read-only search/retrieval available | Official public documentation URLs and search terms | Dated source records; no private content |
@@ -74,7 +82,7 @@ SQL admin activity and policy-history writes are implemented locally; production
 configuration is pending. No moderation, notification, automation, or applied
 scoring writes exist.
 
-## Current Vercel deployment outcome
+## Earlier baseline Vercel deployment outcome
 
 Production is READY at https://i-lear-nation.vercel.app. The actual homepage is
 publicly reachable. Authenticated route checks passed for course/catalog/assets

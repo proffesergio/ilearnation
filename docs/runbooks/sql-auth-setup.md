@@ -1,6 +1,6 @@
 # SQL and authentication setup
 
-This documents local code. The new feature has not been deployed. Commands below may mutate the selected local or remote database; inspect target configuration first. Use Node.js 24. `scripts/db.mjs` loads `apps/web/.env.local` and prints only status or bounded results.
+The application is deployed at https://ilearnation.vercel.app with Neon and invitation sign-in. Google credentials will be supplied manually later. Commands below may mutate the selected local or remote database; inspect target configuration first. Use Node.js 24. `scripts/db.mjs` loads `apps/web/.env.local` and prints only status or bounded results.
 
 Current workspace: the owner-authorized Neon project `fragrant-resonance-47092618`
 (`ilearnnation`), branch `main` (`br-icy-fog-b34stxh7`), database `ilearnnation`,

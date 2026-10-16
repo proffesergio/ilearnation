@@ -103,8 +103,9 @@ The owner selected “Allow invitation links or open Google sign-up.” A Google
 does not need an invitation. Invitation links are an alternative route. After
 authentication, learners complete a profile before entering the learning path.
 Auth.js and SQL implementation exists locally. Neon is initialized and verified
-through hosted data and local browser tests. Google credentials and the new
-production application deployment remain pending.
+through hosted data and production browser tests. The owner subsequently
+authorized deploying with invitations now and supplying Google credentials
+manually later. The application is live at https://ilearnation.vercel.app.
 
 ## UX-005 — Language and device priority
 
@@ -121,6 +122,5 @@ retention period and operator access policy must be settled before public launch
 ## Remaining product decisions
 
 Public-launch scope, social/review visibility, additional languages/RTL, and
-essential social interactions remain open. The account application is not deployed.
-Neon data and local hosted-backed browser checks passed; live Google sign-in
-remains unconfigured.
+essential social interactions remain open. The owner-authorized account application
+is deployed with invitations and Neon; live Google sign-in remains unconfigured.

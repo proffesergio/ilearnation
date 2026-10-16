@@ -2,14 +2,14 @@
 
 ## Unreleased — 2026-10-16
 
-- Prepared the owner-authorized production release with Neon and invitation sign-in while Google remains optional; renamed the existing Vercel project to ilearnation and configured production credentials through CLI without exposing them.
+- Pushed application commit ea1b8b5 and deployed the owner-authorized Neon/invitation application to https://ilearnation.vercel.app; registered the shorter production domain and redirected the old address. Six production variables include hidden database/session Secrets, while Google remains optional for manual setup later. Production browser/account checks and GitHub Actions passed.
 - Recovered the interrupted verification, fixed mobile admin overflow and keyboard access to scrolling lesson code, and passed all 70 native and 12 desktop/mobile browser tests.
 - Created the owner-authorized Neon project, initialized its schema, saved the connection string in the ignored local environment, and verified hosted account/progress/export/deletion and explicit sync with synthetic records. Added manual Google OAuth instructions and rechecked the unchanged Vercel baseline as Ready/HTTP 200.
 - Expanded the included course to draft 0.2.0 with 20 lessons and interactive activities; preserved all eight old IDs and a 0.1.0 snapshot.
 - Added Auth.js Google or single-use invitation entry, profile-gated learning, SQL roles/admin activity, immutable policy history, shadow replay, account download and deletion.
 - Added explicit durable SQLite and Neon modes, operator-run local outbox sync, database tooling, and fail-closed production storage configuration. Google and Neon cloud setup remain pending.
 - Added three original reviewed-draft blog articles, metadata, canonical and structured data, sitemap, and robots rules. No search traffic is claimed.
-- Documented SQL/auth/sync in ADR 0002 and a local setup runbook. These application additions have not replaced the production deployment from 563aedb; current local and hosted Neon verification is recorded in the handoff.
+- Documented SQL/auth/sync in ADR 0002 and setup runbooks. The owner-authorized application release supersedes production baseline 563aedb; local, hosted Neon, production, and CI verification are recorded in the handoff.
 - Pushed the platform/course inclusion and deployed the verified Next.js app to
   Vercel production. Recorded the successful build/routes and the remaining
   Vercel GitHub-login connection requirement for automatic deployments.

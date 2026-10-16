@@ -1,7 +1,7 @@
 schema_version: 1
 updated_on: '2026-10-16'
 product: iLearnNation
-phase: twenty-lesson-verified-neon-connected-google-configuration-pending
+phase: production-Neon-invitations-deployed-Google-manual-later
 contract: AGENTS.md
 plan:
   path: plan.md
@@ -10,8 +10,9 @@ repository:
   git_initialized: true
   branch: main
   remote: https://github.com/proffesergio/ilearnation.git
-  commits: 2
-  head: 563aedb
+  commits: 4
+  deployed_application_commit: ea1b8b53bc1a4da1864992287fc16ede579b73e1
+  head_note: application-commit-recorded-above; handoff-only-followup-see-git-main
   local_origin_main_matches_head: true
   owner_reports_both_repositories_pushed_to_main: true
   course_index_entry: actual-course-files-committed-normal-mode-100644
@@ -21,7 +22,7 @@ repository:
   lockfiles: [package-lock.json]
   toolchain: { next: '16.4.1', react: '19.3.1', typescript: '5.9.3', eslint: '10.12.0' }
   application_tests: native-node-and-playwright
-  ci: checks-and-manual-main-production-deployment-gate; remote-run-unverified
+  ci: application-commit-baseline-and-web-jobs-passed; production-deployed-through-CLI
   license: needs-user-decision
 environment_observed:
   node: '24.14.0'
@@ -38,19 +39,23 @@ model_observed:
   delegated_workers: 1
   worker_model: gpt-6.1-sol
   worker_reasoning: medium
-  worker_scope: recovery-account-review-and-two-mobile-accessibility-layout-fixes
+  worker_scope: recovery-mobile-fixes-and-invitation-only-preflight-regression-tests
 integrations:
   configured_mcp_names: [next-devtools]
   callable_categories: [sites, canva, web-research]
   unavailable_callable_categories: [github, n8n, skool]
   external_calls: primary-docs-research-authenticated-Neon-CLI-hosted-tests-and-Vercel-status-checks
-  external_writes_by_agent: earlier-platform-push-and-deploy; owner-authorized-Neon-project-schema-and-synthetic-tests
-  github_cli_status: sandbox-auth-check-inconclusive; platform-push-succeeded-with-existing-git-credential
+  external_writes_by_agent: platform-main-push-Neon-schema-Vercel-project-rename-six-production-vars-deployment-and-domain-redirect
+  github_cli_status: authenticated-outside-network-sandbox; push-and-application-CI-success-verified
   vercel_cli_version: '64.2.0'
   vercel_cli_status: authenticated; production-deployment-ready
-  vercel_project: {name: i-lear-nation, team: n3rd-s-projects, root_directory: apps/web, framework: nextjs}
-  vercel_production_url: https://i-lear-nation.vercel.app
-  vercel_deployment_id: dpl_BCmHRC3yz3PMUhgig2XBEkt39MVR
+  vercel_project: {name: ilearnation, team: n3rd-s-projects, root_directory: apps/web, framework: nextjs}
+  vercel_production_url: https://ilearnation.vercel.app
+  vercel_deployment_id: dpl_4bspUWUJiG8UkGbWvANQP8NbwvAA
+  vercel_old_domain: i-lear-nation.vercel.app-308-redirect-to-ilearnation.vercel.app
+  vercel_production_env_keys: [DATABASE_MODE, DATABASE_URL, AUTH_SECRET, AUTH_URL, SITE_URL, COURSE_SOURCE]
+  vercel_secret_keys: [DATABASE_URL, AUTH_SECRET]
+  production_auth_secret: separate-generated-secret-from-local-development
   vercel_project_link: created-for-platform-repository
   vercel_github_integration: failed; GitHub login connection is not configured in Vercel
   vercel_auto_deploy: unavailable-until-GitHub-login-connection
@@ -60,7 +65,7 @@ integrations:
   github_plugin: available-not-confirmed-connected
   mapbox_mcp: owner-authorized-tools-not-exposed
   mapbox_runtime: not-enabled-no-map-loads
-  account_access_verified: vercel-and-platform-git-push-verified; GitHub-API-unverified
+  account_access_verified: Vercel-platform-Git-push-GitHub-Actions-and-production-invitation-loop-verified
 references:
   local_pdfs: 4
   adaptation_rights: owner-confirmed-for-first-course-book-2026-10-16
@@ -118,8 +123,8 @@ website:
   language: english-first-approved
   devices: phone-and-desktop-low-bandwidth-approved
   progress: version-scoped-private-sql-learning-events
-  accounts_and_analytics: authjs-Neon-invitations-verified-through-local-browser; Google-unconfigured; no-analytics-service
-  admin: sql-role-guarded-activity-and-immutable-policy-history-local-only
+  accounts_and_analytics: Auth.js-Neon-invitations-production-verified; Google-manually-later; no-analytics-service
+  admin: deployed-SQL-role-guarded-activity-and-policy-history; no-real-operator-role-created
   algorithm: shadow-v1-disabled-default-zero-applied-points
   map: synthetic-globe-and-region-list-no-live-locations
 next_question: fixed-event-retention-and-operator-access-policy-before-public-launch
@@ -131,12 +136,13 @@ continuation:
   feature_development: locally-authorized-and-active
   web_env_local_present: true
   runbook: docs/runbooks/github-vercel-resume.md
-  next_step: owner-completes-manual-Google-web-client-setup-then-verify-Google-and-configure-existing-Vercel
+  next_step: owner-adds-both-Google-credentials-manually-then-redeploy-and-verify-Google-login
   proposal: docs/product/next-phase-proposal.md
   prompt: docs/context-memory/next-phase-prompt.md
   approved_account_entry: open-Google-signup-OR-invitation-link-then-profile-setup
   selected_backend: Auth.js-Neon-Postgres-hosted-and-explicit-durable-Node24-SQLite-local
-  new_feature_deployed: false
+  new_feature_deployed: true
+  deployment_mode: invitations-now-Google-optional-manual-later-explicitly-approved
   neon_cli: 2.33.0-authenticated-project-created-with-owner-approval
   neon_cloud_schema: initialized-and-live-data-sync-and-browser-verified
   neon_target:
@@ -153,7 +159,7 @@ continuation:
   google_oauth_credentials: absent
   google_cloud_cli: not-installed-manual-setup-selected-by-owner-fallback
   google_oauth_runbook: docs/runbooks/google-oauth-setup.md
-  vercel_recovery_check: existing-deployment-Ready-homepage-200-production-env-empty
+  vercel_recovery_check: latest-application-Ready-new-production-domain-and-account-browser-flow-verified
   sync: manual-SQLite-to-Neon-outbox-users-profiles-events-only
   blog: three-original-reviewed-drafts-seo-infrastructure-no-traffic-claim
 evidence:
@@ -164,7 +170,10 @@ evidence:
   - scripts/check_repository.py
 validation:
   checked_on: '2026-10-16'
-  current_feature_phase: 70-native-pass; 12-desktop-mobile-browser-pass; live-Neon-data-sync-and-local-browser-pass
+  current_feature_phase: 73-native-pass; 12-desktop-mobile-browser-pass-in-GitHub-CI; live-production-account-browser-pass
+  production_browser: public-pages-canonical-sitemap-secure-cookie-invitation-profile-checkpoint-cross-session-progress-export-and-deletion-pass
+  application_ci: https://github.com/proffesergio/ilearnation/actions/runs/38862069430
+  production_preflight: invitation-only-Neon-production-configuration-and-nine-schema-probes-passed
   recovery_mobile_fixes: admin-table-contained-hidden-labels-and-keyboard-focusable-Markdown-code-blocks
   hosted_neon_checks: schema-single-use-invitation-profile-progress-export-sync-replay-and-deletion-pass
   neon_browser_checks: invitation-profile-checkpoint-read-separate-browser-progress-export-and-deletion-pass
@@ -183,7 +192,7 @@ validation:
     dangling_graph_edge: rejected
     unverified_reference_use: rejected
     broken_local_link: rejected
-  external_ci_run: push-verified; workflow-result-unverified
+  external_ci_run: application-commit-ea1b8b5-baseline-and-web-success; deploy-job-skipped-CLI-used
   readme_validation: passed-local-links-static-svg-safety-and-visual-review
   course_inclusion_fixture: passed-history-preserved-and-normal-clone-has-eight-chapters
   course_inclusion_actual: verified-normal-files-committed-and-pushed-eight-chapters
@@ -193,9 +202,9 @@ validation:
   independent_course_git_fixture: passed-temporary-init-staging-and-secret-pdf-exclusions
   followup_checks: build-38-native-tests-types-lint-format-docs-graph-and-signature-check-passed
   deployment_upload_dry_run: passed-109-files-env-local-and-four-private-PDFs-excluded
-  live_deployment: READY-https-i-lear-nation-vercel-app
-  live_smoke: actual-anonymous-homepage-200; authenticated-catalog-chapter-SVG-exercise-200; admin-404
-  unit_tests: 70-passed
+  live_deployment: READY-https-ilearnation-vercel-app
+  live_smoke: public-pages-200; secure-invitation-profile-checkpoint-progress-export-deletion-pass; anonymous-admin-401-learner-admin-403
+  unit_tests: 73-passed
   production_build: passed
   typecheck: passed
   formatter: passed
@@ -211,4 +220,4 @@ validation:
   credential_signatures: passed-heuristic-only
   dependency_advisories: production-audit-passed-zero-reported
   scope_exclusions:
-    [yaml-schema, external-links-live-check, live-Google-OAuth, new-Vercel-account-deployment, live-Mapbox]
+    [yaml-schema, external-links-live-check, live-Google-OAuth, real-operator-admin-onboarding, live-Mapbox]

@@ -55,6 +55,11 @@ remain pending. The same Vercel project was renamed to
 `n3rd-s-projects/ilearnation`, with canonical origin
 <https://ilearnation.vercel.app>. The CLI configured these production variables:
 
+Deployment `dpl_4bspUWUJiG8UkGbWvANQP8NbwvAA` is Ready, with application commit
+`ea1b8b5`. Production browser verification passed invitations, profile, checkpoint
+progress across sessions, export, and deletion with a synthetic account. Google
+remains disabled until you add both credentials and redeploy.
+
 | Variable | Production value |
 | --- | --- |
 | `DATABASE_MODE` | `neon` |

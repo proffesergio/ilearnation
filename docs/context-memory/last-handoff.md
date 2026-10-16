@@ -1,4 +1,69 @@
-# Crash recovery, Neon setup, and verified feature phase — 2026-10-16
+# Latest production publication — 2026-10-16
+
+Current goal: Push all latest application changes, configure Vercel production
+with Neon now and Google manually later, and use `ilearnation.vercel.app`.
+
+Completed: Application commit `ea1b8b53bc1a4da1864992287fc16ede579b73e1` is pushed
+to `https://github.com/proffesergio/ilearnation` main. Vercel deployment
+`dpl_4bspUWUJiG8UkGbWvANQP8NbwvAA` is Ready at
+https://ilearnation.vercel.app. Renamed the same project ID
+`prj_Bw9AMC32Cyo0hsaXzvA9eI1tLPrl` to `ilearnation`; team `n3rd-s-projects`,
+root `apps/web`, Node 24. Registered the new production domain, and configured
+the previous `i-lear-nation.vercel.app` domain to redirect to it with HTTP 308.
+
+Production variables: `DATABASE_MODE`, `DATABASE_URL`, `AUTH_SECRET`, `AUTH_URL`,
+`SITE_URL`, and `COURSE_SOURCE`. Neon and a separate generated production session
+secret are non-readable Vercel Secrets, sent through CLI stdin. Their ignored
+local recovery copy is `.local-data/production-account.env`, mode 0600. No secret
+values, local data, env files, or private reference PDFs were pushed/uploaded.
+Google variables are intentionally absent per the owner's explicit instruction.
+
+Files changed for deployment: `scripts/check-production.mjs`,
+`tests/production-preflight.test.mjs`, `.github/workflows/repository-checks.yml`,
+`apps/web/src/lib/articles.ts`, `.env.example`, and current setup/status docs.
+All 122 files of the pre-crash feature phase were committed together. A subsequent
+documentation-only handoff commit records this outcome; deployed app code is ea1b8b5.
+
+Tests/checks run: 73 native tests, fresh production build/types, lint, formatting,
+repository/graph/link checks and heuristic credential scan passed. Live production
+configuration passed core auth/Neon and all nine schema probes with Google absent.
+Application GitHub Actions baseline and web jobs passed, including reproducible
+install, all native tests, content, types, lint, format, build, dependency audit
+and all 12 desktop/mobile E2E checks:
+https://github.com/proffesergio/ilearnation/actions/runs/38862069430.
+The workflow deploy job was skipped; this release used the authorized Vercel CLI.
+
+Production browser verification passed public routes and canonical sitemap,
+disabled Google, invitation entry, secure HttpOnly session cookies, profile setup,
+checkpoint/read, saved progress in a separate session, learner admin denial,
+export, and deletion invalidating both sessions. Synthetic account was deleted;
+retained synthetic tombstone/revocation metadata follows the documented policy.
+
+Known issues: Google OAuth remains unconfigured by choice, and no real operator
+admin role was bootstrapped. No Git auto-deploy connection was added. Protected
+GitHub deployment credentials/review settings remain unverified; Vercel Secrets
+cannot be pulled, so the manual CI preflight needs matching protected
+`DATABASE_URL` and `AUTH_SECRET` in addition to its Vercel credentials. Do not
+claim the deploy workflow ran. Public policy, licensing, and curriculum review
+items remain in TODO; course is still draft 0.2.0, not a released credential.
+
+Open decisions: The owner will provide Google credentials manually later.
+Wider public account launch still needs retention/operator/incident decisions.
+External integrations/status: Platform Git push, remote CI, renamed Vercel
+production, and live Neon/invitation account flows are verified. The dedicated
+course remote is unchanged by this platform publication; bundled course files
+are included in the pushed platform commit. No existing local learner data migrated.
+Algorithm or schema version changes: No new versions; course 0.2.0/schema 1,
+SQL 001/003, local outbox 002, zero applied Algorithm points.
+Next smallest safe step: Add both Google values using the manual runbook, register
+`https://ilearnation.vercel.app/api/auth/callback/google`, redeploy the same project,
+and verify a real Google login. Invitations work in the meantime.
+Approval required before: Existing explicit publication/configuration/deployment
+authorization persists. No repeated approval needed for these same actions.
+
+---
+
+# Previous: Crash recovery, Neon setup, and verified feature phase — 2026-10-16
 
 Current goal: Resume the interrupted feature verification, configure the newly
 authorized Neon project, provide Google OAuth setup if CLI creation is unavailable,

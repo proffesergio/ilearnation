@@ -4,7 +4,7 @@
 
 **Build something you can explain. Then make it better.** iLearnNation is a GitHub-first learning studio for mixed self-directed learners. Begin with the [getting-started guide](courses/full-stack-modern-react-nextjs/getting-started.md), browse the [course](courses/full-stack-modern-react-nextjs/README.md), or read the [contribution guide](CONTRIBUTING.md).
 
-> The included React and Next.js course is **draft 0.2.0**, with 20 authored lessons and interactive activities. The eight original IDs remain, and draft 0.1.0 is preserved under `versions/0.1.0`. Human curriculum review and release remain pending. The [existing production site](https://i-lear-nation.vercel.app) was deployed from baseline commit `563aedb`; the new application work is **not deployed**. Neon is now initialized and verified through hosted data checks and the local website; Google OAuth remains unconfigured.
+> The included React and Next.js course is **draft 0.2.0**, with 20 authored lessons and interactive activities. The eight original IDs remain, and draft 0.1.0 is preserved under `versions/0.1.0`. Human curriculum review and course release remain pending. The [production site](https://ilearnation.vercel.app) now runs the latest course, private accounts, admin, and blog application from commit `ea1b8b5`, with Neon and invitation sign-in. Google OAuth credentials will be added manually later; its button remains disabled until configured.
 
 ## Learn by doing
 
@@ -41,7 +41,7 @@ npm run check:repository
 python3 scripts/check_secrets.py
 ```
 
-Current feature verification passed 70 native tests and all 12 desktop/mobile browser checks, plus build, types, lint, formatting, and repository checks. Hosted Neon data and browser checks also passed with synthetic accounts that were deleted afterward. See the [handoff](docs/context-memory/last-handoff.md) for evidence, [Google setup](docs/runbooks/google-oauth-setup.md) for the remaining account configuration, and [security](SECURITY.md) and [TODO](TODO.md) for launch limits.
+Current verification passed 73 native tests, all 12 desktop/mobile browser checks, build, types, lint, formatting, repository checks, and the deployed commit's GitHub Actions. A real production browser check also passed secure invitation sign-in, profile, checkpoint progress across sessions, export, and deletion; synthetic accounts were deleted afterward. See the [handoff](docs/context-memory/last-handoff.md) for evidence, [Google setup](docs/runbooks/google-oauth-setup.md) for the remaining optional provider configuration, and [security](SECURITY.md) and [TODO](TODO.md) for launch limits.
 
 ## A small star, a wider learning circle
 
