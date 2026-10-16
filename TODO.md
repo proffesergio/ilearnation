@@ -1,6 +1,6 @@
 # Outcome backlog
 
-## Current local feature phase (draft 0.2.0)
+## Previous feature phase (draft 0.2.0)
 
 - [x] Author exactly 20 lessons with activities, preserving eight draft 0.1.0 IDs and snapshotting that version.
 - [x] Add open Google entry when configured, single-use invitation links, profile gate, and private SQL progress.
@@ -12,7 +12,7 @@
 - [x] Create the authorized Neon project/schema, save its credentials privately, and verify hosted data/sync plus the local browser account loop; delete synthetic accounts afterward.
 - [ ] Create Google web OAuth credentials using docs/runbooks/google-oauth-setup.md, save them locally, and verify real Google sign-in.
 - [ ] Define fixed event retention, operator access, private incident channel, backups, and abuse policy before public account launch.
-- [ ] Human-review and release the twenty-lesson draft; do not claim a published course or measured outcomes.
+- [x] Publish the first complete book-ordered course as original review edition0.3.0; human curriculum review continues, with no measured-outcome claim.
 - [x] Push the full feature phase and deploy the owner-authorized invitation/Neon application to https://ilearnation.vercel.app; verify production sign-in/progress/export/deletion.
 
 Vercel project `ilearnation` now has six production variables, including private
@@ -90,3 +90,5 @@ Historical unchecked items below may describe work now completed in this local p
 - [ ] Complete the remaining3 original courses one at a time; do not expose planned lessons as playable.
 - [ ] Owner supplies Google credentials, Search Console token and optional GA4 ID.
 - [ ] Human editorial review, private operator contact, fixed retention policy and certified advertising CMP before AdSense application.
+
+- [x] Push course 0bc0cbe and platform application af63785; deploy dpl_Am7bgHjTCj1dsvkcPsRcaJM9THqZ and verify actual production guest/account flows. Both CI runs pass.

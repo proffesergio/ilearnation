@@ -10,8 +10,7 @@ repository:
   git_initialized: true
   branch: main
   remote: https://github.com/proffesergio/ilearnation.git
-  commits: 4
-  deployed_application_commit: ea1b8b53bc1a4da1864992287fc16ede579b73e1
+  deployed_application_commit: af63785a9405ed7512dbaf11309f66c09ee94943
   head_note: application-commit-recorded-above; handoff-only-followup-see-git-main
   local_origin_main_matches_head: true
   owner_reports_both_repositories_pushed_to_main: true
@@ -51,7 +50,7 @@ integrations:
   vercel_cli_status: authenticated; production-deployment-ready
   vercel_project: {name: ilearnation, team: n3rd-s-projects, root_directory: apps/web, framework: nextjs}
   vercel_production_url: https://ilearnation.vercel.app
-  vercel_deployment_id: dpl_4bspUWUJiG8UkGbWvANQP8NbwvAA
+  vercel_deployment_id: dpl_Am7bgHjTCj1dsvkcPsRcaJM9THqZ
   vercel_old_domain: i-lear-nation.vercel.app-308-redirect-to-ilearnation.vercel.app
   vercel_production_env_keys: [DATABASE_MODE, DATABASE_URL, AUTH_SECRET, AUTH_URL, SITE_URL, COURSE_SOURCE]
   vercel_secret_keys: [DATABASE_URL, AUTH_SECRET]
@@ -78,8 +77,8 @@ first_ten_minutes: read-course-repository-getting-started-guide
 course_repository:
   owner: proffesergio
   slug: modern-fullstack-react-projects-building
-  status: published-existing-course-main; README-and-brand-assets-still-local
-  local_head: a21819cbdd248db9c43ed6bbc863def04ce8cc7d
+  status: published-course-0.3.0-main-and-CI-verified
+  local_head: 0bc0cbe323a7fc64e15f58209b6634d4c3303ecd
   local_branch: main
   local_onboarding: courses/full-stack-modern-react-nextjs/getting-started.md
   topology_and_source_of_truth: docs/adr/0001-course-source-and-admin-boundaries.md
@@ -109,7 +108,7 @@ course:
 website:
   course_repository_link: shared-footer-to-owner-selected-github-course-repository
   pages: [homepage, catalog, player, local-admin-preview, signin, join, profile, dashboard, admin-studio, blog]
-  catalog: one-playable-react-next-draft-plus-three-nonplayable-mock-ideas
+  catalog: one-authored20-chapter-course-plus-three-unwritten-future-courses
   lesson_style: book-inspired-serif-reading-hierarchy-responsive-headings-tables-and-callouts
   visual_direction: astronomical-atlas-ink-ice-copper-orbital-motion-with-pause-and-reduced-motion
   planned_learning_experience:
@@ -233,4 +232,10 @@ current_release:
   analytics: optional-basic-consent-disabled-no-measurement-ID
   ads: absent-AdSense-not-applied-or-approved
   publisher_runbook: docs/runbooks/course-publishing-and-google.md
-  publish_status: final-checks-complete-publication-in-progress
+  publish_status: pushed-both-repositories-production-Ready-both-CI-and-live-browser-pass
+  application_commit: af63785a9405ed7512dbaf11309f66c09ee94943
+  course_commit: 0bc0cbe323a7fc64e15f58209b6634d4c3303ecd
+  deployment_id: dpl_Am7bgHjTCj1dsvkcPsRcaJM9THqZ
+  platform_CI: https://github.com/proffesergio/ilearnation/actions/runs/38957171430
+  course_CI: https://github.com/proffesergio/modern-fullstack-react-projects-building/actions/runs/38956894251
+  live_guest_and_account_browser: passed-synthetic-account-deleted

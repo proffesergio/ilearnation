@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-16",
+  "updated_on": "2026-10-17",
   "entities": [
     {
       "id": "product",
@@ -27,7 +27,7 @@
       "evidence": [
         "courses/full-stack-modern-react-nextjs/course.json"
       ],
-      "description": "Original review edition 0.3.0: all20 book chapters in exact order, original Field Notes project; earlier0.1 and0.2 snapshots retained."
+      "description": "Published original review edition0.3.0: all20 book chapters in exact order, real four-workspace Field Notes project, finishing conclusion. Previous0.1/0.2 snapshots retained."
     },
     {
       "id": "first-chapter",
@@ -65,7 +65,7 @@
       "evidence": [
         "plan.md"
       ],
-      "description": "Owner instructed app/course implementation on 2026-10-16; external release remains gated."
+      "description": "Owner authorized first complete course, public previews, astronomical theme and GitHub/Vercel publication. This release is verified live."
     },
     {
       "id": "first-ten-minutes",
@@ -90,7 +90,7 @@
       "id": "course-repository",
       "type": "decision",
       "state": "approved",
-      "description": "Owner-selected proffesergio/modern-fullstack-react-projects-building; owner reports publication to main; local course HEAD a21819c matches its origin/main. Live remote not independently verified.",
+      "description": "Published to existing proffesergio/modern-fullstack-react-projects-building main at 0bc0cbe323a7fc64e15f58209b6634d4c3303ecd; dedicated course CI succeeded.",
       "evidence": [
         "docs/adr/0001-course-source-and-admin-boundaries.md"
       ]
@@ -130,7 +130,7 @@
       "evidence": [
         "docs/architecture/integrations.md"
       ],
-      "description": "GitHub/Vercel/Neon CLI authenticated and prior production verified. Current release tests/deploy in progress. Google OAuth deferred manually."
+      "description": "GitHub platform/course pushes and CI, Vercel CLI production, Neon preflight and live account/guest browser flows verified. Google remains manual; no ads."
     },
     {
       "id": "course-schema",
@@ -146,7 +146,7 @@
       "id": "web-app",
       "type": "feature",
       "state": "current",
-      "description": "Next16.4.1/React19.3.1; astronomical atlas theme, course overview/previews, public trust pages, optional analytics off by default.",
+      "description": "Production Next16.4.1/React19.3.1 astronomical atlas theme, guest previews, trust pages and optional analytics disabled; app af63785a9405ed7512dbaf11309f66c09ee94943.",
       "evidence": [
         "apps/web/package.json",
         "package-lock.json",
@@ -188,7 +188,7 @@
       "id": "github-publication",
       "type": "workflow",
       "state": "current",
-      "description": "Platform main push of 563aedb verified. Course history remains a21819c with local README/assets changes. Remote CI and live pinned course imports remain unverified.",
+      "description": "Platform application af63785a9405ed7512dbaf11309f66c09ee94943 and course 0bc0cbe323a7fc64e15f58209b6634d4c3303ecd pushed normally; both CI runs succeeded. Production verified; docs-only follow-up records evidence.",
       "evidence": [
         "docs/runbooks/local-development.md",
         "scripts/export-course.mjs",
@@ -237,7 +237,7 @@
       "id": "deployment-authorization",
       "type": "decision",
       "state": "approved",
-      "description": "Owner authorized platform push and Vercel deployment. Subsequent request asks for a proposed twenty-lesson account/admin/blog phase and questions before application code.",
+      "description": "Owner's explicit push/deploy/configuration authorization persists for current work. Google values will be supplied manually.",
       "evidence": [
         "docs/context-memory/decisions.md",
         "plan.md"
@@ -247,7 +247,7 @@
       "id": "vercel-deployment",
       "type": "integration",
       "state": "current",
-      "description": "Production READY at https://ilearnation.vercel.app, renamed same project ID, root apps/web. Application ea1b8b5 has Neon/invitations; secure production browser account checks passed. Old domain redirects 308. Google optional and deferred; Git auto-deploy still unconfigured.",
+      "description": "READY dpl_Am7bgHjTCj1dsvkcPsRcaJM9THqZ at https://ilearnation.vercel.app; same project/Neon vars, old-domain redirect preserved. Guest and secure account flows verified.",
       "evidence": [
         "docs/runbooks/github-vercel-resume.md",
         ".vercelignore",
@@ -283,7 +283,7 @@
       "id": "course-file-inclusion",
       "type": "workflow",
       "state": "current",
-      "description": "Platform baseline tracks normal course files; independent course Git metadata is preserved in ignored local storage. Current20-lesson expansion awaits its own platform commit.",
+      "description": "Current course files/projects and prior snapshots are ordinary platform Git files; private PDFs, secrets and dependencies excluded.",
       "evidence": [
         "docs/runbooks/include-courses-in-platform.md",
         "docs/context-memory/last-handoff.md"
@@ -292,8 +292,8 @@
     {
       "id": "course-roadmap",
       "type": "course",
-      "state": "proposed",
-      "description": "First PDF adapted into20 original book-ordered lessons and real framework project. Other3 source rights confirmed; their courses are still planned.",
+      "state": "current",
+      "description": "First book authored and published as original0.3.0 review edition. Other3 rights and TOCs confirmed, courses still planned.",
       "evidence": [
         "docs/research/2026-10-16-course-roadmap-sources.md",
         "refBooks/references.json",
@@ -618,9 +618,9 @@
     "rolls-back-to"
   ],
   "validation": {
-    "currentFeaturePhase": "75 native tests pass; Field Notes11 unit/integration tests and1 actual browser flow pass; platform browser checks in progress",
+    "currentFeaturePhase": "Published0.3.0 and astronomical theme:75 native,14 platform browser,11 project native/integration and2 project browser checks pass; both CI and live production flow pass",
     "unitTests": 75,
-    "browserTests": 12,
+    "browserTests": 14,
     "build": "passed",
     "typecheck": "passed",
     "lint": "passed",
@@ -634,7 +634,7 @@
       "tests/e2e/learning.spec.ts"
     ],
     "serverlessCourseFileTracing": "passed-all-nine-server-traces",
-    "liveVercelDeployment": "READY-https-ilearnation-vercel-app; public-pages-200; production-invitation-profile-checkpoint-progress-export-deletion-pass; old-domain-308",
+    "liveVercelDeployment": "READY-dpl_Am7bgHjTCj1dsvkcPsRcaJM9THqZ; guest3-checkpoints-theme-and-auth-account-loop-pass",
     "readmeAssets": "static-svg-safety-xml-and-rendered-review-passed",
     "courseFileInclusionFixture": "passed-history-preservation-and-normal-clone-eight-chapters",
     "courseFileInclusionActual": "verified-normal-files-committed-and-pushed-eight-chapters",
@@ -644,6 +644,7 @@
     "liveNeon": "schema-invitation-profile-progress-export-sync-replay-deletion-and-local-browser-pass-synthetic-accounts-deleted",
     "recoveryMobileFixes": "admin-overflow-and-scrollable-code-keyboard-access-fixed",
     "recoveryVercelCli": "same-project-renamed-ilearnation-six-production-vars-two-hidden-Secrets-deployed-and-domain-verified",
-    "applicationGitHubActions": "https://github.com/proffesergio/ilearnation/actions/runs/38862069430-success"
+    "applicationGitHubActions": "https://github.com/proffesergio/ilearnation/actions/runs/38957171430",
+    "courseGitHubActions": "https://github.com/proffesergio/modern-fullstack-react-projects-building/actions/runs/38956894251"
   }
 }
